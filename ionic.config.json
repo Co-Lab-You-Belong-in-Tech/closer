@@ -1,0 +1,7 @@
+{
+  "name": "closer",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
