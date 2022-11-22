@@ -1,7 +1,7 @@
 # Closer
 Welcome to CLOSER
-## Techonologies 
-* Frontend - React TypeScript, Ioinc
+## Technologies  
+* Frontend - React TypeScript, Ionic
 * Backend - Ruby, Ruby on Rails
 * Database - PostgreSQL
 * Deployment env - 
