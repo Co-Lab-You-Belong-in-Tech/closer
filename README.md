@@ -5,7 +5,7 @@ Welcome to CLOSER
 * Backend - Ruby, Ruby on Rails
 * Database - PostgreSQL
 * Deployment env - 
-## How to contributing to this project:
+## 🤝 How to contributing to this project:
 To get it up and running on your local machine, follow the steps below:
 - Clone the repo with the command `git clone https://github.com/Co-Lab-You-Belong-in-Tech/closer.git`
 - Pick an issue from the issues tab and assign it to yourself
@@ -40,4 +40,29 @@ To get it up and running on your local machine, follow the steps below:
 - Seed the database with the command `rails db:seed`
 - Start the app with the command `rails s`
 ### Other commands available
+- `npm run test` - Runs the test suite
 
+## Authors
+
+👤 **Jingru**
+
+- GitHub: [@]()
+- Twitter: [@]()
+- LinkedIn: []()
+
+👤 **Ricky Mormor**
+
+- GitHub: [@cwaku](https://github.com/cwaku)
+- Twitter: [@rickymormor](https://twitter.com/rickymormor)
+- LinkedIn: [Ricky Mormor](https://github.com/cwaku/blog/blob/develop/www.linkedin.com/in/rickymormor)
+
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- CoLab for the opportunity to work on this project
+
+## 📝 License
