@@ -44,11 +44,10 @@ To get it up and running on your local machine, follow the steps below:
 
 ## Authors
 
-👤 **Jingru**
+👤 **Jingru Xu**
 
-- GitHub: [@]()
-- Twitter: [@]()
-- LinkedIn: []()
+- GitHub: [@jxu710](https://github.com/jxu710)
+- LinkedIn: [Jingru Xu](https://www.linkedin.com/in/jingru-xu/)
 
 👤 **Ricky Mormor**
 
