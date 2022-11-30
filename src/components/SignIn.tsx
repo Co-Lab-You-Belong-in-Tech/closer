@@ -1,5 +1,5 @@
 import {
-  IonApp,
+  IonPage,
   IonHeader,
   IonContent,
   IonGrid,
@@ -13,12 +13,16 @@ import {
   IonIcon,
   IonCardHeader,
   IonCardTitle,
+  IonNavLink,
+  setupIonicReact,
 } from "@ionic/react";
 import { arrowForwardOutline, logoGoogle } from "ionicons/icons";
+import Intro from "./Intro";
 
+setupIonicReact();
 const SignIn: React.FC = () => {
   return (
-    <IonApp className="ion-padding">
+    <IonPage className="ion-padding">
       <IonHeader>
         <IonCard>
           <IonCardHeader>
@@ -60,10 +64,12 @@ const SignIn: React.FC = () => {
 
           <IonRow className="ion-margin-top">
             <IonCol>
-              <IonButton expand="block" color="dark" size="large">
-                Try out as guest
-                <IonIcon icon={arrowForwardOutline} slot="end"></IonIcon>
-              </IonButton>
+              <IonNavLink routerDirection="forward" component={() => <Intro />}>
+                <IonButton expand="block" color="dark" size="large">
+                  Try out as guest
+                  <IonIcon icon={arrowForwardOutline} slot="end"></IonIcon>
+                </IonButton>
+              </IonNavLink>
             </IonCol>
           </IonRow>
 
@@ -88,13 +94,13 @@ const SignIn: React.FC = () => {
           <IonRow>
             <IonCol>
               <h5 className="ion-text-center">
-                Already a User? <a href="#"> Login.</a>
+                Already a User? <a href="https://google.com"> Login.</a>
               </h5>
             </IonCol>
           </IonRow>
         </IonGrid>
       </IonContent>
-    </IonApp>
+    </IonPage>
   );
 };
 
