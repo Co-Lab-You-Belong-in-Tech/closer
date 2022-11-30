@@ -1,4 +1,4 @@
-import { setupIonicReact } from "@ionic/react";
+import { setupIonicReact, IonApp, IonNav } from "@ionic/react";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -23,11 +23,18 @@ import "./theme/variables.css";
 import "./App.scss";
 // import components
 import SignIn from "./components/SignIn";
+// import Intro from "./components/Intro";
 
 setupIonicReact();
 
 const App: React.FC = () => {
-  return <SignIn />;
+  return (
+    <IonApp>
+      <IonNav root={() => <SignIn />}></IonNav>
+      {/* <Intro /> */}
+      {/* <SignIn /> */}
+    </IonApp>
+  );
 };
 
 export default App;
