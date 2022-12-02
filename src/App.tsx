@@ -1,4 +1,7 @@
-import { setupIonicReact, IonApp, IonNav } from "@ionic/react";
+import React from "react";
+import { setupIonicReact, IonApp, IonRouterOutlet } from "@ionic/react";
+import { Redirect, Route, RouteComponentProps } from "react-router-dom";
+import { IonReactRouter } from "@ionic/react-router";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -22,17 +25,34 @@ import "./theme/variables.css";
 // import components styles
 import "./App.scss";
 // import components
-import SignIn from "./components/SignIn";
+import SignIn from "./components/splash/SignIn";
 // import Intro from "./components/Intro";
+import Dashboard from './components/Dashboard';
 
 setupIonicReact();
 
-const App: React.FC = () => {
+// interface RouteProps {
+//   path: string;
+//   component: React.FC;
+//   exact?: boolean;
+// }
+
+const App: React.FC<RouteComponentProps> = () => {
+  const [loggedIn, setLoggedIn] = React.useState<boolean>(false);
   return (
     <IonApp>
-      <IonNav root={() => <SignIn />}></IonNav>
-      {/* <Intro /> */}
-      {/* <SignIn /> */}
+
+      <IonReactRouter>
+        <IonRouterOutlet>
+          <Route path="/dashboard"
+            render={() => loggedIn ? <Dashboard /> : <Redirect to="/signin" />}
+          />
+          <Route path="/signin"
+            render={() => !loggedIn ? <SignIn setLoggedIn={setLoggedIn} /> : <Redirect to="/dashboard" />}
+          />
+          <Route exact path="/" render={() => <Redirect to="/signin" />} />
+        </IonRouterOutlet>
+      </IonReactRouter>
     </IonApp>
   );
 };
