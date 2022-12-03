@@ -13,34 +13,12 @@ import {
 } from "@ionic/react";
 import { close } from "ionicons/icons";
 
-import Dashboard from "./Dashboard";
+import Dashboard from "../pages/Dashboard";
 
 const Intro: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Closer</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent className="ion-padding">
-        <IonButton
-          className="openModal"
-          expand="block"
-          onClick={() => setIsOpen(true)}
-          color="dark"
-        >
-          Open here for the Info !
-        </IonButton>
-
-        <IonNavLink routerDirection="forward" component={() => <Dashboard />}>
-          <IonButton expand="block" color="dark">
-            Continue
-          </IonButton>
-        </IonNavLink>
-
         <IonModal
           isOpen={isOpen}
           initialBreakpoint={0.75}
@@ -83,10 +61,16 @@ const Intro: React.FC = () => {
               Ready to uncover some insights and restore closeness in your
               relationship?
             </p>
+            <IonButton
+              size="large"
+              className="ion-text-center"
+              color='dark'
+              onClick={() => setIsOpen(false)}
+            >
+              Continue
+            </IonButton>
           </IonContent>
         </IonModal>
-      </IonContent>
-    </IonPage>
   );
 };
 

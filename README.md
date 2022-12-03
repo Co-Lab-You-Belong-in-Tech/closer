@@ -38,7 +38,7 @@
 
 # 📖 Closer <a name="about-project"></a>
 
-**Closer** is a...
+**Closer** is a relationship wellness tool that lets individuals track and navigate through their conflict cycles to reflect on what lies underneath their behaviours and primary emotions. These insights about their partners and themselves will allow couples to break the negative cycles and strengthen their relationship.
 
 ## 🛠 Built With <a name="built-with"></a>
 
