@@ -42,8 +42,8 @@ setupIonicReact();
 // }
 
 const App: React.FC<RouteComponentProps> = () => {
-  const [loggedIn, setLoggedIn] = React.useState<boolean>(false);
-  const [guest, setGuest] = React.useState<boolean>(false)
+  const [loggedIn, setLoggedIn] = React.useState<boolean>(true);
+  const [guest, setGuest] = React.useState<boolean>(true)
   const [loading, setLoading] = React.useState<boolean>(true);
 
   useTimeout(() => setLoading(false), 3000);
@@ -56,10 +56,10 @@ const App: React.FC<RouteComponentProps> = () => {
         <IonReactRouter>
         <IonRouterOutlet>
           <Route path="/dashboard"
-            render={() => loggedIn || guest ? <Dashboard /> : <Redirect to="/signin" />}
+            render={() => guest || loggedIn ? <Dashboard /> : <Redirect to="/signin" />}
           />
           <Route path="/signin"
-            render={() => !loggedIn || !guest ? <SignIn setLoggedIn={setLoggedIn} guest={guest} setGuest={setGuest} /> : <Redirect to="/dashboard" />}
+            render={() => !guest || !loggedIn ? <SignIn setLoggedIn={setLoggedIn} guest={guest} setGuest={setGuest} /> : <Redirect to="/dashboard" />}
           />
           <Route exact path="/" render={() => <Redirect to="/signin" />} />
         </IonRouterOutlet>

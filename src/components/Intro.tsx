@@ -16,31 +16,9 @@ import { close } from "ionicons/icons";
 import Dashboard from "../pages/Dashboard";
 
 const Intro: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Closer</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent className="ion-padding">
-        <IonButton
-          className="openModal"
-          expand="block"
-          onClick={() => setIsOpen(true)}
-          color="dark"
-        >
-          Open here for the Info !
-        </IonButton>
-
-        <IonNavLink routerDirection="forward" component={() => <Dashboard />}>
-          <IonButton expand="block" color="dark">
-            Continue
-          </IonButton>
-        </IonNavLink>
-
         <IonModal
           isOpen={isOpen}
           initialBreakpoint={0.75}
@@ -85,8 +63,6 @@ const Intro: React.FC = () => {
             </p>
           </IonContent>
         </IonModal>
-      </IonContent>
-    </IonPage>
   );
 };
 
