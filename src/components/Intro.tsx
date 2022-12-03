@@ -13,7 +13,7 @@ import {
 } from "@ionic/react";
 import { close } from "ionicons/icons";
 
-import Dashboard from "./Dashboard";
+import Dashboard from "../pages/Dashboard";
 
 const Intro: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);

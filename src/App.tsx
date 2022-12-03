@@ -27,7 +27,8 @@ import "./App.scss";
 // import components
 import SignIn from "./components/splash/SignIn";
 // import Intro from "./components/Intro";
-import Dashboard from './components/Dashboard';
+import Dashboard from './pages/Dashboard';
+import Splash from "./components/splash/Splash";
 
 setupIonicReact();
 
@@ -39,10 +40,14 @@ setupIonicReact();
 
 const App: React.FC<RouteComponentProps> = () => {
   const [loggedIn, setLoggedIn] = React.useState<boolean>(false);
+  const [loading, setLoading] = React.useState<boolean>(true);
+
   return (
     <IonApp>
-
-      <IonReactRouter>
+      {loading ? (
+        <Splash />
+      ) : (
+        <IonReactRouter>
         <IonRouterOutlet>
           <Route path="/dashboard"
             render={() => loggedIn ? <Dashboard /> : <Redirect to="/signin" />}
@@ -53,6 +58,7 @@ const App: React.FC<RouteComponentProps> = () => {
           <Route exact path="/" render={() => <Redirect to="/signin" />} />
         </IonRouterOutlet>
       </IonReactRouter>
+      )}
     </IonApp>
   );
 };
