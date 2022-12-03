@@ -31,7 +31,7 @@ import Dashboard from './pages/Dashboard';
 import Splash from "./components/splash/Splash";
 
 // Custom hooks
-import { useTimeout } from "./components/hooks/useTimeOut";
+import { useTimeout } from "./hooks/useTimeOut";
 
 setupIonicReact();
 
