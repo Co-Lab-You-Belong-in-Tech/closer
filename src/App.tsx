@@ -30,6 +30,9 @@ import SignIn from "./components/splash/SignIn";
 import Dashboard from './pages/Dashboard';
 import Splash from "./components/splash/Splash";
 
+// Custom hooks
+import { useTimeout } from "./components/hooks/useTimeOut";
+
 setupIonicReact();
 
 // interface RouteProps {
@@ -41,6 +44,8 @@ setupIonicReact();
 const App: React.FC<RouteComponentProps> = () => {
   const [loggedIn, setLoggedIn] = React.useState<boolean>(false);
   const [loading, setLoading] = React.useState<boolean>(true);
+
+  useTimeout(() => setLoading(false), 3000);
 
   return (
     <IonApp>
