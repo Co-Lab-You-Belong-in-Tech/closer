@@ -61,6 +61,14 @@ const Intro: React.FC = () => {
               Ready to uncover some insights and restore closeness in your
               relationship?
             </p>
+            <IonButton
+              size="large"
+              className="ion-text-center"
+              color='dark'
+              onClick={() => setIsOpen(false)}
+            >
+              Continue
+            </IonButton>
           </IonContent>
         </IonModal>
   );
