@@ -9,6 +9,7 @@ import {
   IonProgressBar,
   IonCard,
   IonCardContent,
+  IonRouterLink,
 } from "@ionic/react";
 
 import Trigger from "./Trigger";
@@ -31,15 +32,17 @@ const Intro2: React.FC = () => {
               through what EFT calls the *conflict de-escalation cycle*
               (italic). This exercise will take you around 10 minutes to
               complete. You will need to reflect on your triggers, feelings, and
-              actions in this specific conflict you have in mind. Reflecting on
-              your emotions can be overwhelming. If at any moment you feel too
-              overwhelmed to continue, take a break, BREAAAATHE, and come back
-              when you're ready."
+              actions in this specific conflict you have in mind.
+              <br></br>
+              <br></br>
+              Reflecting on your emotions can be overwhelming. If at any moment
+              you feel too overwhelmed to continue, take a break, BREAAAATHE,
+              and come back when you're ready."
             </p>
           </IonCardContent>
         </IonCard>
 
-        <IonNavLink routerDirection="forward" component={() => <Trigger />}>
+        {/* <IonNavLink routerDirection="forward" component={() => <Trigger />}>
           <IonButton
             color="light"
             className="ion-text-center"
@@ -47,7 +50,16 @@ const Intro2: React.FC = () => {
           >
             LET'S FIND OUT
           </IonButton>
-        </IonNavLink>
+        </IonNavLink> */}
+        <IonRouterLink routerLink="trigger">
+          <IonButton
+            color="light"
+            className="ion-text-center"
+            style={{ margin: "10%" }}
+          >
+            LET'S FIND OUT
+          </IonButton>
+        </IonRouterLink>
       </IonContent>
     </IonPage>
   );

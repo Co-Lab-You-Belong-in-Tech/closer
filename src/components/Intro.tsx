@@ -10,6 +10,7 @@ import {
   IonPage,
   IonIcon,
   IonNavLink,
+  IonRouterLink,
 } from "@ionic/react";
 import { close } from "ionicons/icons";
 
@@ -35,11 +36,16 @@ const Intro: React.FC = () => {
           Open here for the Info !
         </IonButton>
 
-        <IonNavLink routerDirection="forward" component={() => <Dashboard />}>
+        {/* <IonNavLink routerDirection="forward" component={() => <Dashboard />}>
           <IonButton expand="block" color="dark">
             Continue
           </IonButton>
-        </IonNavLink>
+        </IonNavLink> */}
+        <IonRouterLink routerLink="dashboard">
+          <IonButton expand="block" color="dark">
+            Continue
+          </IonButton>
+        </IonRouterLink>
 
         <IonModal
           isOpen={isOpen}

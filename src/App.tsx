@@ -1,38 +1,51 @@
-import { setupIonicReact, IonApp, IonNav } from "@ionic/react";
-
-/* Core CSS required for Ionic components to work properly */
-import "@ionic/react/css/core.css";
-
-/* Basic CSS for apps built with Ionic */
-import "@ionic/react/css/normalize.css";
-import "@ionic/react/css/structure.css";
-import "@ionic/react/css/typography.css";
-
-/* Optional CSS utils that can be commented out */
-import "@ionic/react/css/padding.css";
-import "@ionic/react/css/float-elements.css";
-import "@ionic/react/css/text-alignment.css";
-import "@ionic/react/css/text-transformation.css";
-import "@ionic/react/css/flex-utils.css";
-import "@ionic/react/css/display.css";
-
-/* Theme variables */
-import "./theme/variables.css";
+import { setupIonicReact, IonApp, IonNav, IonRouterOutlet } from "@ionic/react";
+import { IonReactRouter } from "@ionic/react-router";
+import { Redirect, Route } from "react-router-dom";
 
 // import components styles
 import "./App.scss";
 // import components
 import SignIn from "./components/SignIn";
-// import Intro from "./components/Intro";
+import Intro from "./components/Intro";
+import Dashboard from "./components/Dashboard";
+import Intro2 from "./components/Intro2";
+import Trigger from "./components/Trigger";
+import Emotion from "./components/Emotion";
+import Action from "./components/Action";
 
 setupIonicReact();
 
 const App: React.FC = () => {
   return (
     <IonApp>
-      <IonNav root={() => <SignIn />}></IonNav>
-      {/* <Intro /> */}
-      {/* <SignIn /> */}
+      {/* <IonNav root={() => <SignIn />}></IonNav> */}
+
+      <IonReactRouter>
+        <IonRouterOutlet>
+          <Route exact path="/signin">
+            <SignIn />
+          </Route>
+          <Route exact path="/intro">
+            <Intro />
+          </Route>
+          <Route exact path="/dashboard">
+            <Dashboard />
+          </Route>
+          <Route exact path="/intro2">
+            <Intro2 />
+          </Route>
+          <Route exact path="/trigger">
+            <Trigger />
+          </Route>
+          <Route exact path="/emotion">
+            <Emotion />
+          </Route>
+          <Route exact path="/action">
+            <Action />
+          </Route>
+        </IonRouterOutlet>
+        <Redirect exact path="/" to="signin" />
+      </IonReactRouter>
     </IonApp>
   );
 };

@@ -15,8 +15,11 @@ import {
   IonCardTitle,
   IonNavLink,
   setupIonicReact,
+  IonRouterLink,
 } from "@ionic/react";
+
 import { arrowForwardOutline, logoGoogle } from "ionicons/icons";
+
 import Intro from "./Intro";
 
 setupIonicReact();
@@ -64,12 +67,18 @@ const SignIn: React.FC = () => {
 
           <IonRow className="ion-margin-top">
             <IonCol>
-              <IonNavLink routerDirection="forward" component={() => <Intro />}>
+              {/* <IonNavLink routerDirection="forward" component={() => <Intro />}>
                 <IonButton expand="block" color="dark" size="large">
                   Try out as guest
                   <IonIcon icon={arrowForwardOutline} slot="end"></IonIcon>
                 </IonButton>
-              </IonNavLink>
+              </IonNavLink> */}
+              <IonRouterLink routerLink="intro">
+                <IonButton expand="block" color="dark" size="large">
+                  Try out as guest
+                  <IonIcon icon={arrowForwardOutline} slot="end"></IonIcon>
+                </IonButton>
+              </IonRouterLink>
             </IonCol>
           </IonRow>
 
