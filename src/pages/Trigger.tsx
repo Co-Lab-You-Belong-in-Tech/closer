@@ -2,7 +2,6 @@ import {
   IonHeader,
   IonContent,
   IonPage,
-  IonNavLink,
   IonButton,
   IonProgressBar,
   IonItem,
@@ -11,6 +10,7 @@ import {
   IonRadio,
   IonRadioGroup,
   IonInput,
+  IonRouterLink,
 } from "@ionic/react";
 
 const Trigger: React.FC = () => {
@@ -57,7 +57,7 @@ const Trigger: React.FC = () => {
           <IonInput></IonInput>
         </IonItem>
 
-        <IonNavLink routerDirection="forward" component={() => <Trigger />}>
+        <IonRouterLink routerLink="emotion">
           <IonButton
             color="light"
             className="ion-text-center"
@@ -65,7 +65,7 @@ const Trigger: React.FC = () => {
           >
             CONTINUE
           </IonButton>
-        </IonNavLink>
+        </IonRouterLink>
       </IonContent>
     </IonPage>
   );

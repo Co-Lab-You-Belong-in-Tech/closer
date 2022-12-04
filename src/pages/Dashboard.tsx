@@ -4,12 +4,12 @@ import {
   IonToolbar,
   IonTitle,
   IonPage,
-  IonNavLink,
+  IonRouterLink,
   IonButton,
 } from "@ionic/react";
 
 import Intro from "../components/Intro";
-import Intro2 from "../components/Intro2";
+import Intro2 from "./Intro2";
 const Dashboard: React.FC = () => {
   return (
     <IonPage>
@@ -20,16 +20,16 @@ const Dashboard: React.FC = () => {
       </IonHeader>
 
       <IonContent className="ion-padding">
-        <IonNavLink routerDirection="forward" component={() => <Intro2 />}>
+        <IonRouterLink routerLink="intro2">
           <IonButton
+            expand="block"
             color="dark"
-            className="signInTitle ion-text-center"
-            size="large"
-            style={{ margin: "10%" }}
+            className="signInTitle ion-text-center ion-margin
+            "
           >
             Log in a new conflict cycle
           </IonButton>
-        </IonNavLink>
+        </IonRouterLink>
       </IonContent>
       <Intro />
     </IonPage>
