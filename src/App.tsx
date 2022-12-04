@@ -3,32 +3,20 @@ import { setupIonicReact, IonApp, IonRouterOutlet } from "@ionic/react";
 import { Redirect, Route, RouteComponentProps } from "react-router-dom";
 import { IonReactRouter } from "@ionic/react-router";
 
-/* Core CSS required for Ionic components to work properly */
-import "@ionic/react/css/core.css";
-
-/* Basic CSS for apps built with Ionic */
-import "@ionic/react/css/normalize.css";
-import "@ionic/react/css/structure.css";
-import "@ionic/react/css/typography.css";
-
-/* Optional CSS utils that can be commented out */
-import "@ionic/react/css/padding.css";
-import "@ionic/react/css/float-elements.css";
-import "@ionic/react/css/text-alignment.css";
-import "@ionic/react/css/text-transformation.css";
-import "@ionic/react/css/flex-utils.css";
-import "@ionic/react/css/display.css";
-
-/* Theme variables */
-import "./theme/variables.css";
-
 // import components styles
 import "./App.scss";
 // import components
 import SignIn from "./components/splash/SignIn";
-// import Intro from "./components/Intro";
-import Dashboard from './pages/Dashboard';
 import Splash from "./components/splash/Splash";
+
+// import pages
+import Dashboard from "./pages/Dashboard";
+import Trigger from "./pages/Trigger";
+import Emotion from "./pages/Emotion";
+import Action from "./pages/Action";
+import Intro2 from "./pages/Intro2";
+import ActionOfPartner from "./pages/ActionOfPartner";
+import Discliamer from "./pages/Discliamer";
 
 // Custom hooks
 import { useTimeout } from "./hooks/useTimeOut";
@@ -43,7 +31,7 @@ setupIonicReact();
 
 const App: React.FC<RouteComponentProps> = () => {
   const [loggedIn, setLoggedIn] = React.useState<boolean>(true);
-  const [guest, setGuest] = React.useState<boolean>(true)
+  const [guest, setGuest] = React.useState<boolean>(true);
   const [loading, setLoading] = React.useState<boolean>(true);
 
   useTimeout(() => setLoading(false), 3000);
@@ -54,16 +42,74 @@ const App: React.FC<RouteComponentProps> = () => {
         <Splash />
       ) : (
         <IonReactRouter>
-        <IonRouterOutlet>
-          <Route path="/dashboard"
-            render={() => guest || loggedIn ? <Dashboard /> : <Redirect to="/signin" />}
-          />
-          <Route path="/signin"
-            render={() => !guest || !loggedIn ? <SignIn setLoggedIn={setLoggedIn} guest={guest} setGuest={setGuest} /> : <Redirect to="/dashboard" />}
-          />
-          <Route exact path="/" render={() => <Redirect to="/signin" />} />
-        </IonRouterOutlet>
-      </IonReactRouter>
+          <IonRouterOutlet>
+            <Route
+              path="/dashboard"
+              render={() =>
+                guest || loggedIn ? <Dashboard /> : <Redirect to="/signin" />
+              }
+            />
+            <Route
+              path="/signin"
+              render={() =>
+                !guest || !loggedIn ? (
+                  <SignIn
+                    setLoggedIn={setLoggedIn}
+                    guest={guest}
+                    setGuest={setGuest}
+                  />
+                ) : (
+                  <Redirect to="/dashboard" />
+                )
+              }
+            />
+            <Route exact path="/" render={() => <Redirect to="/signin" />} />
+
+            {/* below is Jingru Dec 3 work  */}
+
+            <Route
+              path="/intro2"
+              render={() =>
+                guest || loggedIn ? <Intro2 /> : <Redirect to="/signin" />
+              }
+            />
+            <Route
+              path="/trigger"
+              render={() =>
+                guest || loggedIn ? <Trigger /> : <Redirect to="/signin" />
+              }
+            />
+            <Route
+              path="/emotion"
+              render={() =>
+                guest || loggedIn ? <Emotion /> : <Redirect to="/signin" />
+              }
+            />
+            <Route
+              path="/action"
+              render={() =>
+                guest || loggedIn ? <Action /> : <Redirect to="/signin" />
+              }
+            />
+            <Route
+              path="/actionOfPartner"
+              render={() =>
+                guest || loggedIn ? (
+                  <ActionOfPartner />
+                ) : (
+                  <Redirect to="/signin" />
+                )
+              }
+            />
+
+            <Route
+              path="/discliamer"
+              render={() =>
+                guest || loggedIn ? <Discliamer /> : <Redirect to="/signin" />
+              }
+            />
+          </IonRouterOutlet>
+        </IonReactRouter>
       )}
     </IonApp>
   );
