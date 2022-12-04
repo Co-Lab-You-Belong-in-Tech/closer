@@ -9,7 +9,8 @@ import {
   IonRouterLink,
 } from "@ionic/react";
 
-import Intro2 from "./Intro2";
+import Intro from "../components/Intro";
+import Intro2 from "../components/Intro2";
 const Dashboard: React.FC = () => {
   return (
     <IonPage>
@@ -41,6 +42,7 @@ const Dashboard: React.FC = () => {
           </IonButton>
         </IonRouterLink>
       </IonContent>
+      <Intro />
     </IonPage>
   );
 };

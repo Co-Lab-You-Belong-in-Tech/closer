@@ -19,11 +19,23 @@ import {
 } from "@ionic/react";
 
 import { arrowForwardOutline, logoGoogle } from "ionicons/icons";
+import Intro from "../Intro";
+import React from 'react';
 
-import Intro from "./Intro";
+interface SignInProps {
+  history?: any;
+  location?: any;
+  match?: any;
+  guest?: boolean
+  setLoggedIn?: React.Dispatch<React.SetStateAction<boolean>>;
+  setGuest?: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
 setupIonicReact();
-const SignIn: React.FC = () => {
+const SignIn: React.FC<SignInProps> = ( { guest, setLoggedIn, setGuest} ) => {
+  console.log(setLoggedIn);
+  console.log("setGuest",setGuest);
+  console.log(guest)
   return (
     <IonPage className="ion-padding">
       <IonHeader>
@@ -67,13 +79,7 @@ const SignIn: React.FC = () => {
 
           <IonRow className="ion-margin-top">
             <IonCol>
-              {/* <IonNavLink routerDirection="forward" component={() => <Intro />}>
-                <IonButton expand="block" color="dark" size="large">
-                  Try out as guest
-                  <IonIcon icon={arrowForwardOutline} slot="end"></IonIcon>
-                </IonButton>
-              </IonNavLink> */}
-              <IonRouterLink routerLink="intro">
+              <IonNavLink onClick={() => {setGuest!(true)}} routerDirection="forward" component={() => <Intro />}>
                 <IonButton expand="block" color="dark" size="large">
                   Try out as guest
                   <IonIcon icon={arrowForwardOutline} slot="end"></IonIcon>

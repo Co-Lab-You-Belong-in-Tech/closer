@@ -1,51 +1,84 @@
-import { setupIonicReact, IonApp, IonNav, IonRouterOutlet } from "@ionic/react";
+import React from "react";
+import { setupIonicReact, IonApp, IonRouterOutlet } from "@ionic/react";
+import { Redirect, Route, RouteComponentProps } from "react-router-dom";
 import { IonReactRouter } from "@ionic/react-router";
-import { Redirect, Route } from "react-router-dom";
+
+/* Core CSS required for Ionic components to work properly */
+import "@ionic/react/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+import "@ionic/react/css/normalize.css";
+import "@ionic/react/css/structure.css";
+import "@ionic/react/css/typography.css";
+
+/* Optional CSS utils that can be commented out */
+import "@ionic/react/css/padding.css";
+import "@ionic/react/css/float-elements.css";
+import "@ionic/react/css/text-alignment.css";
+import "@ionic/react/css/text-transformation.css";
+import "@ionic/react/css/flex-utils.css";
+import "@ionic/react/css/display.css";
+
+/* Theme variables */
+import "./theme/variables.css";
 
 // import components styles
 import "./App.scss";
 // import components
-import SignIn from "./components/SignIn";
-import Intro from "./components/Intro";
-import Dashboard from "./components/Dashboard";
-import Intro2 from "./components/Intro2";
-import Trigger from "./components/Trigger";
-import Emotion from "./components/Emotion";
-import Action from "./components/Action";
+import SignIn from "./components/splash/SignIn";
+// import Intro from "./components/Intro";
+import Dashboard from "./pages/Dashboard";
+import Splash from "./components/splash/Splash";
+
+// Custom hooks
+import { useTimeout } from "./hooks/useTimeOut";
 
 setupIonicReact();
 
-const App: React.FC = () => {
+// interface RouteProps {
+//   path: string;
+//   component: React.FC;
+//   exact?: boolean;
+// }
+
+const App: React.FC<RouteComponentProps> = () => {
+  const [loggedIn, setLoggedIn] = React.useState<boolean>(true);
+  const [guest, setGuest] = React.useState<boolean>(true);
+  const [loading, setLoading] = React.useState<boolean>(true);
+
+  useTimeout(() => setLoading(false), 3000);
+
   return (
     <IonApp>
-      {/* <IonNav root={() => <SignIn />}></IonNav> */}
-
-      <IonReactRouter>
-        <IonRouterOutlet>
-          <Route exact path="/signin">
-            <SignIn />
-          </Route>
-          <Route exact path="/intro">
-            <Intro />
-          </Route>
-          <Route exact path="/dashboard">
-            <Dashboard />
-          </Route>
-          <Route exact path="/intro2">
-            <Intro2 />
-          </Route>
-          <Route exact path="/trigger">
-            <Trigger />
-          </Route>
-          <Route exact path="/emotion">
-            <Emotion />
-          </Route>
-          <Route exact path="/action">
-            <Action />
-          </Route>
-        </IonRouterOutlet>
-        <Redirect exact path="/" to="signin" />
-      </IonReactRouter>
+      {loading ? (
+        <Splash />
+      ) : (
+        <IonReactRouter>
+          <IonRouterOutlet>
+            <Route
+              path="/dashboard"
+              render={() =>
+                guest || loggedIn ? <Dashboard /> : <Redirect to="/signin" />
+              }
+            />
+            <Route
+              path="/signin"
+              render={() =>
+                !guest || !loggedIn ? (
+                  <SignIn
+                    setLoggedIn={setLoggedIn}
+                    guest={guest}
+                    setGuest={setGuest}
+                  />
+                ) : (
+                  <Redirect to="/dashboard" />
+                )
+              }
+            />
+            <Route exact path="/" render={() => <Redirect to="/signin" />} />
+          </IonRouterOutlet>
+        </IonReactRouter>
+      )}
     </IonApp>
   );
 };
