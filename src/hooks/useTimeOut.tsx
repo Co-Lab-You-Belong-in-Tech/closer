@@ -1,6 +1,9 @@
 import { useRef, useEffect } from "react";
 
-export const useTimeout = (callback: () => void, delay: number) => {
+export const useTimeout = (
+  callback: () => void,
+  delay: number
+): React.MutableRefObject<() => void> => {
   // Create a ref that stores callback
   const savedCallback = useRef<() => void>(callback);
 
@@ -23,4 +26,6 @@ export const useTimeout = (callback: () => void, delay: number) => {
       return () => clearTimeout(id);
     }
   }, [delay]);
-}
+
+  return savedCallback;
+};
