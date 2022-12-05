@@ -10,16 +10,12 @@ import {
   IonInput,
   IonModal,
   IonRouterLink,
-
-  //
   IonButtons,
   IonToolbar,
   IonIcon,
 } from "@ionic/react";
 
 import { close } from "ionicons/icons";
-
-// import other page
 
 const ActionOfPartner: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
