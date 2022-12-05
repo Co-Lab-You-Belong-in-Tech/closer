@@ -1,6 +1,11 @@
 import create from "zustand";
 import { devtools, persist } from "zustand/middleware";
 
+const userStatusStore = (set: (arg0: { userStatus: string }) => any) => ({
+  userStatus: "",
+  setUserStatus: (status: string) => set({ userStatus: status }),
+});
+
 const triggerStore = (
   set: (arg0: {
     (state: any): { triggers: any[] };
@@ -17,6 +22,14 @@ const triggerStore = (
       triggers: state.triggers.filter((t: any) => t !== trigger),
     })),
 });
+
+export const useUserStatusStore = create(
+  persist(
+    devtools(userStatusStore, {
+      name: "userStatus",
+    })
+  )
+);
 
 export const useTriggersStore = create(
   persist(
