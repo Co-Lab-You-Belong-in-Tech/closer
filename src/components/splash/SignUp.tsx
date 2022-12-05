@@ -34,12 +34,6 @@ setupIonicReact();
 const SignUp: React.FC<SignUpProps> = () => {
 
   const setUserStatus = useUserStatusStore((state) => state.setUserStatus);
-  const [status, setStatus] = React.useState("");
-
-  const handleSignUp = () => {
-    setUserStatus("loggedIn");
-    setStatus("loggedIn");
-  };
 
   console.log("Sign up form rendered.")
 
@@ -116,7 +110,7 @@ const SignUp: React.FC<SignUpProps> = () => {
           <IonRow>
             <IonCol>
               <h5 className="ion-text-center">
-                Already a User? <Link to="/signin">Log in</Link>
+                Already a User? <Link to="/sign-in">Log in</Link>
               </h5>
             </IonCol>
           </IonRow>

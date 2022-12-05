@@ -91,7 +91,7 @@ const SignIn: React.FC<SignInProps> = () => {
           <IonRow>
             <IonCol>
               <h5 className="ion-text-center">
-                Don't have an account? <Link to="/signUp">Sign Up</Link>
+                Don't have an account? <Link to="/sign-up">Sign Up</Link>
               </h5>
             </IonCol>
           </IonRow>
