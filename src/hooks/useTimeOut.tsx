@@ -1,20 +1,25 @@
 import { useRef, useEffect } from "react";
 
 export const useTimeout = (callback: () => void, delay: number) => {
+  // Create a ref that stores callback
   const savedCallback = useRef<() => void>(callback);
 
   // Remember the latest callback.
   useEffect(() => {
+    // When callback changes, update the ref
     savedCallback.current = callback;
   }, [callback]);
 
   // Set up the timeout.
   useEffect(() => {
     function tick() {
+      // Call current callback from ref
       savedCallback.current!();
     }
     if (delay !== null) {
+      // Set a timeout with delay and call tick
       let id = setTimeout(tick, delay);
+      // Clear timeout when component unmounts
       return () => clearTimeout(id);
     }
   }, [delay]);
