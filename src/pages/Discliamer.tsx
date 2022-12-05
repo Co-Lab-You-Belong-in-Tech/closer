@@ -49,7 +49,7 @@ const Discliamer: React.FC = () => {
             </IonCol>
           </IonRow>
         </IonGrid>
-        <IonRouterLink routerLink="/">
+        <IonRouterLink routerLink="pain1">
           <IonButton
             color="light"
             className="ion-text-center discliamerContinue"

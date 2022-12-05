@@ -17,9 +17,16 @@ import Action from "./pages/Action";
 import Intro2 from "./pages/Intro2";
 import ActionOfPartner from "./pages/ActionOfPartner";
 import Discliamer from "./pages/Discliamer";
-
+import Pain1 from "./pages/Pain1";
+import Pain2 from "./pages/Pain2";
+import Pain3 from "./pages/Pain3";
+import Pain4 from "./pages/Pain4";
+import PreSummary from "./pages/PreSummary";
+import CycleSummary from "./pages/CycleSummary";
+import Analysis from "./pages/Analysis";
 // Custom hooks
 import { useTimeout } from "./hooks/useTimeOut";
+import Insights from "./pages/Insights";
 
 setupIonicReact();
 
@@ -65,7 +72,7 @@ const App: React.FC<RouteComponentProps> = () => {
             />
             <Route exact path="/" render={() => <Redirect to="/signin" />} />
 
-            {/* below is Jingru Dec 3 work  */}
+            {/* below is Jingru' work after Dec 3 */}
 
             <Route
               path="/intro2"
@@ -106,6 +113,55 @@ const App: React.FC<RouteComponentProps> = () => {
               path="/discliamer"
               render={() =>
                 guest || loggedIn ? <Discliamer /> : <Redirect to="/signin" />
+              }
+            />
+
+            <Route
+              path="/pain1"
+              render={() =>
+                guest || loggedIn ? <Pain1 /> : <Redirect to="/signin" />
+              }
+            />
+            <Route
+              path="/pain2"
+              render={() =>
+                guest || loggedIn ? <Pain2 /> : <Redirect to="/signin" />
+              }
+            />
+            <Route
+              path="/pain3"
+              render={() =>
+                guest || loggedIn ? <Pain3 /> : <Redirect to="/signin" />
+              }
+            />
+            <Route
+              path="/pain4"
+              render={() =>
+                guest || loggedIn ? <Pain4 /> : <Redirect to="/signin" />
+              }
+            />
+            <Route
+              path="/preSummary"
+              render={() =>
+                guest || loggedIn ? <PreSummary /> : <Redirect to="/signin" />
+              }
+            />
+            <Route
+              path="/cycleSummary"
+              render={() =>
+                guest || loggedIn ? <CycleSummary /> : <Redirect to="/signin" />
+              }
+            />
+            <Route
+              path="/analysis"
+              render={() =>
+                guest || loggedIn ? <Analysis /> : <Redirect to="/signin" />
+              }
+            />
+            <Route
+              path="/insights"
+              render={() =>
+                guest || loggedIn ? <Insights /> : <Redirect to="/signin" />
               }
             />
           </IonRouterOutlet>
