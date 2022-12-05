@@ -1,3 +1,7 @@
+  // This function creates a ref that stores a callback.
+  // It also creates an effect that clears the timeout when the component unmounts.
+  // It returns the ref.
+
 import { useRef, useEffect } from "react";
 
 export const useTimeout = (
