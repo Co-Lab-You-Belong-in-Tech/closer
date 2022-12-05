@@ -23,8 +23,10 @@ import Pain3 from "./pages/Pain3";
 import Pain4 from "./pages/Pain4";
 import PreSummary from "./pages/PreSummary";
 import CycleSummary from "./pages/CycleSummary";
+import Analysis from "./pages/Analysis";
 // Custom hooks
 import { useTimeout } from "./hooks/useTimeOut";
+import Insights from "./pages/Insights";
 
 setupIonicReact();
 
@@ -148,6 +150,18 @@ const App: React.FC<RouteComponentProps> = () => {
               path="/cycleSummary"
               render={() =>
                 guest || loggedIn ? <CycleSummary /> : <Redirect to="/signin" />
+              }
+            />
+            <Route
+              path="/analysis"
+              render={() =>
+                guest || loggedIn ? <Analysis /> : <Redirect to="/signin" />
+              }
+            />
+            <Route
+              path="/insights"
+              render={() =>
+                guest || loggedIn ? <Insights /> : <Redirect to="/signin" />
               }
             />
           </IonRouterOutlet>

@@ -45,7 +45,7 @@ const CycleSummary: React.FC = () => {
       </IonHeader>
 
       <IonContent className="ion-padding ion-margin-top">
-        <IonRouterLink routerLink="/">
+        <IonRouterLink routerLink="analysis">
           <IonButton color="light" className="ion-text-center">
             CONTINUE
           </IonButton>
