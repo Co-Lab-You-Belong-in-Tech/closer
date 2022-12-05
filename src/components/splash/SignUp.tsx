@@ -21,20 +21,28 @@ import Intro from "../Intro";
 import React from 'react';
 import { Link } from "react-router-dom";
 
+// Import store
+import { useUserStatusStore } from "../../features/store";
+
 interface SignUpProps {
   history?: any;
   location?: any;
   match?: any;
-  guest?: boolean
-  setLoggedIn?: React.Dispatch<React.SetStateAction<boolean>>;
-  setGuest?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 setupIonicReact();
-const SignUp: React.FC<SignUpProps> = ( { guest, setLoggedIn, setGuest} ) => {
-  console.log(setLoggedIn);
-  console.log("setGuest",setGuest);
-  console.log(guest)
+const SignUp: React.FC<SignUpProps> = () => {
+
+  const setUserStatus = useUserStatusStore((state) => state.setUserStatus);
+  const [status, setStatus] = React.useState("");
+
+  const handleSignUp = () => {
+    setUserStatus("loggedIn");
+    setStatus("loggedIn");
+  };
+
+  console.log("Sign up form rendered.")
+
   return (
     <IonPage className="ion-padding">
       <IonHeader>
@@ -78,9 +86,9 @@ const SignUp: React.FC<SignUpProps> = ( { guest, setLoggedIn, setGuest} ) => {
 
           <IonRow className="ion-margin-top">
             <IonCol>
-              <IonNavLink onClick={() => {setGuest!(true)}} routerDirection="forward" component={() => <Intro />}>
+              <IonNavLink onClick={() => setUserStatus("guest")} routerDirection="forward" component={() => <Intro />}>
                 <IonButton expand="block" color="dark" size="large">
-                  Try out as guest
+                Try out as guest
                   <IonIcon icon={arrowForwardOutline} slot="end"></IonIcon>
                 </IonButton>
               </IonNavLink>

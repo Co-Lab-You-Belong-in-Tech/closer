@@ -25,12 +25,10 @@ interface SignInProps {
   history?: any;
   location?: any;
   match?: any;
-  setLoggedIn?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 setupIonicReact();
-const SignIn: React.FC<SignInProps> = ( { setLoggedIn} ) => {
-  console.log(setLoggedIn);
+const SignIn: React.FC<SignInProps> = () => {
   return (
     <IonPage className="ion-padding">
       <IonHeader>

@@ -21,6 +21,8 @@ import Discliamer from "./pages/Discliamer";
 
 // Custom hooks
 import { useTimeout } from "./hooks/useTimeOut";
+// Get stores
+import { useUserStatusStore } from "./features/store";
 
 setupIonicReact();
 
@@ -31,9 +33,10 @@ setupIonicReact();
 // }
 
 const App: React.FC<RouteComponentProps> = () => {
-  const [loggedIn, setLoggedIn] = React.useState<boolean>(true);
-  const [guest, setGuest] = React.useState<boolean>(true);
+  const userStatus = useUserStatusStore((state) => state.userStatus);
   const [loading, setLoading] = React.useState<boolean>(true);
+
+  console.log(userStatus);
 
   useTimeout(() => setLoading(false), 3000);
 
@@ -44,88 +47,20 @@ const App: React.FC<RouteComponentProps> = () => {
       ) : (
         <IonReactRouter>
           <IonRouterOutlet>
-            <Route
-              path="/dashboard"
-              render={() =>
-                guest || loggedIn ? <Dashboard /> : <Redirect to="/SignUp" />
-              }
-            />
-            <Route
-              path="/signUp"
-              render={() =>
-                !guest || !loggedIn ? (
-                  <SignUp
-                    setLoggedIn={setLoggedIn}
-                    guest={guest}
-                    setGuest={setGuest}
-                  />
-                ) : (
-                  <Redirect to="/dashboard" />
-                )
-              }
-            />
-            <Route
-              path="/signIn"
-              render={() =>
-                !guest || !loggedIn ? (
-                  <SignIn
-                    setLoggedIn={setLoggedIn}
-                  />
-                ) : (
-                  <Redirect to="/dashboard" />
-                )
-              }
-            />
-            <Route exact path="/" render={() => <Redirect to="/SignUp" />} />
-
-            {/* below is Jingru Dec 3 work  */}
-
-            <Route
-              path="/intro2"
-              render={() =>
-                guest || loggedIn ? <Intro2 /> : <Redirect to="/SignUp" />
-              }
-            />
-            <Route
-              path="/trigger"
-              render={() =>
-                guest || loggedIn ? <Trigger /> : <Redirect to="/SignUp" />
-              }
-            />
-            <Route
-              path="/emotion"
-              render={() =>
-                guest || loggedIn ? <Emotion /> : <Redirect to="/SignUp" />
-              }
-            />
-            <Route
-              path="/action"
-              render={() =>
-                guest || loggedIn ? <Action /> : <Redirect to="/SignUp" />
-              }
-            />
-            <Route
-              path="/actionOfPartner"
-              render={() =>
-                guest || loggedIn ? (
-                  <ActionOfPartner />
-                ) : (
-                  <Redirect to="/SignUp" />
-                )
-              }
-            />
-
-            <Route
-              path="/discliamer"
-              render={() =>
-                guest || loggedIn ? <Discliamer /> : <Redirect to="/SignUp" />
-              }
-            />
-          </IonRouterOutlet>
+            <Route path="/sign-in" render={ userStatus === "guest" || userStatus === "loggedIn" ? () => <Dashboard /> : () => <SignIn />} exact={true} />
+            <Route path="/sign-up" render={ userStatus === "guest" || userStatus === "loggedIn" ? () => <Dashboard /> : () => <SignUp />} exact={true} />
+            <Route path="/dashboard" render={ userStatus === "guest" || userStatus === "loggedIn" ? () => <Dashboard /> : () => <SignIn />} exact={true} />
+            <Route path="/trigger" render={ userStatus === "guest" || userStatus === "loggedIn" ? () => <Trigger /> : () => <SignIn />} exact={true} />
+            <Route path="/emotion" render={ userStatus === "guest" || userStatus === "loggedIn" ? () => <Emotion /> : () => <SignIn />} exact={true} />
+            <Route path="/action" render={ userStatus === "guest" || userStatus === "loggedIn" ? () => <Action /> : () => <SignIn />} exact={true} />
+            <Route path="/intro2" render={ userStatus === "guest" || userStatus === "loggedIn" ? () => <Intro2 /> : () => <SignIn />} exact={true} />
+            <Route path="/action-of-partner" render={ userStatus === "guest" || userStatus === "loggedIn" ? () => <ActionOfPartner /> : () => <SignIn />} exact={true} />
+            <Route path="/discliamer" render={ userStatus === "guest" || userStatus === "loggedIn" ? () => <Discliamer /> : () => <SignIn />} exact={true} />
+            <Route path="/" render={ userStatus === "guest" || userStatus === "loggedIn" ? () => <Dashboard /> : () => <SignIn />} exact={true} />
+            </IonRouterOutlet>
         </IonReactRouter>
       )}
     </IonApp>
   );
 };
-
 export default App;
