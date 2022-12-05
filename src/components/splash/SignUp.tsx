@@ -21,16 +21,20 @@ import Intro from "../Intro";
 import React from 'react';
 import { Link } from "react-router-dom";
 
-interface SignInProps {
+interface SignUpProps {
   history?: any;
   location?: any;
   match?: any;
+  guest?: boolean
   setLoggedIn?: React.Dispatch<React.SetStateAction<boolean>>;
+  setGuest?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 setupIonicReact();
-const SignIn: React.FC<SignInProps> = ( { setLoggedIn} ) => {
+const SignUp: React.FC<SignUpProps> = ( { guest, setLoggedIn, setGuest} ) => {
   console.log(setLoggedIn);
+  console.log("setGuest",setGuest);
+  console.log(guest)
   return (
     <IonPage className="ion-padding">
       <IonHeader>
@@ -44,7 +48,7 @@ const SignIn: React.FC<SignInProps> = ( { setLoggedIn} ) => {
       <IonContent>
         <IonGrid>
           <IonRow>
-            <h1 className="ion-text-left ion-font-weight-800">Sign In</h1>
+            <h1 className="ion-text-left ion-font-weight-800">Sign up</h1>
           </IonRow>
           <IonRow>
             <IonCol>
@@ -66,9 +70,20 @@ const SignIn: React.FC<SignInProps> = ( { setLoggedIn} ) => {
           <IonRow>
             <IonCol>
               <IonButton expand="block" color="dark" size="large">
-                Sign In
+                Sign Up
                 <IonIcon icon={arrowForwardOutline} slot="end"></IonIcon>
               </IonButton>
+            </IonCol>
+          </IonRow>
+
+          <IonRow className="ion-margin-top">
+            <IonCol>
+              <IonNavLink onClick={() => {setGuest!(true)}} routerDirection="forward" component={() => <Intro />}>
+                <IonButton expand="block" color="dark" size="large">
+                  Try out as guest
+                  <IonIcon icon={arrowForwardOutline} slot="end"></IonIcon>
+                </IonButton>
+              </IonNavLink>
             </IonCol>
           </IonRow>
 
@@ -93,7 +108,7 @@ const SignIn: React.FC<SignInProps> = ( { setLoggedIn} ) => {
           <IonRow>
             <IonCol>
               <h5 className="ion-text-center">
-                Don't have an account? <Link to="/signUp">Sign Up</Link>
+                Already a User? <Link to="/signin">Log in</Link>
               </h5>
             </IonCol>
           </IonRow>
@@ -103,4 +118,4 @@ const SignIn: React.FC<SignInProps> = ( { setLoggedIn} ) => {
   );
 };
 
-export default SignIn;
+export default SignUp;

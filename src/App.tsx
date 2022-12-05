@@ -7,6 +7,7 @@ import { IonReactRouter } from "@ionic/react-router";
 import "./App.scss";
 // import components
 import SignIn from "./components/splash/SignIn";
+import SignUp from "./components/splash/SignUp";
 import Splash from "./components/splash/Splash";
 
 // import pages
@@ -46,14 +47,14 @@ const App: React.FC<RouteComponentProps> = () => {
             <Route
               path="/dashboard"
               render={() =>
-                guest || loggedIn ? <Dashboard /> : <Redirect to="/signin" />
+                guest || loggedIn ? <Dashboard /> : <Redirect to="/SignUp" />
               }
             />
             <Route
-              path="/signin"
+              path="/signUp"
               render={() =>
                 !guest || !loggedIn ? (
-                  <SignIn
+                  <SignUp
                     setLoggedIn={setLoggedIn}
                     guest={guest}
                     setGuest={setGuest}
@@ -63,32 +64,44 @@ const App: React.FC<RouteComponentProps> = () => {
                 )
               }
             />
-            <Route exact path="/" render={() => <Redirect to="/signin" />} />
+            <Route
+              path="/signIn"
+              render={() =>
+                !guest || !loggedIn ? (
+                  <SignIn
+                    setLoggedIn={setLoggedIn}
+                  />
+                ) : (
+                  <Redirect to="/dashboard" />
+                )
+              }
+            />
+            <Route exact path="/" render={() => <Redirect to="/SignUp" />} />
 
             {/* below is Jingru Dec 3 work  */}
 
             <Route
               path="/intro2"
               render={() =>
-                guest || loggedIn ? <Intro2 /> : <Redirect to="/signin" />
+                guest || loggedIn ? <Intro2 /> : <Redirect to="/SignUp" />
               }
             />
             <Route
               path="/trigger"
               render={() =>
-                guest || loggedIn ? <Trigger /> : <Redirect to="/signin" />
+                guest || loggedIn ? <Trigger /> : <Redirect to="/SignUp" />
               }
             />
             <Route
               path="/emotion"
               render={() =>
-                guest || loggedIn ? <Emotion /> : <Redirect to="/signin" />
+                guest || loggedIn ? <Emotion /> : <Redirect to="/SignUp" />
               }
             />
             <Route
               path="/action"
               render={() =>
-                guest || loggedIn ? <Action /> : <Redirect to="/signin" />
+                guest || loggedIn ? <Action /> : <Redirect to="/SignUp" />
               }
             />
             <Route
@@ -97,7 +110,7 @@ const App: React.FC<RouteComponentProps> = () => {
                 guest || loggedIn ? (
                   <ActionOfPartner />
                 ) : (
-                  <Redirect to="/signin" />
+                  <Redirect to="/SignUp" />
                 )
               }
             />
@@ -105,7 +118,7 @@ const App: React.FC<RouteComponentProps> = () => {
             <Route
               path="/discliamer"
               render={() =>
-                guest || loggedIn ? <Discliamer /> : <Redirect to="/signin" />
+                guest || loggedIn ? <Discliamer /> : <Redirect to="/SignUp" />
               }
             />
           </IonRouterOutlet>
