@@ -47,17 +47,97 @@ const App: React.FC<RouteComponentProps> = () => {
       ) : (
         <IonReactRouter>
           <IonRouterOutlet>
-            <Route path="/sign-in" render={ userStatus === "guest" || userStatus === "loggedIn" ? () => <Dashboard /> : () => <SignIn />} exact={true} />
-            <Route path="/sign-up" render={ userStatus === "guest" || userStatus === "loggedIn" ? () => <Dashboard /> : () => <SignUp />} exact={true} />
-            <Route path="/dashboard" render={ userStatus === "guest" || userStatus === "loggedIn" ? () => <Dashboard /> : () => <SignIn />} exact={true} />
-            <Route path="/trigger" render={ userStatus === "guest" || userStatus === "loggedIn" ? () => <Trigger /> : () => <SignIn />} exact={true} />
-            <Route path="/emotion" render={ userStatus === "guest" || userStatus === "loggedIn" ? () => <Emotion /> : () => <SignIn />} exact={true} />
-            <Route path="/action" render={ userStatus === "guest" || userStatus === "loggedIn" ? () => <Action /> : () => <SignIn />} exact={true} />
-            <Route path="/intro2" render={ userStatus === "guest" || userStatus === "loggedIn" ? () => <Intro2 /> : () => <SignIn />} exact={true} />
-            <Route path="/action-of-partner" render={ userStatus === "guest" || userStatus === "loggedIn" ? () => <ActionOfPartner /> : () => <SignIn />} exact={true} />
-            <Route path="/discliamer" render={ userStatus === "guest" || userStatus === "loggedIn" ? () => <Discliamer /> : () => <SignIn />} exact={true} />
-            <Route path="/" render={ userStatus === "guest" || userStatus === "loggedIn" ? () => <Dashboard /> : () => <SignIn />} exact={true} />
-            </IonRouterOutlet>
+            <Route
+              path="/sign-in"
+              render={
+                userStatus === "guest" || userStatus === "loggedIn"
+                  ? () => <Dashboard />
+                  : () => <SignIn />
+              }
+              exact={true}
+            />
+            <Route
+              path="/sign-up"
+              render={
+                userStatus === "guest" || userStatus === "loggedIn"
+                  ? () => <Dashboard />
+                  : () => <SignUp />
+              }
+              exact={true}
+            />
+            <Route
+              path="/dashboard"
+              render={
+                userStatus === "guest" || userStatus === "loggedIn"
+                  ? () => <Dashboard />
+                  : () => <SignIn />
+              }
+              exact={true}
+            />
+            <Route
+              path="/trigger"
+              render={
+                userStatus === "guest" || userStatus === "loggedIn"
+                  ? () => <Trigger />
+                  : () => <SignIn />
+              }
+              exact={true}
+            />
+            <Route
+              path="/emotion"
+              render={
+                userStatus === "guest" || userStatus === "loggedIn"
+                  ? () => <Emotion />
+                  : () => <SignIn />
+              }
+              exact={true}
+            />
+            <Route
+              path="/action"
+              render={
+                userStatus === "guest" || userStatus === "loggedIn"
+                  ? () => <Action />
+                  : () => <SignIn />
+              }
+              exact={true}
+            />
+            <Route
+              path="/intro2"
+              render={
+                userStatus === "guest" || userStatus === "loggedIn"
+                  ? () => <Intro2 />
+                  : () => <SignIn />
+              }
+              exact={true}
+            />
+            <Route
+              path="/action-of-partner"
+              render={
+                userStatus === "guest" || userStatus === "loggedIn"
+                  ? () => <ActionOfPartner />
+                  : () => <SignIn />
+              }
+              exact={true}
+            />
+            <Route
+              path="/discliamer"
+              render={
+                userStatus === "guest" || userStatus === "loggedIn"
+                  ? () => <Discliamer />
+                  : () => <SignIn />
+              }
+              exact={true}
+            />
+            <Route
+              path="/"
+              render={
+                userStatus === "guest" || userStatus === "loggedIn"
+                  ? () => <Dashboard />
+                  : () => <SignIn />
+              }
+              exact={true}
+            />
+          </IonRouterOutlet>
         </IonReactRouter>
       )}
     </IonApp>
