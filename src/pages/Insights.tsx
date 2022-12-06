@@ -27,7 +27,7 @@ const Insights: React.FC = () => {
         <IonGrid>
           <IonRow>
             <IonCol>
-              <h4 className="ion-text-center" color="grey">
+              <h4 className="ion-text-center" style={{ color: "darkgray" }}>
                 Top Triggers
               </h4>
             </IonCol>
@@ -42,7 +42,9 @@ const Insights: React.FC = () => {
 
           <IonRow className="ion-margin-top">
             <IonCol>
-              <h4 className="ion-text-center">Top Emotions</h4>
+              <h4 className="ion-text-center" style={{ color: "darkgray" }}>
+                Top Emotions
+              </h4>
             </IonCol>
           </IonRow>
           <IonRow>
@@ -54,7 +56,7 @@ const Insights: React.FC = () => {
           </IonRow>
         </IonGrid>
 
-        <IonRouterLink routerLink="/">
+        <IonRouterLink routerLink="reflection">
           <IonButton color="light" className="ion-text-center">
             CONTINUE
           </IonButton>

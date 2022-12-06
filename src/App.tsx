@@ -24,6 +24,8 @@ import Pain4 from "./pages/Pain4";
 import PreSummary from "./pages/PreSummary";
 import CycleSummary from "./pages/CycleSummary";
 import Analysis from "./pages/Analysis";
+import Reflection from "./pages/Reflection";
+import EndOfSession from "./pages/EndOfSession";
 // Custom hooks
 import { useTimeout } from "./hooks/useTimeOut";
 import Insights from "./pages/Insights";
@@ -162,6 +164,18 @@ const App: React.FC<RouteComponentProps> = () => {
               path="/insights"
               render={() =>
                 guest || loggedIn ? <Insights /> : <Redirect to="/signin" />
+              }
+            />
+            <Route
+              path="/reflection"
+              render={() =>
+                guest || loggedIn ? <Reflection /> : <Redirect to="/signin" />
+              }
+            />
+            <Route
+              path="/endOfSession"
+              render={() =>
+                guest || loggedIn ? <EndOfSession /> : <Redirect to="/signin" />
               }
             />
           </IonRouterOutlet>

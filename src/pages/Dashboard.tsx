@@ -9,7 +9,7 @@ import {
 } from "@ionic/react";
 
 import Intro from "../components/Intro";
-import Intro2 from "./Intro2";
+
 const Dashboard: React.FC = () => {
   return (
     <IonPage>
