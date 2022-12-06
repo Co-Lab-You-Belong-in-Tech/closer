@@ -18,6 +18,7 @@ import {
 } from "@ionic/react";
 import { arrowForwardOutline, logoGoogle } from "ionicons/icons";
 import Intro from "../Intro";
+import Dashboard from "../../pages/Dashboard";
 import React from 'react';
 import { Link } from "react-router-dom";
 
@@ -80,7 +81,7 @@ const SignUp: React.FC<SignUpProps> = () => {
 
           <IonRow className="ion-margin-top">
             <IonCol>
-              <IonNavLink onClick={() => setUserStatus("guest")} routerDirection="forward" component={() => <Intro />}>
+              <IonNavLink onClick={() => setUserStatus("guest")} routerDirection="forward" component={() => <Dashboard />}>
                 <IonButton expand="block" color="dark" size="large">
                 Try out as guest
                   <IonIcon icon={arrowForwardOutline} slot="end"></IonIcon>
