@@ -1,5 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
+import { QueryClient, QueryClientProvider } from "react-query";
 import App from "./App";
 
 import reportWebVitals from "./reportWebVitals";
@@ -23,11 +24,15 @@ import "@ionic/react/css/display.css";
 /* Theme variables */
 import "./theme/variables.css";
 
+const queryClient = new QueryClient();
+
 const container = document.getElementById("root");
 const root = createRoot(container!);
 root.render(
   <React.StrictMode>
-    <App history={undefined!} location={undefined!} match={undefined!} />
+    <QueryClientProvider client={queryClient}>
+      <App history={undefined!} location={undefined!} match={undefined!} />
+    </QueryClientProvider>
   </React.StrictMode>
 );
 
