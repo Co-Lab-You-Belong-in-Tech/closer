@@ -35,6 +35,8 @@ setupIonicReact();
 const SignUp: React.FC<SignUpProps> = () => {
 
   const setUserStatus = useUserStatusStore((state) => state.setUserStatus);
+  
+  
 
   console.log("Sign up form rendered.")
 
