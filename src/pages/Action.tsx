@@ -174,7 +174,7 @@ const Action: React.FC = () => {
           </div>
         </IonModal>
 
-        <IonRouterLink routerLink="actionOfPartner">
+        <IonRouterLink routerLink="action-Of-Partner">
           <IonButton
             color="light"
             className="ion-text-center"

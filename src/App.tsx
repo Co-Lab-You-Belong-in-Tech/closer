@@ -1,12 +1,13 @@
 import React from "react";
 import { setupIonicReact, IonApp, IonRouterOutlet } from "@ionic/react";
-import { Redirect, Route, RouteComponentProps } from "react-router-dom";
+import { Redirect, Route, RouteComponentProps } from 'react-router-dom';
 import { IonReactRouter } from "@ionic/react-router";
 
 // import components styles
 import "./App.scss";
 // import components
 import SignIn from "./components/splash/SignIn";
+import SignUp from "./components/splash/SignUp";
 import Splash from "./components/splash/Splash";
 
 // import pages
@@ -28,19 +29,16 @@ import Reflection from "./pages/Reflection";
 import EndOfSession from "./pages/EndOfSession";
 // Custom hooks
 import { useTimeout } from "./hooks/useTimeOut";
+// Get stores
+import { useUserStatusStore } from "./features/store";
 
 setupIonicReact();
 
-// interface RouteProps {
-//   path: string;
-//   component: React.FC;
-//   exact?: boolean;
-// }
-
 const App: React.FC<RouteComponentProps> = () => {
-  const [loggedIn, setLoggedIn] = React.useState<boolean>(true);
-  const [guest, setGuest] = React.useState<boolean>(true);
+  const userStatus = useUserStatusStore((state) => state.userStatus);
   const [loading, setLoading] = React.useState<boolean>(true);
+
+  console.log(userStatus);
 
   useTimeout(() => setLoading(false), 3000);
 
@@ -52,125 +50,181 @@ const App: React.FC<RouteComponentProps> = () => {
         <IonReactRouter>
           <IonRouterOutlet>
             <Route
-              path="/dashboard"
-              render={() =>
-                guest || loggedIn ? <Dashboard /> : <Redirect to="/signin" />
+              path="/sign-in"
+              render={
+                userStatus === "guest" || userStatus === "loggedIn"
+                  ? () => <Redirect to="/dashboard" />
+                  : () => <SignIn />
               }
+              exact={true}
             />
             <Route
-              path="/signin"
-              render={() =>
-                !guest || !loggedIn ? (
-                  <SignIn
-                    setLoggedIn={setLoggedIn}
-                    guest={guest}
-                    setGuest={setGuest}
-                  />
-                ) : (
-                  <Redirect to="/dashboard" />
-                )
+              path="/sign-up"
+              render={
+                userStatus === "registered"
+                  ? () => <Redirect to="/sign-in" />
+                  : () => <SignUp />
               }
+              exact={true}
             />
             <Route exact path="/" render={() => <Redirect to="/signin" />} />
 
-            {/* below is Jingru' work after Dec 3 */}
+            {/* below is Jingru Dec 3 work  */}
 
             <Route
-              path="/intro2"
-              render={() =>
-                guest || loggedIn ? <Intro2 /> : <Redirect to="/signin" />
+              path="/dashboard"
+              render={
+                userStatus === "guest" || userStatus === "loggedIn"
+                  ? () => <Dashboard />
+                  : () => <Redirect to="/sign-in" />
               }
+              exact={true}
             />
             <Route
               path="/trigger"
-              render={() =>
-                guest || loggedIn ? <Trigger /> : <Redirect to="/signin" />
+              render={
+                userStatus === "guest" || userStatus === "loggedIn"
+                  ? () => <Trigger />
+                  : () => <Redirect to="/sign-in" />
               }
+              exact={true}
             />
             <Route
               path="/emotion"
-              render={() =>
-                guest || loggedIn ? <Emotion /> : <Redirect to="/signin" />
+              render={
+                userStatus === "guest" || userStatus === "loggedIn"
+                  ? () => <Emotion />
+                  : () => <Redirect to="/sign-in" />
               }
+              exact={true}
             />
             <Route
               path="/action"
-              render={() =>
-                guest || loggedIn ? <Action /> : <Redirect to="/signin" />
+              render={
+                userStatus === "guest" || userStatus === "loggedIn"
+                  ? () => <Action />
+                  : () => <Redirect to="/sign-in" />
               }
+              exact={true}
             />
             <Route
-              path="/actionOfPartner"
-              render={() =>
-                guest || loggedIn ? (
-                  <ActionOfPartner />
-                ) : (
-                  <Redirect to="/signin" />
-                )
+              path="/intro2"
+              render={
+                userStatus === "guest" || userStatus === "loggedIn"
+                  ? () => <Intro2 />
+                  : () => <Redirect to="/sign-in" />
               }
+              exact={true}
             />
-
+            <Route
+              path="/action-of-partner"
+              render={
+                userStatus === "guest" || userStatus === "loggedIn"
+                  ? () => <ActionOfPartner />
+                  : () => <Redirect to="/sign-in" />
+              }
+              exact={true}
+            />
             <Route
               path="/discliamer"
-              render={() =>
-                guest || loggedIn ? <Discliamer /> : <Redirect to="/signin" />
+              render={
+                userStatus === "guest" || userStatus === "loggedIn"
+                  ? () => <Discliamer />
+                  : () => <Redirect to="/sign-in" />
               }
+              exact={true}
+            />
+            <Route
+              path="/"
+              render={
+                userStatus === "guest" || userStatus === "loggedIn"
+                  ? () => <Dashboard />
+                  : () => <Redirect to="/sign-in" />
+              }
+              exact={true}
             />
 
             <Route
               path="/pain1"
-              render={() =>
-                guest || loggedIn ? <Pain1 /> : <Redirect to="/signin" />
+              render={
+                userStatus === "guest" || userStatus === "loggedIn"
+                  ? () => <Pain1 />
+                  : () => <Redirect to="/sign-in" />
               }
+              exact={true}
             />
             <Route
               path="/pain2"
-              render={() =>
-                guest || loggedIn ? <Pain2 /> : <Redirect to="/signin" />
+              render={
+                userStatus === "guest" || userStatus === "loggedIn"
+                  ? () => <Pain2 />
+                  : () => <Redirect to="/sign-in" />
               }
+              exact={true}
             />
             <Route
               path="/pain3"
-              render={() =>
-                guest || loggedIn ? <Pain3 /> : <Redirect to="/signin" />
+              render={
+                userStatus === "guest" || userStatus === "loggedIn"
+                  ? () => <Pain3 />
+                  : () => <Redirect to="/sign-in" />
               }
+              exact={true}
             />
             <Route
               path="/pain4"
-              render={() =>
-                guest || loggedIn ? <Pain4 /> : <Redirect to="/signin" />
+              render={
+                userStatus === "guest" || userStatus === "loggedIn"
+                  ? () => <Pain4 />
+                  : () => <Redirect to="/sign-in" />
               }
+              exact={true}
             />
             <Route
               path="/preSummary"
-              render={() =>
-                guest || loggedIn ? <PreSummary /> : <Redirect to="/signin" />
+              render={
+                userStatus === "guest" || userStatus === "loggedIn"
+                  ? () => <PreSummary />
+                  : () => <Redirect to="/sign-in" />
               }
+              exact={true}
             />
             <Route
               path="/cycleSummary"
-              render={() =>
-                guest || loggedIn ? <CycleSummary /> : <Redirect to="/signin" />
+              render={
+                userStatus === "guest" || userStatus === "loggedIn"
+                  ? () => <CycleSummary />
+                  : () => <Redirect to="/sign-in" />
               }
+              exact={true}
             />
             <Route
               path="/analysis"
-              render={() =>
-                guest || loggedIn ? <Analysis /> : <Redirect to="/signin" />
+              render={
+                userStatus === "guest" || userStatus === "loggedIn"
+                  ? () => <Analysis />
+                  : () => <Redirect to="/sign-in" />
               }
+              exact={true}
             />
 
             <Route
               path="/reflection"
-              render={() =>
-                guest || loggedIn ? <Reflection /> : <Redirect to="/signin" />
+              render={
+                userStatus === "guest" || userStatus === "loggedIn"
+                  ? () => <Reflection />
+                  : () => <Redirect to="/sign-in" />
               }
+              exact={true}
             />
             <Route
               path="/endOfSession"
-              render={() =>
-                guest || loggedIn ? <EndOfSession /> : <Redirect to="/signin" />
+              render={
+                userStatus === "guest" || userStatus === "loggedIn"
+                  ? () => <EndOfSession />
+                  : () => <Redirect to="/sign-in" />
               }
+              exact={true}
             />
           </IonRouterOutlet>
         </IonReactRouter>
@@ -178,5 +232,4 @@ const App: React.FC<RouteComponentProps> = () => {
     </IonApp>
   );
 };
-
 export default App;
