@@ -15,11 +15,16 @@ import {
   IonCardTitle,
   IonNavLink,
   setupIonicReact,
+  useIonToast,
 } from "@ionic/react";
 import { arrowForwardOutline, logoGoogle } from "ionicons/icons";
 import Intro from "../Intro";
 import React from 'react';
 import { Link } from "react-router-dom";
+import { useUserStatusStore } from "../../features/store";
+import { useMutation } from "@tanstack/react-query";
+import { loginUser } from "../../features/api/auth";
+
 
 interface SignInProps {
   history?: any;
@@ -29,6 +34,45 @@ interface SignInProps {
 
 setupIonicReact();
 const SignIn: React.FC<SignInProps> = () => {
+  const setUserStatus = useUserStatusStore((state) => state.setUserStatus);
+  const emailRef = React.useRef<HTMLIonInputElement>(null);
+  const passwordRef = React.useRef<HTMLIonInputElement>(null);
+
+  const [present] = useIonToast();
+  const showToast = (message: string, color: string) => {
+    present({
+      message: message,
+      duration: 2000,
+      color: color,
+      position: "top",
+    });
+  };
+
+  const { mutate: signIn, isLoading, } = useMutation((FormData: object) => loginUser(FormData), {
+    onSuccess: (data) => {
+      console.log(data);
+      setUserStatus("loggedIn");
+      showToast(data.status.message, "success");
+    },
+    onError: (error: any) => {
+      console.log(error);
+      showToast(JSON.stringify(error.response.data), "danger");
+    }
+  });
+
+  const handleSignIn = (
+    e: React.MouseEvent<HTMLIonButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    const formData = {
+      email: emailRef.current!.value,
+      password: passwordRef.current!.value,
+    };
+    console.log(formData);
+    formData.email && formData.password ? signIn(formData) : showToast("Please fill in all fields", "warning");
+    // resume default behavior
+  };
+  
   return (
     <IonPage className="ion-padding">
       <IonHeader>
@@ -48,7 +92,7 @@ const SignIn: React.FC<SignInProps> = () => {
             <IonCol>
               <IonItem className="signInInput">
                 <IonLabel position="floating">Email address</IonLabel>
-                <IonInput type="email"></IonInput>
+                <IonInput ref={emailRef} type="email"></IonInput>
               </IonItem>
             </IonCol>
           </IonRow>
@@ -56,15 +100,15 @@ const SignIn: React.FC<SignInProps> = () => {
             <IonCol>
               <IonItem className="signInInput">
                 <IonLabel position="floating">Password</IonLabel>
-                <IonInput type="password"></IonInput>
+                <IonInput ref={passwordRef} type="password"></IonInput>
               </IonItem>
             </IonCol>
           </IonRow>
 
           <IonRow>
             <IonCol>
-              <IonButton expand="block" color="dark" size="large">
-                Sign In
+              <IonButton onClick={(e) => {handleSignIn(e)}} expand="block" color="dark" size="large">
+                {isLoading ? "Loading..." : "Sign In"}
                 <IonIcon icon={arrowForwardOutline} slot="end"></IonIcon>
               </IonButton>
             </IonCol>

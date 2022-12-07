@@ -39,10 +39,10 @@ import { useUserStatusStore } from "../../features/store";
 //   url?: string;
 // }
 
-interface componentProps extends RouteComponentProps {
-  history: any;
-  location: any;
-  match: any;
+interface componentProps {
+  history?: any;
+  location?: any;
+  match?: any;
   message?: string;
   error?: any;
   url?: string;
@@ -57,12 +57,12 @@ const SignUp: React.FC<componentProps> = () => {
   // setup toast
   const [present] = useIonToast();
 
-  const showToast = (message: string) => {
+  const showToast = (message: string, color: string) => {
     present({
       message,
       duration: 3000,
       position: "top",
-      color: "dark",
+      color: color,
     });
   };
 
@@ -71,10 +71,10 @@ const SignUp: React.FC<componentProps> = () => {
     {
       onSuccess: (data) => {
         setUserStatus("registered");
-        showToast(data.status.message);
+        showToast(data.status.message, "success");
       },
       onError: (error: any) => {
-        showToast(JSON.stringify(error.response.data.errors.data));
+        showToast(JSON.stringify(error.response.data.errors.data), "danger");
       }
     }
   );
@@ -88,7 +88,7 @@ const SignUp: React.FC<componentProps> = () => {
       password: passwordRef.current!.value,
     };
     console.log(formData);
-    formData.email && formData.password ? register(formData) : alert("Fill in all fields");
+    formData.email && formData.password ? register(formData) : showToast("Please fill in all fields", "warning");
     // resume default behavior
   };
 

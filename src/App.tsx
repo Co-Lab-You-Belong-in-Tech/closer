@@ -1,6 +1,6 @@
 import React from "react";
 import { setupIonicReact, IonApp, IonRouterOutlet } from "@ionic/react";
-import { Redirect, Route, RouteComponentProps } from "react-router-dom";
+import { Redirect, Route, RouteComponentProps } from 'react-router-dom';
 import { IonReactRouter } from "@ionic/react-router";
 
 // import components styles
@@ -51,7 +51,7 @@ const App: React.FC<RouteComponentProps> = () => {
               path="/sign-in"
               render={
                 userStatus === "guest" || userStatus === "loggedIn"
-                  ? () => <Dashboard />
+                  ? () => <Redirect to="/dashboard" />
                   : () => <SignIn />
               }
               exact={true}
@@ -60,7 +60,7 @@ const App: React.FC<RouteComponentProps> = () => {
               path="/sign-up"
               render={
                 userStatus === "guest" || userStatus === "loggedIn"
-                  ? () => <Dashboard />
+                  ? () => <Redirect to="/dashboard" />
                   : () => <SignUp />
               }
               exact={true}
@@ -70,7 +70,7 @@ const App: React.FC<RouteComponentProps> = () => {
               render={
                 userStatus === "guest" || userStatus === "loggedIn"
                   ? () => <Dashboard />
-                  : () => <SignIn />
+                  : () => <Redirect to="/sign-in" />
               }
               exact={true}
             />
@@ -79,7 +79,7 @@ const App: React.FC<RouteComponentProps> = () => {
               render={
                 userStatus === "guest" || userStatus === "loggedIn"
                   ? () => <Trigger />
-                  : () => <SignIn />
+                  : () => <Redirect to="/sign-in" />
               }
               exact={true}
             />
@@ -88,7 +88,7 @@ const App: React.FC<RouteComponentProps> = () => {
               render={
                 userStatus === "guest" || userStatus === "loggedIn"
                   ? () => <Emotion />
-                  : () => <SignIn />
+                  : () => <Redirect to="/sign-in" />
               }
               exact={true}
             />
@@ -97,7 +97,7 @@ const App: React.FC<RouteComponentProps> = () => {
               render={
                 userStatus === "guest" || userStatus === "loggedIn"
                   ? () => <Action />
-                  : () => <SignIn />
+                  : () => <Redirect to="/sign-in" />
               }
               exact={true}
             />
@@ -106,7 +106,7 @@ const App: React.FC<RouteComponentProps> = () => {
               render={
                 userStatus === "guest" || userStatus === "loggedIn"
                   ? () => <Intro2 />
-                  : () => <SignIn />
+                  : () => <Redirect to="/sign-in" />
               }
               exact={true}
             />
@@ -115,7 +115,7 @@ const App: React.FC<RouteComponentProps> = () => {
               render={
                 userStatus === "guest" || userStatus === "loggedIn"
                   ? () => <ActionOfPartner />
-                  : () => <SignIn />
+                  : () => <Redirect to="/sign-in" />
               }
               exact={true}
             />
@@ -124,7 +124,7 @@ const App: React.FC<RouteComponentProps> = () => {
               render={
                 userStatus === "guest" || userStatus === "loggedIn"
                   ? () => <Discliamer />
-                  : () => <SignIn />
+                  : () => <Redirect to="/sign-in" />
               }
               exact={true}
             />
@@ -133,7 +133,7 @@ const App: React.FC<RouteComponentProps> = () => {
               render={
                 userStatus === "guest" || userStatus === "loggedIn"
                   ? () => <Dashboard />
-                  : () => <SignIn />
+                  : () => <Redirect to="/sign-in" />
               }
               exact={true}
             />
