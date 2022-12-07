@@ -53,8 +53,8 @@ const App: React.FC<RouteComponentProps> = () => {
             <Route
               path="/sign-up"
               render={
-                userStatus === "guest" || userStatus === "loggedIn"
-                  ? () => <Redirect to="/dashboard" />
+                userStatus === "registered"
+                  ? () => <Redirect to="/sign-in" />
                   : () => <SignUp />
               }
               exact={true}

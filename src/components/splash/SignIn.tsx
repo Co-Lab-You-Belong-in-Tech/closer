@@ -14,6 +14,7 @@ import {
   IonCardHeader,
   IonCardTitle,
   setupIonicReact,
+  IonNavLink,
 } from "@ionic/react";
 import { arrowForwardOutline, logoGoogle } from "ionicons/icons";
 import React from 'react';
@@ -24,6 +25,8 @@ import { loginUser } from "../../features/api/auth";
 
 // import hooks
 import { useShowToast } from "../../hooks/useShowToast";
+import SignUp from "./SignUp";
+import Dashboard from "../../pages/Dashboard";
 
 interface SignInProps {
   history?: any;
@@ -103,6 +106,21 @@ const SignIn: React.FC<SignInProps> = () => {
                 {isLoading ? "Loading..." : "Sign In"}
                 <IonIcon icon={arrowForwardOutline} slot="end"></IonIcon>
               </IonButton>
+            </IonCol>
+          </IonRow>
+
+          <IonRow className="ion-margin-top">
+            <IonCol>
+              <IonNavLink
+                onClick={() => setUserStatus("guest")}
+                routerDirection="forward"
+                component={() => <Dashboard />}
+              >
+                <IonButton expand="block" color="dark" size="large">
+                  Try out as guest
+                  <IonIcon icon={arrowForwardOutline} slot="end"></IonIcon>
+                </IonButton>
+              </IonNavLink>
             </IonCol>
           </IonRow>
 

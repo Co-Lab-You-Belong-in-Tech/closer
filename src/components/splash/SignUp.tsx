@@ -123,7 +123,7 @@ const SignUp: React.FC<componentProps> = () => {
             </IonCol>
           </IonRow>
 
-          <IonRow className="ion-margin-top">
+          {/* <IonRow className="ion-margin-top">
             <IonCol>
               <IonNavLink
                 onClick={() => setUserStatus("guest")}
@@ -136,7 +136,7 @@ const SignUp: React.FC<componentProps> = () => {
                 </IonButton>
               </IonNavLink>
             </IonCol>
-          </IonRow>
+          </IonRow> */}
 
           <IonRow className="ion-text-center ion-margin-top">
             <IonCol>
