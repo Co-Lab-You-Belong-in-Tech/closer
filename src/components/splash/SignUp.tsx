@@ -123,21 +123,6 @@ const SignUp: React.FC<componentProps> = () => {
             </IonCol>
           </IonRow>
 
-          {/* <IonRow className="ion-margin-top">
-            <IonCol>
-              <IonNavLink
-                onClick={() => setUserStatus("guest")}
-                routerDirection="forward"
-                component={() => <Dashboard />}
-              >
-                <IonButton expand="block" color="dark" size="large">
-                  Try out as guest
-                  <IonIcon icon={arrowForwardOutline} slot="end"></IonIcon>
-                </IonButton>
-              </IonNavLink>
-            </IonCol>
-          </IonRow> */}
-
           <IonRow className="ion-text-center ion-margin-top">
             <IonCol>
               <a href="https://google.com">
