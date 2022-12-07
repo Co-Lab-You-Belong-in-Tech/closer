@@ -16,29 +16,66 @@ import {
   IonNavLink,
   setupIonicReact,
 } from "@ionic/react";
+import { useRef } from "react";
 import { arrowForwardOutline, logoGoogle } from "ionicons/icons";
 import Intro from "../Intro";
 import Dashboard from "../../pages/Dashboard";
-import React from 'react';
+import React from "react";
 import { Link } from "react-router-dom";
-
+import { useQuery, useMutation } from "@tanstack/react-query";
+import axios from "axios";
+import { registerUser } from "../../features/api/auth";
 // Import store
 import { useUserStatusStore } from "../../features/store";
+
+// Import API
+import { API_URL } from "../../react-app-env.d";
+
+// import { register } from "../../serviceWorkerRegistration";
 
 interface SignUpProps {
   history?: any;
   location?: any;
   match?: any;
+  message?: string;
+  error?: any;
 }
 
 setupIonicReact();
 const SignUp: React.FC<SignUpProps> = () => {
-
   const setUserStatus = useUserStatusStore((state) => state.setUserStatus);
-  
-  
+  const emailRef = useRef<HTMLIonInputElement>(null);
+  const passwordRef = useRef<HTMLIonInputElement>(null);
 
-  console.log("Sign up form rendered.")
+  const { mutate: register, data, isLoading, isSuccess } = useMutation(
+    (formData: object) => registerUser(formData),
+    {
+      onSuccess: (data) => {
+        setUserStatus("registered");
+        console.log("Success!");
+        console.log(data);
+        console.log("Biiiig error");
+      },
+      onError: (error) => {
+        console.log("Error!");
+        console.log(error);
+      }
+    }
+  );
+
+  const handleSignUp = (
+    e: React.MouseEvent<HTMLIonButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    const formData = {
+      email: emailRef.current!.value,
+      password: passwordRef.current!.value,
+    };
+    console.log(formData);
+    formData.email && formData.password ? register(formData) : alert("Fill in all fields");
+  };
+
+  console.log("Sign up form rendered.");
 
   return (
     <IonPage className="ion-padding">
@@ -55,11 +92,12 @@ const SignUp: React.FC<SignUpProps> = () => {
           <IonRow>
             <h1 className="ion-text-left ion-font-weight-800">Sign up</h1>
           </IonRow>
+        
           <IonRow>
             <IonCol>
               <IonItem className="signInInput">
                 <IonLabel position="floating">Email address</IonLabel>
-                <IonInput type="email"></IonInput>
+                <IonInput ref={emailRef} type="email"></IonInput>
               </IonItem>
             </IonCol>
           </IonRow>
@@ -67,15 +105,20 @@ const SignUp: React.FC<SignUpProps> = () => {
             <IonCol>
               <IonItem className="signInInput">
                 <IonLabel position="floating">Password</IonLabel>
-                <IonInput type="password"></IonInput>
+                <IonInput ref={passwordRef} type="password"></IonInput>
               </IonItem>
             </IonCol>
           </IonRow>
 
           <IonRow>
             <IonCol>
-              <IonButton expand="block" color="dark" size="large">
-                Sign Up
+              <IonButton
+                onClick={(e) => handleSignUp(e)}
+                expand="block"
+                color="dark"
+                size="large"
+              >
+                {isLoading ? "Loading..." : "Sign up"}
                 <IonIcon icon={arrowForwardOutline} slot="end"></IonIcon>
               </IonButton>
             </IonCol>
@@ -83,9 +126,13 @@ const SignUp: React.FC<SignUpProps> = () => {
 
           <IonRow className="ion-margin-top">
             <IonCol>
-              <IonNavLink onClick={() => setUserStatus("guest")} routerDirection="forward" component={() => <Dashboard />}>
+              <IonNavLink
+                onClick={() => setUserStatus("guest")}
+                routerDirection="forward"
+                component={() => <Dashboard />}
+              >
                 <IonButton expand="block" color="dark" size="large">
-                Try out as guest
+                  Try out as guest
                   <IonIcon icon={arrowForwardOutline} slot="end"></IonIcon>
                 </IonButton>
               </IonNavLink>
