@@ -12,7 +12,6 @@ import {
   IonInput,
   IonRouterLink,
   IonToolbar,
-  IonTitle,
 } from "@ionic/react";
 
 import Cta from "../components/Cta";
@@ -31,7 +30,7 @@ const Trigger: React.FC = () => {
       </IonHeader>
 
       <IonContent className="ion-padding ion-margin-top">
-        <IonTitle>What triggered your reaction?</IonTitle>
+        <h3>What triggered your reaction?</h3>
         <IonList>
           <IonRadioGroup value="triggers">
             <IonItem>

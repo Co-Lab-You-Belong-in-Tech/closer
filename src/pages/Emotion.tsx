@@ -9,7 +9,6 @@ import {
   IonSelect,
   IonSelectOption,
   IonRouterLink,
-  IonTitle,
   IonToolbar,
 } from "@ionic/react";
 import Cta from "../components/Cta";
@@ -28,7 +27,7 @@ const Emotion: React.FC = () => {
       </IonHeader>
 
       <IonContent className="ion-padding ion-margin-top">
-        <IonTitle>What emotion did you feel? </IonTitle>
+        <h3>What emotion did you feel? </h3>
         <IonList>
           <IonItem>
             <IonSelect

@@ -13,7 +13,6 @@ import {
   IonButtons,
   IonToolbar,
   IonIcon,
-  IonTitle,
 } from "@ionic/react";
 
 import { close } from "ionicons/icons";
@@ -35,7 +34,7 @@ const ActionOfPartner: React.FC = () => {
       </IonHeader>
 
       <IonContent className="ion-padding ion-margin-top">
-        <IonTitle>What action did your partner take? </IonTitle>
+        <h3>What action did your partner take? </h3>
         <IonItem>
           <IonInput maxlength={20} onClick={() => setIsOpen(true)}>
             {sampleAction}
