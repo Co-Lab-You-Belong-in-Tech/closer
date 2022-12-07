@@ -11,6 +11,7 @@ import {
   IonButton,
   IonCard,
   IonIcon,
+  useIonToast,
   IonCardHeader,
   IonCardTitle,
   IonNavLink,
@@ -20,7 +21,8 @@ import { useRef } from "react";
 import { arrowForwardOutline, logoGoogle } from "ionicons/icons";
 import Dashboard from "../../pages/Dashboard";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, RouteComponentProps } from 'react-router-dom';
+
 import { useMutation } from "@tanstack/react-query";
 import { registerUser } from "../../features/api/auth";
 // Import store
@@ -28,29 +30,51 @@ import { useUserStatusStore } from "../../features/store";
 
 // import { register } from "../../serviceWorkerRegistration";
 
-interface SignUpProps {
-  history?: any;
-  location?: any;
-  match?: any;
+// interface SignUpProps {
+//   history?: any;
+//   location?: any;
+//   match?: any;
+//   message?: string;
+//   error?: any;
+//   url?: string;
+// }
+
+interface componentProps extends RouteComponentProps {
+  history: any;
+  location: any;
+  match: any;
   message?: string;
   error?: any;
+  url?: string;
 }
 
 setupIonicReact();
-const SignUp: React.FC<SignUpProps> = () => {
+const SignUp: React.FC<componentProps> = () => {
   const setUserStatus = useUserStatusStore((state) => state.setUserStatus);
   const emailRef = useRef<HTMLIonInputElement>(null);
   const passwordRef = useRef<HTMLIonInputElement>(null);
+
+  // setup toast
+  const [present] = useIonToast();
+
+  const showToast = (message: string) => {
+    present({
+      message,
+      duration: 3000,
+      position: "top",
+      color: "dark",
+    });
+  };
 
   const { mutate: register, data, isLoading, isSuccess } = useMutation(
     (formData: object) => registerUser(formData),
     {
       onSuccess: (data) => {
         setUserStatus("registered");
+        showToast(data.status.message);
       },
-      onError: (error) => {
-        console.log("Error!");
-        console.log(error);
+      onError: (error: any) => {
+        showToast(JSON.stringify(error.response.data.errors.data));
       }
     }
   );
@@ -65,6 +89,7 @@ const SignUp: React.FC<SignUpProps> = () => {
     };
     console.log(formData);
     formData.email && formData.password ? register(formData) : alert("Fill in all fields");
+    // resume default behavior
   };
 
   console.log("Sign up form rendered.");
@@ -89,7 +114,7 @@ const SignUp: React.FC<SignUpProps> = () => {
             <IonCol>
               <IonItem className="signInInput">
                 <IonLabel position="floating">Email address</IonLabel>
-                <IonInput ref={emailRef} type="email"></IonInput>
+                <IonInput ref={emailRef} type="email" required></IonInput>
               </IonItem>
             </IonCol>
           </IonRow>
@@ -109,6 +134,8 @@ const SignUp: React.FC<SignUpProps> = () => {
                 expand="block"
                 color="dark"
                 size="large"
+                routerDirection="back"
+                routerLink="/sign-in"
               >
                 {isLoading ? "Loading..." : "Sign up"}
                 <IonIcon icon={arrowForwardOutline} slot="end"></IonIcon>
