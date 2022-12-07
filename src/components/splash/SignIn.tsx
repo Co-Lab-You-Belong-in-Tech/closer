@@ -13,18 +13,17 @@ import {
   IonIcon,
   IonCardHeader,
   IonCardTitle,
-  IonNavLink,
   setupIonicReact,
-  useIonToast,
 } from "@ionic/react";
 import { arrowForwardOutline, logoGoogle } from "ionicons/icons";
-import Intro from "../Intro";
 import React from 'react';
 import { Link } from "react-router-dom";
 import { useUserStatusStore } from "../../features/store";
 import { useMutation } from "@tanstack/react-query";
 import { loginUser } from "../../features/api/auth";
 
+// import hooks
+import { useShowToast } from "../../hooks/useShowToast";
 
 interface SignInProps {
   history?: any;
@@ -38,15 +37,8 @@ const SignIn: React.FC<SignInProps> = () => {
   const emailRef = React.useRef<HTMLIonInputElement>(null);
   const passwordRef = React.useRef<HTMLIonInputElement>(null);
 
-  const [present] = useIonToast();
-  const showToast = (message: string, color: string) => {
-    present({
-      message: message,
-      duration: 2000,
-      color: color,
-      position: "top",
-    });
-  };
+  // setup toast
+  const showToast = useShowToast();
 
   const { mutate: signIn, isLoading, } = useMutation((FormData: object) => loginUser(FormData), {
     onSuccess: (data) => {

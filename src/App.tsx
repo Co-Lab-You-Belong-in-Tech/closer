@@ -26,12 +26,6 @@ import { useUserStatusStore } from "./features/store";
 
 setupIonicReact();
 
-// interface RouteProps {
-//   path: string;
-//   component: React.FC;
-//   exact?: boolean;
-// }
-
 const App: React.FC<RouteComponentProps> = () => {
   const userStatus = useUserStatusStore((state) => state.userStatus);
   const [loading, setLoading] = React.useState<boolean>(true);

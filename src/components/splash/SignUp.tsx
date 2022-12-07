@@ -11,7 +11,6 @@ import {
   IonButton,
   IonCard,
   IonIcon,
-  useIonToast,
   IonCardHeader,
   IonCardTitle,
   IonNavLink,
@@ -21,23 +20,13 @@ import { useRef } from "react";
 import { arrowForwardOutline, logoGoogle } from "ionicons/icons";
 import Dashboard from "../../pages/Dashboard";
 import React from "react";
-import { Link, RouteComponentProps } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { useMutation } from "@tanstack/react-query";
 import { registerUser } from "../../features/api/auth";
 // Import store
 import { useUserStatusStore } from "../../features/store";
-
-// import { register } from "../../serviceWorkerRegistration";
-
-// interface SignUpProps {
-//   history?: any;
-//   location?: any;
-//   match?: any;
-//   message?: string;
-//   error?: any;
-//   url?: string;
-// }
+import { useShowToast } from '../../hooks/useShowToast';
 
 interface componentProps {
   history?: any;
@@ -55,18 +44,9 @@ const SignUp: React.FC<componentProps> = () => {
   const passwordRef = useRef<HTMLIonInputElement>(null);
 
   // setup toast
-  const [present] = useIonToast();
+  const showToast = useShowToast();
 
-  const showToast = (message: string, color: string) => {
-    present({
-      message,
-      duration: 3000,
-      position: "top",
-      color: color,
-    });
-  };
-
-  const { mutate: register, data, isLoading, isSuccess } = useMutation(
+  const { mutate: register, isLoading } = useMutation(
     (formData: object) => registerUser(formData),
     {
       onSuccess: (data) => {
