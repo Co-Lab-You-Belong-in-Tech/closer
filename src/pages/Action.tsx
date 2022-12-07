@@ -18,33 +18,38 @@ import {
 } from "@ionic/react";
 
 import { close } from "ionicons/icons";
-
-// import other page
+import Cta from "../components/Cta";
 
 const Action: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [sampleAction, setSampleAction] = useState("");
+  const [sampleAction, setSampleAction] = useState<any | null>(null);
+
   return (
     <IonPage>
       <IonHeader>
-        <IonProgressBar className="ion-margin-top" value={0.6}></IonProgressBar>
+        <IonToolbar>
+          <Cta />
+          <IonProgressBar
+            className="ion-margin-top"
+            value={0.6}
+          ></IonProgressBar>
+        </IonToolbar>
+      </IonHeader>
 
-        <h2 className="ion-text-center">What actions did you take? </h2>
-
+      <IonContent className="ion-padding ion-margin-top">
+        <h3>What actions did you take? </h3>
         <IonItem>
           <IonInput maxlength={20} onClick={() => setIsOpen(true)}>
             {sampleAction}
           </IonInput>
         </IonItem>
-      </IonHeader>
-
-      <IonContent className="ion-padding ion-margin-top">
         <IonModal
           isOpen={isOpen}
           initialBreakpoint={0.75}
           breakpoints={[0, 0.25, 0.5, 1.0]}
         >
           <IonToolbar>
+            {/* pursuer reactions */}
             <IonButtons slot="end">
               <IonButton onClick={() => setIsOpen(false)}>
                 <IonIcon icon={close} slot="end" color="dark"></IonIcon>
@@ -53,28 +58,119 @@ const Action: React.FC = () => {
           </IonToolbar>
 
           <div className="wrapper">
-            <h1>Sample Actions</h1>
             <IonButton
-              onClick={(e) =>
-                setSampleAction((e.target as HTMLInputElement).innerText)
-              }
+              onClick={(e) => {
+                setSampleAction((e.target as HTMLInputElement).innerText);
+                setIsOpen(false);
+              }}
             >
-              Complain
+              attacked
             </IonButton>
             <IonButton
-              onClick={(e) =>
-                setSampleAction((e.target as HTMLInputElement).innerText)
-              }
+              onClick={(e) => {
+                setSampleAction((e.target as HTMLInputElement).innerText);
+                setIsOpen(false);
+              }}
             >
-              Attack
+              complained
             </IonButton>
             <IonButton
-              onClick={(e) =>
-                setSampleAction((e.target as HTMLInputElement).innerText)
-              }
+              onClick={(e) => {
+                setSampleAction((e.target as HTMLInputElement).innerText);
+                setIsOpen(false);
+              }}
             >
-              Blame or point out mistakes
+              expressed frustration
             </IonButton>
+            <IonButton
+              onClick={(e) => {
+                setSampleAction((e.target as HTMLInputElement).innerText);
+                setIsOpen(false);
+              }}
+            >
+              yelled
+            </IonButton>
+            <IonButton
+              onClick={(e) => {
+                setSampleAction((e.target as HTMLInputElement).innerText);
+                setIsOpen(false);
+              }}
+            >
+              Make threats
+            </IonButton>
+            <IonButton
+              onClick={(e) => {
+                setSampleAction((e.target as HTMLInputElement).innerText);
+                setIsOpen(false);
+              }}
+            >
+              criticized
+            </IonButton>
+
+            {/* withdrawer reactions */}
+            <br></br>
+            <IonButton
+              color={"secondary"}
+              onClick={(e) => {
+                setSampleAction((e.target as HTMLInputElement).innerText);
+                setIsOpen(false);
+              }}
+            >
+              zoned out
+            </IonButton>
+            <IonButton
+              color={"secondary"}
+              onClick={(e) => {
+                setSampleAction((e.target as HTMLInputElement).innerText);
+                setIsOpen(false);
+              }}
+            >
+              analyzed
+            </IonButton>
+            <IonButton
+              color={"secondary"}
+              onClick={(e) => {
+                setSampleAction((e.target as HTMLInputElement).innerText);
+                setIsOpen(false);
+              }}
+            >
+              became quiet
+            </IonButton>
+            <IonButton
+              color={"secondary"}
+              onClick={(e) => {
+                setSampleAction((e.target as HTMLInputElement).innerText);
+                setIsOpen(false);
+              }}
+            >
+              walked away
+            </IonButton>
+            <IonButton
+              color={"secondary"}
+              onClick={(e) => {
+                setSampleAction((e.target as HTMLInputElement).innerText);
+                setIsOpen(false);
+              }}
+            >
+              sulked
+            </IonButton>
+            <IonButton
+              color={"secondary"}
+              onClick={(e) => {
+                setSampleAction((e.target as HTMLInputElement).innerText);
+                setIsOpen(false);
+              }}
+            >
+              tried to reason
+            </IonButton>
+
+            {/* other option */}
+            <IonInput
+              placeholder="Others"
+              onIonChange={(e) => {
+                setSampleAction(e.target.value);
+              }}
+            ></IonInput>
           </div>
         </IonModal>
 

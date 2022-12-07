@@ -2,7 +2,6 @@ import {
   IonHeader,
   IonContent,
   IonToolbar,
-  IonTitle,
   IonPage,
   IonRouterLink,
   IonButton,
@@ -11,14 +10,14 @@ import {
   IonCardContent,
 } from "@ionic/react";
 
-import Trigger from "./Trigger";
+import Cta from "../components/Cta";
 
 const Intro2: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Intro2</IonTitle>
+          <Cta />
         </IonToolbar>
         <IonProgressBar className="ion-margin-top" value={0.2}></IonProgressBar>
       </IonHeader>
@@ -27,7 +26,7 @@ const Intro2: React.FC = () => {
         <IonCard>
           <IonCardContent>
             <p>
-              "Great job taking the first step! In a few moment, we will walk
+              Great job taking the first step! In a few moment, we will walk
               through what EFT calls the *conflict de-escalation cycle*
               (italic). This exercise will take you around 10 minutes to
               complete. You will need to reflect on your triggers, feelings, and
@@ -36,7 +35,7 @@ const Intro2: React.FC = () => {
               <br></br>
               Reflecting on your emotions can be overwhelming. If at any moment
               you feel too overwhelmed to continue, take a break, BREAAAATHE,
-              and come back when you're ready."
+              and come back when you're ready.
             </p>
           </IonCardContent>
         </IonCard>

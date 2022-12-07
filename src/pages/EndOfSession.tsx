@@ -39,8 +39,10 @@ const EndOfSession: React.FC = () => {
           </IonHeader>
           <IonContent className="ion-padding">
             <p>
-              Congratulations! You've just completed your first conflict cycle!
-              One step closer to your inner self and your partner.
+              <span style={{ fontWeight: "800" }}>
+                Congratulations! You've just completed your first conflict
+                cycle! One step closer to your inner self and your partner.
+              </span>
               <br></br>
               <br></br>
               After each session we will show you a tailored message of support,
