@@ -13,12 +13,10 @@ import {
   IonIcon,
   IonCardHeader,
   IonCardTitle,
-  IonNavLink,
   setupIonicReact,
 } from "@ionic/react";
 import { useRef } from "react";
 import { arrowForwardOutline, logoGoogle } from "ionicons/icons";
-import Dashboard from "../../pages/Dashboard";
 import React from "react";
 import { Link } from 'react-router-dom';
 

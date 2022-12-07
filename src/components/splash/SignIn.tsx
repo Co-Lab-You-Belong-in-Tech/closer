@@ -25,7 +25,6 @@ import { loginUser } from "../../features/api/auth";
 
 // import hooks
 import { useShowToast } from "../../hooks/useShowToast";
-import SignUp from "./SignUp";
 import Dashboard from "../../pages/Dashboard";
 
 interface SignInProps {
