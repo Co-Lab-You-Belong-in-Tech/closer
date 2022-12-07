@@ -28,7 +28,6 @@ import Reflection from "./pages/Reflection";
 import EndOfSession from "./pages/EndOfSession";
 // Custom hooks
 import { useTimeout } from "./hooks/useTimeOut";
-import Insights from "./pages/Insights";
 
 setupIonicReact();
 
@@ -160,12 +159,7 @@ const App: React.FC<RouteComponentProps> = () => {
                 guest || loggedIn ? <Analysis /> : <Redirect to="/signin" />
               }
             />
-            <Route
-              path="/insights"
-              render={() =>
-                guest || loggedIn ? <Insights /> : <Redirect to="/signin" />
-              }
-            />
+
             <Route
               path="/reflection"
               render={() =>

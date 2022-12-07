@@ -9,35 +9,38 @@ import {
   IonSelect,
   IonSelectOption,
   IonRouterLink,
+  IonTitle,
+  IonToolbar,
 } from "@ionic/react";
+import Cta from "../components/Cta";
 
 const Emotion: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
-        <IonProgressBar className="ion-margin-top" value={0.4}></IonProgressBar>
-
-        <h2 className="ion-text-center">What emotion did you feel? </h2>
+        <IonToolbar>
+          <Cta />
+          <IonProgressBar
+            className="ion-margin-top"
+            value={0.4}
+          ></IonProgressBar>
+        </IonToolbar>
       </IonHeader>
 
       <IonContent className="ion-padding ion-margin-top">
+        <IonTitle>What emotion did you feel? </IonTitle>
         <IonList>
           <IonItem>
             <IonSelect
-              placeholder="Select all Triggers that apply"
+              placeholder="Select all Emotions that apply"
               multiple={true}
             >
-              <IonSelectOption value="An eyeroll">An eyeroll</IonSelectOption>
-              <IonSelectOption value="A look of annoyance">
-                A look of annoyance
-              </IonSelectOption>
-              <IonSelectOption value="Negative tone of voiceananas">
-                Negative tone of voice
-              </IonSelectOption>
-              <IonSelectOption value="Walking away">
-                Walking away
-              </IonSelectOption>
-              <IonSelectOption value="Being loud">Being loud</IonSelectOption>
+              <IonSelectOption value="frustrated">Frustrated</IonSelectOption>
+              <IonSelectOption value="annoyed">Annoyed</IonSelectOption>
+              <IonSelectOption value="numb">Numb</IonSelectOption>
+              <IonSelectOption value="helpless">Helpless</IonSelectOption>
+              <IonSelectOption value="threatened">Threatened</IonSelectOption>
+              <IonSelectOption value="exhausted">Exhausted</IonSelectOption>
             </IonSelect>
           </IonItem>
         </IonList>

@@ -21,6 +21,7 @@ import {
   IonLabel,
 } from "@ionic/react";
 import { close } from "ionicons/icons";
+import Cta from "../components/Cta";
 
 const Reflection: React.FC = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -29,7 +30,7 @@ const Reflection: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle className="ion-text-center">Reflection</IonTitle>
+          <Cta />
           <IonProgressBar
             className="ion-margin-top"
             value={1.0}

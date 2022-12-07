@@ -9,20 +9,30 @@ import {
   IonItem,
   IonRouterLink,
   IonInput,
+  IonToolbar,
 } from "@ionic/react";
+import Cta from "../components/Cta";
 
 const Pain3: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
-        <IonProgressBar className="ion-margin-top" value={0.8}></IonProgressBar>
+        <IonToolbar>
+          <Cta />
+          <IonProgressBar
+            className="ion-margin-top"
+            value={0.8}
+          ></IonProgressBar>
+        </IonToolbar>
+      </IonHeader>
 
-        <h2
+      <IonContent className="ion-padding ion-margin-top">
+        <h3
           className="ion-text-center"
           style={{ width: "55%", marginLeft: "22.5%", marginTop: "50%" }}
         >
           If the pain had words, it would say...{" "}
-        </h2>
+        </h3>
 
         <IonItem>
           <IonInput
@@ -30,9 +40,6 @@ const Pain3: React.FC = () => {
             className="ion-text-center"
           ></IonInput>
         </IonItem>
-      </IonHeader>
-
-      <IonContent className="ion-padding ion-margin-top">
         <IonRouterLink routerLink="pain4">
           <IonButton color="light" className="ion-text-center">
             CONTINUE

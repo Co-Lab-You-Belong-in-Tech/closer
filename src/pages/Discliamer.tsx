@@ -4,7 +4,6 @@ import {
   IonHeader,
   IonContent,
   IonToolbar,
-  IonTitle,
   IonPage,
   IonRouterLink,
   IonButton,
@@ -18,6 +17,7 @@ import {
   IonIcon,
 } from "@ionic/react";
 import { close } from "ionicons/icons";
+import Cta from "../components/Cta";
 
 const Discliamer: React.FC = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -26,7 +26,7 @@ const Discliamer: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle className="ion-text-center">Discliamer</IonTitle>
+          <Cta />
           <IonProgressBar
             className="ion-margin-top"
             value={0.8}
@@ -36,16 +36,18 @@ const Discliamer: React.FC = () => {
 
       <IonContent className="ion-padding">
         <IonText color="dark" className="ion-text-center">
-          <h2>
+          <IonText>
             {" "}
-            Take your time with this part, really let yourself feel what you are
-            writing about.
-          </h2>
+            <h3>
+              Take your time with this part, really let yourself feel what you
+              are writing about.
+            </h3>
+          </IonText>
         </IonText>
         <IonGrid>
           <IonRow>
             <IonCol className="ion-text-center anim-circle">
-              <h5>Breath❤️</h5>
+              <h5>Breath</h5>
             </IonCol>
           </IonRow>
         </IonGrid>
