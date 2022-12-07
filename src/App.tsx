@@ -18,9 +18,18 @@ import Action from "./pages/Action";
 import Intro2 from "./pages/Intro2";
 import ActionOfPartner from "./pages/ActionOfPartner";
 import Discliamer from "./pages/Discliamer";
-
+import Pain1 from "./pages/Pain1";
+import Pain2 from "./pages/Pain2";
+import Pain3 from "./pages/Pain3";
+import Pain4 from "./pages/Pain4";
+import PreSummary from "./pages/PreSummary";
+import CycleSummary from "./pages/CycleSummary";
+import Analysis from "./pages/Analysis";
+import Reflection from "./pages/Reflection";
+import EndOfSession from "./pages/EndOfSession";
 // Custom hooks
 import { useTimeout } from "./hooks/useTimeOut";
+import Insights from "./pages/Insights";
 // Get stores
 import { useUserStatusStore } from "./features/store";
 
@@ -59,6 +68,10 @@ const App: React.FC<RouteComponentProps> = () => {
               }
               exact={true}
             />
+            <Route exact path="/" render={() => <Redirect to="/signin" />} />
+
+            {/* below is Jingru Dec 3 work  */}
+
             <Route
               path="/dashboard"
               render={
@@ -127,6 +140,97 @@ const App: React.FC<RouteComponentProps> = () => {
               render={
                 userStatus === "guest" || userStatus === "loggedIn"
                   ? () => <Dashboard />
+                  : () => <Redirect to="/sign-in" />
+              }
+              exact={true}
+            />
+
+            <Route
+              path="/pain1"
+              render={
+                userStatus === "guest" || userStatus === "loggedIn"
+                  ? () => <Pain1 />
+                  : () => <Redirect to="/sign-in" />
+              }
+              exact={true}
+            />
+            <Route
+              path="/pain2"
+              render={
+                userStatus === "guest" || userStatus === "loggedIn"
+                  ? () => <Pain2 />
+                  : () => <Redirect to="/sign-in" />
+              }
+              exact={true}
+            />
+            <Route
+              path="/pain3"
+              render={
+                userStatus === "guest" || userStatus === "loggedIn"
+                  ? () => <Pain3 />
+                  : () => <Redirect to="/sign-in" />
+              }
+              exact={true}
+            />
+            <Route
+              path="/pain4"
+              render={
+                userStatus === "guest" || userStatus === "loggedIn"
+                  ? () => <Pain4 />
+                  : () => <Redirect to="/sign-in" />
+              }
+              exact={true}
+            />
+            <Route
+              path="/preSummary"
+              render={
+                userStatus === "guest" || userStatus === "loggedIn"
+                  ? () => <PreSummary />
+                  : () => <Redirect to="/sign-in" />
+              }
+              exact={true}
+            />
+            <Route
+              path="/cycleSummary"
+              render={
+                userStatus === "guest" || userStatus === "loggedIn"
+                  ? () => <CycleSummary />
+                  : () => <Redirect to="/sign-in" />
+              }
+              exact={true}
+            />
+            <Route
+              path="/analysis"
+              render={
+                userStatus === "guest" || userStatus === "loggedIn"
+                  ? () => <Analysis />
+                  : () => <Redirect to="/sign-in" />
+              }
+              exact={true}
+            />
+            <Route
+              path="/insights"
+              render={
+                userStatus === "guest" || userStatus === "loggedIn"
+                  ? () => <Insights />
+                  : () => <Redirect to="/sign-in" />
+              }
+              exact={true}
+            />
+            <Route
+              path="/reflection"
+              render={
+                userStatus === "guest" || userStatus === "loggedIn"
+                  ? () => <Reflection />
+                  : () => <Redirect to="/sign-in" />
+              }
+              exact={true}
+            />
+            <Route
+              path="/endOfSession"
+              render={
+                userStatus === "guest" || userStatus === "loggedIn"
+                  ? () => <EndOfSession />
                   : () => <Redirect to="/sign-in" />
               }
               exact={true}
