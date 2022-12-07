@@ -18,18 +18,13 @@ import {
 } from "@ionic/react";
 import { useRef } from "react";
 import { arrowForwardOutline, logoGoogle } from "ionicons/icons";
-import Intro from "../Intro";
 import Dashboard from "../../pages/Dashboard";
 import React from "react";
 import { Link } from "react-router-dom";
-import { useQuery, useMutation } from "@tanstack/react-query";
-import axios from "axios";
+import { useMutation } from "@tanstack/react-query";
 import { registerUser } from "../../features/api/auth";
 // Import store
 import { useUserStatusStore } from "../../features/store";
-
-// Import API
-import { API_URL } from "../../react-app-env.d";
 
 // import { register } from "../../serviceWorkerRegistration";
 
@@ -52,9 +47,6 @@ const SignUp: React.FC<SignUpProps> = () => {
     {
       onSuccess: (data) => {
         setUserStatus("registered");
-        console.log("Success!");
-        console.log(data);
-        console.log("Biiiig error");
       },
       onError: (error) => {
         console.log("Error!");
