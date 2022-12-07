@@ -29,7 +29,6 @@ import Reflection from "./pages/Reflection";
 import EndOfSession from "./pages/EndOfSession";
 // Custom hooks
 import { useTimeout } from "./hooks/useTimeOut";
-import Insights from "./pages/Insights";
 // Get stores
 import { useUserStatusStore } from "./features/store";
 
@@ -208,15 +207,7 @@ const App: React.FC<RouteComponentProps> = () => {
               }
               exact={true}
             />
-            <Route
-              path="/insights"
-              render={
-                userStatus === "guest" || userStatus === "loggedIn"
-                  ? () => <Insights />
-                  : () => <Redirect to="/sign-in" />
-              }
-              exact={true}
-            />
+
             <Route
               path="/reflection"
               render={

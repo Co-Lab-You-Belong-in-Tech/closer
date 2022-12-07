@@ -7,13 +7,21 @@ import {
   IonButton,
   IonProgressBar,
   IonRouterLink,
+  IonToolbar,
 } from "@ionic/react";
+import Cta from "../components/Cta";
 
 const Pain4: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
-        <IonProgressBar className="ion-margin-top" value={0.8}></IonProgressBar>
+        <IonToolbar>
+          <Cta />
+          <IonProgressBar
+            className="ion-margin-top"
+            value={0.8}
+          ></IonProgressBar>
+        </IonToolbar>
       </IonHeader>
 
       <IonContent className="ion-padding ion-margin-top">

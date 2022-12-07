@@ -10,18 +10,25 @@ import {
   IonGrid,
   IonRow,
   IonCol,
+  IonToolbar,
 } from "@ionic/react";
+import Cta from "../components/Cta";
 
 const Analysis: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
-        <IonProgressBar className="ion-margin-top" value={0.8}></IonProgressBar>
-
-        <h2 className="ion-padding ion-text-center">Analysis </h2>
+        <IonToolbar>
+          <Cta />
+          <IonProgressBar
+            className="ion-margin-top"
+            value={0.8}
+          ></IonProgressBar>
+        </IonToolbar>
       </IonHeader>
 
       <IonContent className="ion-padding ion-margin-top">
+        <h2 className="ion-padding ion-text-center">Analysis </h2>
         <IonGrid>
           <IonRow>
             <h3>It seems like in conflicts, you are a ...</h3>
@@ -71,7 +78,7 @@ const Analysis: React.FC = () => {
           </IonRow>
         </IonGrid>
 
-        <IonRouterLink routerLink="insights">
+        <IonRouterLink routerLink="reflection">
           <IonButton color="light" className="ion-text-center">
             CONTINUE
           </IonButton>

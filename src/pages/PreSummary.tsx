@@ -11,12 +11,14 @@ import {
   IonCol,
   IonProgressBar,
 } from "@ionic/react";
+import Cta from "../components/Cta";
 
 const PreSummary: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
+          <Cta />
           <IonProgressBar
             className="ion-margin-top"
             value={0.8}

@@ -9,27 +9,33 @@ import {
   IonItem,
   IonRouterLink,
   IonTextarea,
+  IonToolbar,
 } from "@ionic/react";
+import Cta from "../components/Cta";
 
 const Pain1: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
-        <IonProgressBar className="ion-margin-top" value={0.8}></IonProgressBar>
+        <IonToolbar>
+          <Cta />
+          <IonProgressBar
+            className="ion-margin-top"
+            value={0.8}
+          ></IonProgressBar>
+        </IonToolbar>
+      </IonHeader>
 
-        <h2 className="ion-text-center">
+      <IonContent className="ion-padding ion-margin-top">
+        <h3 className="ion-text-center">
           What is the pain under my reaction?{" "}
-        </h2>
-
+        </h3>
         <IonItem>
           <IonTextarea
             className="ion-padding"
             placeholder="i.e. Hurt, loss, grief, loneliness, sadness, heartbreak, vulnerable, fear, confused, lost, etc."
           ></IonTextarea>
         </IonItem>
-      </IonHeader>
-
-      <IonContent className="ion-padding ion-margin-top">
         <IonRouterLink routerLink="/pain2">
           <IonButton color="light" className="ion-text-center">
             CONTINUE
