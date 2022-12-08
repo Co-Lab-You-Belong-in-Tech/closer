@@ -25,22 +25,17 @@ export const useUserStatusStore = create(
 
 // This code creates a store for the triggers component.
 // The store contains an array of triggers and functions to add and remove triggers.
-const TriggersStore = create<{
-  triggers: DefaultProps[];
-  addTrigger: (trigger: DefaultProps) => void;
-  removeTrigger: (trigger: DefaultProps) => void;
-}>( (set) => ({
+const TriggersStore = (set: any) => ({
   triggers: [],
-  addTrigger: (trigger) =>
-    set((state) => ({
+  addTrigger: (trigger: DefaultProps) =>
+    set((state: any) => ({
       triggers: [...state.triggers, trigger],
     })),
-  removeTrigger: (trigger) =>
-    set((state) => ({
-      triggers: state.triggers.filter((t) => t !== trigger),
+  removeTrigger: (id: string) =>
+    set((state: any) => ({
+      triggers: state.triggers.filter((trigger: DefaultProps) => trigger.id !== id),
     })),
-}));
-
+});
 
 // Creates a store and persists it to local storage
 export const useTriggersStore = create(
