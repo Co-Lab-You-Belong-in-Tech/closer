@@ -66,11 +66,7 @@ const Trigger: React.FC = () => {
         </IonItem>
 
         <IonRouterLink routerLink="emotion">
-          <IonButton
-            color="light"
-            className="ion-text-center"
-            style={{ margin: "10%" }}
-          >
+          <IonButton color="light" className="ion-text-center buttonStyle">
             CONTINUE
           </IonButton>
         </IonRouterLink>

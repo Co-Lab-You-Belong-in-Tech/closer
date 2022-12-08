@@ -41,7 +41,7 @@ const PreSummary: React.FC = () => {
         <IonRouterLink routerLink="cycleSummary">
           <IonButton
             color="light"
-            className="ion-text-center discliamerContinue"
+            className="ion-text-center discliamerContinue buttonStyle"
           >
             CONTINUE
           </IonButton>

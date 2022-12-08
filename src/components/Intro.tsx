@@ -56,9 +56,9 @@ const Intro: React.FC = () => {
         </p>
         <IonButton
           size="large"
-          className="ion-text-center"
-          color="dark"
+          className="ion-text-center buttonStyle"
           onClick={() => setIsOpen(false)}
+          color="light"
         >
           Continue
         </IonButton>

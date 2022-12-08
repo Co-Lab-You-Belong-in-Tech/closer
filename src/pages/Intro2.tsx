@@ -41,11 +41,7 @@ const Intro2: React.FC = () => {
         </IonCard>
 
         <IonRouterLink routerLink="trigger">
-          <IonButton
-            color="light"
-            className="ion-text-center"
-            style={{ margin: "10%" }}
-          >
+          <IonButton color="light" className="ion-text-center buttonStyle">
             LET'S FIND OUT
           </IonButton>
         </IonRouterLink>
