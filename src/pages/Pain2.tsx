@@ -34,7 +34,7 @@ const Pain2: React.FC = () => {
           <IonTextarea placeholder="i.e. twist in the stomach or pressure on the chest etc."></IonTextarea>
         </IonItem>
         <IonRouterLink routerLink="pain3">
-          <IonButton color="light" className="ion-text-center">
+          <IonButton color="light" className="ion-text-center buttonStyle">
             CONTINUE
           </IonButton>
         </IonRouterLink>

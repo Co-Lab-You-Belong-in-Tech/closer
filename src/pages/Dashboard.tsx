@@ -15,7 +15,7 @@ const Dashboard: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Dashboard</IonTitle>
+          <IonTitle> Welcome!</IonTitle>
         </IonToolbar>
       </IonHeader>
 

@@ -172,11 +172,7 @@ const ActionOfPartner: React.FC = () => {
         </IonModal>
 
         <IonRouterLink routerLink="discliamer">
-          <IonButton
-            color="light"
-            className="ion-text-center"
-            style={{ margin: "10%" }}
-          >
+          <IonButton color="light" className="ion-text-center buttonStyle">
             CONTINUE
           </IonButton>
         </IonRouterLink>

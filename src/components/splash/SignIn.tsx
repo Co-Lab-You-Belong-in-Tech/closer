@@ -11,13 +11,12 @@ import {
   IonButton,
   IonCard,
   IonIcon,
-  IonCardHeader,
-  IonCardTitle,
   setupIonicReact,
   IonNavLink,
+  IonCardContent,
 } from "@ionic/react";
 import { arrowForwardOutline, logoGoogle } from "ionicons/icons";
-import React from 'react';
+import React from "react";
 import { Link } from "react-router-dom";
 import { useUserStatusStore } from "../../features/store";
 import { useMutation } from "@tanstack/react-query";
@@ -42,17 +41,20 @@ const SignIn: React.FC<SignInProps> = () => {
   // setup toast
   const showToast = useShowToast();
 
-  const { mutate: signIn, isLoading, } = useMutation((FormData: object) => loginUser(FormData), {
-    onSuccess: (data) => {
-      console.log(data);
-      setUserStatus("loggedIn");
-      showToast(data.status.message, "success");
-    },
-    onError: (error: any) => {
-      console.log(error);
-      showToast(JSON.stringify(error.response.data), "danger");
+  const { mutate: signIn, isLoading } = useMutation(
+    (FormData: object) => loginUser(FormData),
+    {
+      onSuccess: (data) => {
+        console.log(data);
+        setUserStatus("loggedIn");
+        showToast(data.status.message, "success");
+      },
+      onError: (error: any) => {
+        console.log(error);
+        showToast(JSON.stringify(error.response.data), "danger");
+      },
     }
-  });
+  );
 
   const handleSignIn = (
     e: React.MouseEvent<HTMLIonButtonElement, MouseEvent>
@@ -63,17 +65,19 @@ const SignIn: React.FC<SignInProps> = () => {
       password: passwordRef.current!.value,
     };
     console.log(formData);
-    formData.email && formData.password ? signIn(formData) : showToast("Please fill in all fields", "warning");
+    formData.email && formData.password
+      ? signIn(formData)
+      : showToast("Please fill in all fields", "warning");
     // resume default behavior
   };
-  
+
   return (
     <IonPage className="ion-padding">
       <IonHeader>
         <IonCard>
-          <IonCardHeader>
-            <IonCardTitle className="signInTitle">Logo goes here</IonCardTitle>
-          </IonCardHeader>
+          <IonCardContent>
+            Turning the pain of relationship conflict into positive experiences.
+          </IonCardContent>
         </IonCard>
       </IonHeader>
 
@@ -101,7 +105,14 @@ const SignIn: React.FC<SignInProps> = () => {
 
           <IonRow>
             <IonCol>
-              <IonButton onClick={(e) => {handleSignIn(e)}} expand="block" color="dark" size="large">
+              <IonButton
+                onClick={(e) => {
+                  handleSignIn(e);
+                }}
+                expand="block"
+                color="dark"
+                size="large"
+              >
                 {isLoading ? "Loading..." : "Sign In"}
                 <IonIcon icon={arrowForwardOutline} slot="end"></IonIcon>
               </IonButton>

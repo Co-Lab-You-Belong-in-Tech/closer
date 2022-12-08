@@ -45,11 +45,7 @@ const Emotion: React.FC = () => {
         </IonList>
 
         <IonRouterLink routerLink="action">
-          <IonButton
-            color="light"
-            className="ion-text-center"
-            style={{ margin: "10%" }}
-          >
+          <IonButton color="light" className="ion-text-center buttonStyle">
             CONTINUE
           </IonButton>
         </IonRouterLink>
