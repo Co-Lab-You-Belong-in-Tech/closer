@@ -40,10 +40,10 @@ const App: React.FC<RouteComponentProps> = () => {
 
   console.log(userStatus);
 
-  useTimeout(() => setLoading(false), 3000);
+  useTimeout(() => setLoading(false), 999000);
 
   return (
-    <IonApp>
+    <IonApp className="">
       {loading ? (
         <Splash />
       ) : (
