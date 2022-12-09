@@ -44,7 +44,7 @@ const App: React.FC<RouteComponentProps> = () => {
   useTimeout(() => setLoading(false), 3000);
 
   return (
-    <IonApp>
+    <IonApp className="">
       {loading ? (
         <Splash />
       ) : (

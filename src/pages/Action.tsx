@@ -20,6 +20,9 @@ import {
 import { close } from "ionicons/icons";
 import Cta from "../components/Cta";
 
+// import needed data
+import { stockActions } from "../data/stockActions";
+
 const Action: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [sampleAction, setSampleAction] = useState<any | null>(null);
@@ -58,105 +61,22 @@ const Action: React.FC = () => {
           </IonToolbar>
 
           <div className="wrapper">
-            <IonButton
-              onClick={(e) => {
-                setSampleAction((e.target as HTMLInputElement).innerText);
-                setIsOpen(false);
-              }}
-            >
-              attacked
-            </IonButton>
-            <IonButton
-              onClick={(e) => {
-                setSampleAction((e.target as HTMLInputElement).innerText);
-                setIsOpen(false);
-              }}
-            >
-              complained
-            </IonButton>
-            <IonButton
-              onClick={(e) => {
-                setSampleAction((e.target as HTMLInputElement).innerText);
-                setIsOpen(false);
-              }}
-            >
-              expressed frustration
-            </IonButton>
-            <IonButton
-              onClick={(e) => {
-                setSampleAction((e.target as HTMLInputElement).innerText);
-                setIsOpen(false);
-              }}
-            >
-              yelled
-            </IonButton>
-            <IonButton
-              onClick={(e) => {
-                setSampleAction((e.target as HTMLInputElement).innerText);
-                setIsOpen(false);
-              }}
-            >
-              Make threats
-            </IonButton>
-            <IonButton
-              onClick={(e) => {
-                setSampleAction((e.target as HTMLInputElement).innerText);
-                setIsOpen(false);
-              }}
-            >
-              criticized
-            </IonButton>
-
-            {/* withdrawer reactions */}
-            <br></br>
-            <IonButton
-              onClick={(e) => {
-                setSampleAction((e.target as HTMLInputElement).innerText);
-                setIsOpen(false);
-              }}
-            >
-              zoned out
-            </IonButton>
-            <IonButton
-              onClick={(e) => {
-                setSampleAction((e.target as HTMLInputElement).innerText);
-                setIsOpen(false);
-              }}
-            >
-              analyzed
-            </IonButton>
-            <IonButton
-              onClick={(e) => {
-                setSampleAction((e.target as HTMLInputElement).innerText);
-                setIsOpen(false);
-              }}
-            >
-              became quiet
-            </IonButton>
-            <IonButton
-              onClick={(e) => {
-                setSampleAction((e.target as HTMLInputElement).innerText);
-                setIsOpen(false);
-              }}
-            >
-              walked away
-            </IonButton>
-            <IonButton
-              onClick={(e) => {
-                setSampleAction((e.target as HTMLInputElement).innerText);
-                setIsOpen(false);
-              }}
-            >
-              sulked
-            </IonButton>
-            <IonButton
-              onClick={(e) => {
-                setSampleAction((e.target as HTMLInputElement).innerText);
-                setIsOpen(false);
-              }}
-            >
-              tried to reason
-            </IonButton>
+            <>
+            {
+              stockActions.map((action, index) => {
+                return (
+                  <IonButton
+                    key={index}
+                    onClick={() => {
+                      setSampleAction(action);
+                      setIsOpen(false);
+                    }}
+                  >
+                    {action}
+                  </IonButton>
+                );
+              })
+            }
 
             {/* other option */}
             <IonInput
@@ -165,6 +85,7 @@ const Action: React.FC = () => {
                 setSampleAction(e.target.value);
               }}
             ></IonInput>
+            </>
           </div>
         </IonModal>
 
