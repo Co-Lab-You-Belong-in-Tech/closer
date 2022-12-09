@@ -107,7 +107,6 @@ const ActionOfPartner: React.FC = () => {
             {/* withdrawer reactions */}
             <br></br>
             <IonButton
-              color={"secondary"}
               onClick={(e) => {
                 setSampleAction((e.target as HTMLInputElement).innerText);
                 setIsOpen(false);
@@ -116,7 +115,6 @@ const ActionOfPartner: React.FC = () => {
               zoned out
             </IonButton>
             <IonButton
-              color={"secondary"}
               onClick={(e) => {
                 setSampleAction((e.target as HTMLInputElement).innerText);
                 setIsOpen(false);
@@ -125,7 +123,6 @@ const ActionOfPartner: React.FC = () => {
               analyzed
             </IonButton>
             <IonButton
-              color={"secondary"}
               onClick={(e) => {
                 setSampleAction((e.target as HTMLInputElement).innerText);
                 setIsOpen(false);
@@ -134,7 +131,6 @@ const ActionOfPartner: React.FC = () => {
               became quiet
             </IonButton>
             <IonButton
-              color={"secondary"}
               onClick={(e) => {
                 setSampleAction((e.target as HTMLInputElement).innerText);
                 setIsOpen(false);
@@ -143,7 +139,6 @@ const ActionOfPartner: React.FC = () => {
               walked away
             </IonButton>
             <IonButton
-              color={"secondary"}
               onClick={(e) => {
                 setSampleAction((e.target as HTMLInputElement).innerText);
                 setIsOpen(false);
@@ -152,7 +147,6 @@ const ActionOfPartner: React.FC = () => {
               sulked
             </IonButton>
             <IonButton
-              color={"secondary"}
               onClick={(e) => {
                 setSampleAction((e.target as HTMLInputElement).innerText);
                 setIsOpen(false);
