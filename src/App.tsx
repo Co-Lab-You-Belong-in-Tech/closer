@@ -1,6 +1,6 @@
 import React from "react";
 import { setupIonicReact, IonApp, IonRouterOutlet } from "@ionic/react";
-import { Redirect, Route, RouteComponentProps } from 'react-router-dom';
+import { Redirect, Route, RouteComponentProps } from "react-router-dom";
 import { IonReactRouter } from "@ionic/react-router";
 
 // import components styles
@@ -12,10 +12,11 @@ import Splash from "./components/splash/Splash";
 
 // import pages
 import Dashboard from "./pages/Dashboard";
+import Intro2 from "./pages/Intro2";
+import InfoOfConflict from "./pages/InfoOfConflict";
 import Trigger from "./pages/Trigger";
 import Emotion from "./pages/Emotion";
 import Action from "./pages/Action";
-import Intro2 from "./pages/Intro2";
 import ActionOfPartner from "./pages/ActionOfPartner";
 import Discliamer from "./pages/Discliamer";
 import Pain1 from "./pages/Pain1";
@@ -69,13 +70,22 @@ const App: React.FC<RouteComponentProps> = () => {
             />
             <Route exact path="/" render={() => <Redirect to="/signin" />} />
 
-            {/* below is Jingru Dec 3 work  */}
+            {/* below is from  Jingru  after Dec 3   */}
 
             <Route
               path="/dashboard"
               render={
                 userStatus === "guest" || userStatus === "loggedIn"
                   ? () => <Dashboard />
+                  : () => <Redirect to="/sign-in" />
+              }
+              exact={true}
+            />
+            <Route
+              path="/infoOfConflict"
+              render={
+                userStatus === "guest" || userStatus === "loggedIn"
+                  ? () => <InfoOfConflict />
                   : () => <Redirect to="/sign-in" />
               }
               exact={true}

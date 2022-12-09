@@ -4,7 +4,6 @@ import {
   IonHeader,
   IonContent,
   IonToolbar,
-  IonTitle,
   IonPage,
   IonRouterLink,
   IonButton,
@@ -99,7 +98,7 @@ const Reflection: React.FC = () => {
         </IonItem>
 
         <IonRouterLink routerLink="endOfSession">
-          <IonButton color="light" className="ion-text-center ion-margin-top">
+          <IonButton color="light" className="ion-text-center buttonStyle">
             SAVE AND CLOSE
           </IonButton>
         </IonRouterLink>
@@ -141,7 +140,7 @@ const Reflection: React.FC = () => {
             </p>
             <IonButton
               size="large"
-              className="ion-text-center"
+              className="ion-text-center buttonStyle"
               onClick={() => setIsOpen(false)}
               color="light"
             >

@@ -110,7 +110,6 @@ const Action: React.FC = () => {
             {/* withdrawer reactions */}
             <br></br>
             <IonButton
-              color={"secondary"}
               onClick={(e) => {
                 setSampleAction((e.target as HTMLInputElement).innerText);
                 setIsOpen(false);
@@ -119,7 +118,6 @@ const Action: React.FC = () => {
               zoned out
             </IonButton>
             <IonButton
-              color={"secondary"}
               onClick={(e) => {
                 setSampleAction((e.target as HTMLInputElement).innerText);
                 setIsOpen(false);
@@ -128,7 +126,6 @@ const Action: React.FC = () => {
               analyzed
             </IonButton>
             <IonButton
-              color={"secondary"}
               onClick={(e) => {
                 setSampleAction((e.target as HTMLInputElement).innerText);
                 setIsOpen(false);
@@ -137,7 +134,6 @@ const Action: React.FC = () => {
               became quiet
             </IonButton>
             <IonButton
-              color={"secondary"}
               onClick={(e) => {
                 setSampleAction((e.target as HTMLInputElement).innerText);
                 setIsOpen(false);
@@ -146,7 +142,6 @@ const Action: React.FC = () => {
               walked away
             </IonButton>
             <IonButton
-              color={"secondary"}
               onClick={(e) => {
                 setSampleAction((e.target as HTMLInputElement).innerText);
                 setIsOpen(false);
@@ -155,7 +150,6 @@ const Action: React.FC = () => {
               sulked
             </IonButton>
             <IonButton
-              color={"secondary"}
               onClick={(e) => {
                 setSampleAction((e.target as HTMLInputElement).innerText);
                 setIsOpen(false);
@@ -175,11 +169,7 @@ const Action: React.FC = () => {
         </IonModal>
 
         <IonRouterLink routerLink="action-Of-Partner">
-          <IonButton
-            color="light"
-            className="ion-text-center"
-            style={{ margin: "10%" }}
-          >
+          <IonButton color="light" className="ion-text-center buttonStyle">
             CONTINUE
           </IonButton>
         </IonRouterLink>

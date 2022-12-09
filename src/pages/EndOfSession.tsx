@@ -61,7 +61,7 @@ const EndOfSession: React.FC = () => {
             </p>
             <IonButton
               size="large"
-              className="ion-text-center"
+              className="ion-text-center buttonStyle"
               onClick={() => setIsOpen(false)}
               color="light"
             >
@@ -84,9 +84,8 @@ const EndOfSession: React.FC = () => {
         <IonRouterLink routerLink="/">
           <IonButton
             expand="block"
-            color="light"
-            className="signInTitle ion-text-center ion-margin
-              "
+            color="medium"
+            className="signInTitle ion-text-center ion-margin"
           >
             View past conflicts
           </IonButton>

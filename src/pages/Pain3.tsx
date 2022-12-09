@@ -41,7 +41,7 @@ const Pain3: React.FC = () => {
           ></IonInput>
         </IonItem>
         <IonRouterLink routerLink="pain4">
-          <IonButton color="light" className="ion-text-center">
+          <IonButton color="light" className="ion-text-center buttonStyle">
             CONTINUE
           </IonButton>
         </IonRouterLink>
