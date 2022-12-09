@@ -2,7 +2,8 @@
 
 <div align="center">
 
-  <img src="" alt="logo" width="140"  height="auto" />
+  <img width="548" alt="logo" src="https://user-images.githubusercontent.com/101676244/206629623-43152c65-9eb6-4cc4-94ec-e4f7dfe133ba.png" width="140"  height="auto" >
+
   <br/>
 
   <h3><b>Closer</b></h3>
