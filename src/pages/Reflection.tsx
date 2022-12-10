@@ -124,19 +124,19 @@ const Reflection: React.FC = () => {
               specfic Refelction questions for you.
               <br></br>
               <br></br>
-              "We are almost done! You should be proud of your progress so far.
+              We are almost done! You should be proud of your progress so far.
               Now for the final stage of this session, you will be answering two
               reflection questions. - What is one way that your partner can make
               it better next time? - What is one way that you can make it better
-              next time?"
+              next time?
               <br></br>
               <br></br>
-              "These questions require a great deal of introspection and
+              These questions require a great deal of introspection and
               emotional energy, so take your time with them. To figure out what
               is happening within yourself is difficult and explaining what may
               be deeply personal experiences to your partner may make you feel
               scared and vulnerable. But remember that this is normal, and that
-              it will be worth it."
+              it will be worth it.
             </p>
             <IonButton
               size="large"

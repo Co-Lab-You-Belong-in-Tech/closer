@@ -114,3 +114,75 @@ export const useEmotionsStore = create(
     })
   )
 );
+
+
+// This code creates a store for the pain1 component.
+// The store contains an array of pains under my reaction and functions to add and remove pains.
+const pain1Store = (set: any) => ({
+  pain1: [],
+  addPain1: (pain1Input: string) =>
+    set((state: any) => ({
+      pain1: [...state.pain1, pain1Input],
+    })),
+  removePain1: (id: string) =>
+    set((state: any) => ({
+      pain1: state.pain1.filter((pain: DefaultProps) => pain.id !== id),
+    })),
+});
+
+// Creates a store and persists it to local storage
+export const usePain1Store= create(
+  persist(
+    devtools( pain1Store, {
+      name: "pain1",
+    })
+  )
+);
+
+
+// This code creates a store for the pain2 component.
+// The store contains an array of answers of "Where do I hold that pain in my body?"" and functions to add and remove pains.
+const pain2Store = (set: any) => ({
+  pain2: [],
+  addPain2: (pain2Input: string) =>
+    set((state: any) => ({
+      pain2: [...state.pain2, pain2Input],
+    })),
+  removePain2: (id: string) =>
+    set((state: any) => ({
+      pain2: state.pain2.filter((pain: DefaultProps) => pain.id !== id),
+    })),
+});
+
+// Creates a store and persists it to local storage
+export const usePain2Store= create(
+  persist(
+    devtools( pain2Store, {
+      name: "pain2",
+    })
+  )
+);
+
+
+// This code creates a store for the pain3 component.
+// The store contains an array of answers of "If the pain had words, it would say..?"" and functions to add and remove pains.
+const pain3Store = (set: any) => ({
+  pain3: [],
+  addPain3: (pain3Input: string) =>
+    set((state: any) => ({
+      pain3: [...state.pain3, pain3Input],
+    })),
+  removePain3: (id: string) =>
+    set((state: any) => ({
+      pain3: state.pain3.filter((pain: DefaultProps) => pain.id !== id),
+    })),
+});
+
+// Creates a store and persists it to local storage
+export const usePain3Store= create(
+  persist(
+    devtools( pain3Store, {
+      name: "pain3",
+    })
+  )
+);

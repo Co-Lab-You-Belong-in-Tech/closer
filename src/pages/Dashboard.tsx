@@ -30,6 +30,15 @@ const Dashboard: React.FC = () => {
             Log in a new conflict cycle
           </IonButton>
         </IonRouterLink>
+
+        <IonButton
+          expand="block"
+          color="medium"
+          className="signInTitle ion-text-center ion-margin"
+          disabled
+        >
+          View past conflicts
+        </IonButton>
       </IonContent>
       <Intro />
     </IonPage>
