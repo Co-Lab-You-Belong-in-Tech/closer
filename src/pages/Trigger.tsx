@@ -19,19 +19,19 @@ import Cta from "../components/Cta";
 
 // Import the store
 import { useTriggersStore } from "../features/store";
+import { stockTriggers } from "../data/stockTriggers";
 
 const Trigger: React.FC = () => {
   const addTrigger = useTriggersStore((state) => state.addTrigger);
-  const trigger = React.useRef<HTMLIonRadioGroupElement>(null);
+  const triggerRef = React.useRef<HTMLIonRadioGroupElement>(null);
 
   const handleAddTrigger = (
     e: React.MouseEvent<HTMLIonButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
-    addTrigger({
-      trigger: trigger.current?.value,
-    });
+    addTrigger(triggerRef.current?.value);
   };
+
 
   return (
     <IonPage>
@@ -48,31 +48,13 @@ const Trigger: React.FC = () => {
       <IonContent className="ion-padding ion-margin-top">
         <h3>What triggered your reaction?</h3>
         <IonList>
-          <IonRadioGroup value="triggers">
-            <IonItem>
-              <IonLabel>An eyeroll</IonLabel>
-              <IonRadio slot="end" value="An eyeroll"></IonRadio>
-            </IonItem>
-
-            <IonItem>
-              <IonLabel>A look of annoyance</IonLabel>
-              <IonRadio slot="end" value="A look of annoyance"></IonRadio>
-            </IonItem>
-
-            <IonItem>
-              <IonLabel>Negative tone of voice</IonLabel>
-              <IonRadio slot="end" value="Negative tone of voice"></IonRadio>
-            </IonItem>
-
-            <IonItem>
-              <IonLabel>Walking away</IonLabel>
-              <IonRadio slot="end" value="Walking away"></IonRadio>
-            </IonItem>
-
-            <IonItem>
-              <IonLabel>Being loud</IonLabel>
-              <IonRadio slot="end" value="Being loud"></IonRadio>
-            </IonItem>
+          <IonRadioGroup ref={triggerRef} value="triggers">
+            {stockTriggers.map((trigger) => (
+              <IonItem key={Array.prototype.indexOf.call(stockTriggers, trigger)}>
+                <IonLabel>{trigger}</IonLabel>
+                <IonRadio slot="end" value={trigger}></IonRadio>
+              </IonItem>
+            ))}
           </IonRadioGroup>
         </IonList>
 
@@ -82,7 +64,7 @@ const Trigger: React.FC = () => {
         </IonItem>
 
         <IonRouterLink routerLink="emotion">
-          <IonButton color="light" className="ion-text-center buttonStyle">
+          <IonButton onClick={(e) => handleAddTrigger(e)} color="light" className="ion-text-center buttonStyle">
             CONTINUE
           </IonButton>
         </IonRouterLink>

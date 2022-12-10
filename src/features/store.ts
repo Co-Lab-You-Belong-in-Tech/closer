@@ -38,9 +38,11 @@ export const useTriggersStore = create(
   persist(
     devtools( (set: any) => ({
       triggers: [],
-      addTrigger: (trigger: object) =>
+      addTrigger: (trigger: string) =>
         set((state: any) => ({
-          triggers: [...state.triggers, trigger],
+          // check if the trigger already exists
+          triggers: state.triggers.includes(trigger)
+            ? state.triggers : [...state.triggers, trigger],
         })),
       removeTrigger: (id: string) =>
         set((state: any) => ({
