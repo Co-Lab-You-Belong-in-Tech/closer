@@ -2,10 +2,19 @@ import create from "zustand";
 import { devtools, persist } from "zustand/middleware";
 
 interface DefaultProps{
-  id: string;
+  id?: string;
   name: string;
-  createdAt: string;
-  updatedAt: string;
+  createdAt?: string;
+  updatedAt?: string;
+}
+
+interface ConflictProps{
+  id?: string;
+  name: string;
+  occurrenceDate: string;
+  intensity: string;
+  createdAt?: string;
+  updatedAt?: string;
 }
 
 
@@ -114,3 +123,28 @@ export const useEmotionsStore = create(
     })
   )
 );
+
+
+// This code creates a store for the conflicts component.
+// The store contains an array of conflicts and functions to add and remove conflicts.
+const ConflictsStore = (set: any) => ({
+  conflicts: [],
+  addConflict: (conflict: ConflictProps) =>
+    set((state: any) => ({
+      conflicts: [...state.conflicts, conflict],
+    })),
+  removeConflict: (id: string) =>
+    set((state: any) => ({
+      conflicts: state.conflicts.filter((conflict: ConflictProps) => conflict.id !== id),
+    })),
+});
+
+// Creates a store and persists it to local storage
+export const useConflictsStore = create(
+  persist(
+    devtools( ConflictsStore, {
+      name: "conflicts",
+    })
+  )
+);
+

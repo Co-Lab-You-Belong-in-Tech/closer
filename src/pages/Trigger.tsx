@@ -16,7 +16,12 @@ import {
 
 import Cta from "../components/Cta";
 
+// Import the store
+import { useTriggersStore } from "../features/store";
+
 const Trigger: React.FC = () => {
+  const triggers = useTriggersStore((state) => state.triggers);
+
   return (
     <IonPage>
       <IonHeader>
