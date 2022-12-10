@@ -81,15 +81,14 @@ const EndOfSession: React.FC = () => {
           </IonButton>
         </IonRouterLink>
 
-        <IonRouterLink routerLink="/">
-          <IonButton
-            expand="block"
-            color="medium"
-            className="signInTitle ion-text-center ion-margin"
-          >
-            View past conflicts
-          </IonButton>
-        </IonRouterLink>
+        <IonButton
+          expand="block"
+          color="medium"
+          className="signInTitle ion-text-center ion-margin"
+          disabled
+        >
+          View past conflicts
+        </IonButton>
       </IonContent>
     </IonPage>
   );
