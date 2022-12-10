@@ -1,3 +1,4 @@
+import React from "react";
 import {
   IonHeader,
   IonContent,
@@ -29,18 +30,17 @@ const InfoOfConflict: React.FC = () => {
   const conflictDate = useRef<HTMLIonDatetimeElement>(null);
   const conflictIntensity = useRef<HTMLIonRangeElement>(null);
   
-  const handleAddConflict = () => {
-    const conflict = {
-      name: conflictName.current!.value,
-      conflictDate: conflictDate.current!.value,
-      conflictIntensity: conflictIntensity.current!.value,
-    }
+  const handleAddConflict = (
+    e: React.MouseEvent<HTMLIonButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    addConflict({
+      name: conflictName.current?.value,
+      date: conflictDate.current?.value,
+      intensity: conflictIntensity.current?.value,
+    });
+  };
 
-    addConflict(conflict);
-    console.log(conflict);
-
-    
-  }
   return (
     <IonPage>
       <IonHeader>
@@ -70,10 +70,9 @@ const InfoOfConflict: React.FC = () => {
           <IonDatetimeButton
             datetime="datetime"
             className="ion-margin-top"
-            ref={conflictDate}
           ></IonDatetimeButton>
           <IonModal keepContentsMounted={true}>
-            <IonDatetime id="datetime" presentation="date"></IonDatetime>
+            <IonDatetime ref={conflictDate} id="datetime" presentation="date"></IonDatetime>
           </IonModal>
         </div>
 
@@ -92,7 +91,7 @@ const InfoOfConflict: React.FC = () => {
         </div>
 
         <IonRouterLink routerLink="trigger">
-          <IonButton onClick={() => handleAddConflict} color="light" className="ion-text-center buttonStyle">
+          <IonButton onClick={(e) => handleAddConflict(e)} color="light" className="ion-text-center buttonStyle">
             CONTINUE
           </IonButton>
         </IonRouterLink>
