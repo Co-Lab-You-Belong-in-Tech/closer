@@ -102,9 +102,10 @@ export const useEmotionsStore = create(
   persist(
     devtools( (set: any) => ({
       emotions: [],
-      addEmotion: (emotion: DefaultProps) =>
+      addEmotion: (emotion: string) =>
         set((state: any) => ({
-          emotions: [...state.emotions, emotion],
+          // check if the emotion already exists and it's not empty
+          emotions: state.emotions.includes(emotion) || emotion === "" ? state.emotions : [...state.emotions, emotion],
         })),
       removeEmotion: (id: string) =>
         set((state: any) => ({
