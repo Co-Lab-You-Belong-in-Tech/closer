@@ -126,7 +126,8 @@ export const useConflictsStore = create(
       conflicts: [],
       addConflict: (conflict: object) =>
         set((state: any) => ({
-          conflicts: [...state.conflicts, conflict],
+          // only add to the conflict object does not have empty values
+          conflicts: Object.values(conflict).includes("") ? state.conflicts : [...state.conflicts, conflict],
         })),
       removeConflict: (id: string) =>
         set((state: any) => ({
