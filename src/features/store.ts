@@ -38,7 +38,7 @@ export const useTriggersStore = create(
   persist(
     devtools( (set: any) => ({
       triggers: [],
-      addTrigger: (trigger: DefaultProps) =>
+      addTrigger: (trigger: object) =>
         set((state: any) => ({
           triggers: [...state.triggers, trigger],
         })),

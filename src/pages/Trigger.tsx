@@ -13,6 +13,7 @@ import {
   IonRouterLink,
   IonToolbar,
 } from "@ionic/react";
+import React from "react";
 
 import Cta from "../components/Cta";
 
@@ -20,7 +21,17 @@ import Cta from "../components/Cta";
 import { useTriggersStore } from "../features/store";
 
 const Trigger: React.FC = () => {
-  const triggers = useTriggersStore((state) => state.triggers);
+  const addTrigger = useTriggersStore((state) => state.addTrigger);
+  const trigger = React.useRef<HTMLIonRadioGroupElement>(null);
+
+  const handleAddTrigger = (
+    e: React.MouseEvent<HTMLIonButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    addTrigger({
+      trigger: trigger.current?.value,
+    });
+  };
 
   return (
     <IonPage>
