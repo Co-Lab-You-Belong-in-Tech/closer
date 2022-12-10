@@ -40,10 +40,10 @@ export const useTriggersStore = create(
       triggers: [],
       addTrigger: (trigger: string) =>
         set((state: any) => ({
-          // check if the trigger already exists
-          triggers: state.triggers.includes(trigger)
-            ? state.triggers : [...state.triggers, trigger],
+          // check if the trigger already exists and it's not empty
+          triggers: state.triggers.includes(trigger) || trigger === "" ? state.triggers : [...state.triggers, trigger],
         })),
+        
       removeTrigger: (id: string) =>
         set((state: any) => ({
           triggers: state.triggers.filter((trigger: DefaultProps) => trigger.id !== id),
