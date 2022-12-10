@@ -60,9 +60,10 @@ export const useActionsStore = create(
   persist(
     devtools( (set: any) => ({
       actions: [],
-      addAction: (action: DefaultProps) =>
+      addAction: (action: string) =>
         set((state: any) => ({
-          actions: [...state.actions, action],
+          // check if the action already exists and it's not empty
+          actions: state.actions.includes(action) || action === "" ? state.actions : [...state.actions, action],
         })),
       removeAction: (id: string) =>
         set((state: any) => ({
