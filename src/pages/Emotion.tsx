@@ -11,9 +11,21 @@ import {
   IonRouterLink,
   IonToolbar,
 } from "@ionic/react";
+import React from "react";
 import Cta from "../components/Cta";
+import { useEmotionsStore } from "../features/store";
 
 const Emotion: React.FC = () => {
+  const addEmotion = useEmotionsStore((state) => state.addEmotion);
+  const emotionRef = React.useRef<HTMLIonSelectElement>(null);
+
+  const handleAddEmotion = (
+    e: React.MouseEvent<HTMLIonButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    addEmotion(emotionRef.current?.value);
+  };
+
   return (
     <IonPage>
       <IonHeader>
@@ -31,6 +43,7 @@ const Emotion: React.FC = () => {
         <IonList>
           <IonItem>
             <IonSelect
+              ref={emotionRef}
               placeholder="Select all Emotions that apply"
               multiple={true}
             >
@@ -45,7 +58,7 @@ const Emotion: React.FC = () => {
         </IonList>
 
         <IonRouterLink routerLink="action">
-          <IonButton color="light" className="ion-text-center buttonStyle">
+          <IonButton onClick={(e) => handleAddEmotion(e)} color="light" className="ion-text-center buttonStyle">
             CONTINUE
           </IonButton>
         </IonRouterLink>

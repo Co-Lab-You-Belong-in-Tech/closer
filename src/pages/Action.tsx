@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 import {
   IonHeader,
@@ -22,10 +22,19 @@ import Cta from "../components/Cta";
 
 // import needed data
 import { stockActions } from "../data/stockActions";
+import { useActionsStore } from "../features/store";
 
 const Action: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [sampleAction, setSampleAction] = useState<any | null>(null);
+  
+  const addAction = useActionsStore((state) => state.addAction);
+  const handleAddAction = (
+    e: React.MouseEvent<HTMLIonButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    addAction(sampleAction);
+  };
 
   return (
     <IonPage>
@@ -40,7 +49,7 @@ const Action: React.FC = () => {
       </IonHeader>
 
       <IonContent className="ion-padding ion-margin-top">
-        <h3>What actions did you take? </h3>
+        <h3>What action did you take? </h3>
         <IonItem>
           <IonInput maxlength={20} onClick={() => setIsOpen(true)}>
             {sampleAction}
@@ -90,7 +99,7 @@ const Action: React.FC = () => {
         </IonModal>
 
         <IonRouterLink routerLink="action-Of-Partner">
-          <IonButton color="light" className="ion-text-center buttonStyle">
+          <IonButton onClick={(e) => handleAddAction(e)} color="light" className="ion-text-center buttonStyle">
             CONTINUE
           </IonButton>
         </IonRouterLink>

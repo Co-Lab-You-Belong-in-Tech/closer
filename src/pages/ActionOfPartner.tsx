@@ -14,14 +14,25 @@ import {
   IonToolbar,
   IonIcon,
 } from "@ionic/react";
+import React from "react";
 
 import { close } from "ionicons/icons";
 import Cta from "../components/Cta";
 import { stockActions } from "../data/stockActions";
+import { usePartnerActionsStore } from "../features/store";
 
 const ActionOfPartner: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [sampleAction, setSampleAction] = useState<any | null>(null);
+  const addPartnerAction = usePartnerActionsStore( (state) => state.addPartnerAction);
+
+  const handleAddPartnerAction = (
+    e: React.MouseEvent<HTMLIonButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    addPartnerAction(sampleAction);
+  };
+
   return (
     <IonPage>
       <IonHeader>
@@ -85,7 +96,7 @@ const ActionOfPartner: React.FC = () => {
         </IonModal>
 
         <IonRouterLink routerLink="discliamer">
-          <IonButton color="light" className="ion-text-center buttonStyle">
+          <IonButton onClick={(e) => handleAddPartnerAction(e)} color="light" className="ion-text-center buttonStyle">
             CONTINUE
           </IonButton>
         </IonRouterLink>

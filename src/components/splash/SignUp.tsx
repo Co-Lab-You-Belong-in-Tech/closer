@@ -59,8 +59,8 @@ const SignUp: React.FC<componentProps> = () => {
   ) => {
     e.preventDefault();
     const formData = {
-      email: emailRef.current!.value,
-      password: passwordRef.current!.value,
+      email: emailRef.current?.value,
+      password: passwordRef.current?.value,
     };
     console.log(formData);
     formData.email && formData.password
