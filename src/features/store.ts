@@ -82,9 +82,9 @@ export const usePartnerActionsStore = create(
   persist(
     devtools( (set: any) => ({
       partnerActions: [],
-      addPartnerAction: (action: DefaultProps) =>
+      addPartnerAction: (action: string) =>
         set((state: any) => ({
-          partnerActions: [...state.partnerActions, action],
+          partnerActions: state.partnerActions.includes(action) || action === "" ? state.partnerActions : [...state.partnerActions, action],
         })),
       removePartnerAction: (id: string) =>
         set((state: any) => ({
