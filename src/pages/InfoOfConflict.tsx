@@ -1,3 +1,4 @@
+import React from "react";
 import {
   IonHeader,
   IonContent,
@@ -16,9 +17,30 @@ import {
   IonRange,
 } from "@ionic/react";
 
+import { useRef } from "react";
+
 import Cta from "../components/Cta";
 
+// import store
+import { useConflictsStore } from '../features/store';
+
 const InfoOfConflict: React.FC = () => {
+  const addConflict = useConflictsStore((state) => state.addConflict);
+  const conflictName = useRef<HTMLIonInputElement>(null);
+  const conflictDate = useRef<HTMLIonDatetimeElement>(null);
+  const conflictIntensity = useRef<HTMLIonRangeElement>(null);
+  
+  const handleAddConflict = (
+    e: React.MouseEvent<HTMLIonButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    addConflict({
+      name: conflictName.current?.value,
+      date: conflictDate.current?.value,
+      intensity: conflictIntensity.current?.value,
+    });
+  };
+
   return (
     <IonPage>
       <IonHeader>
@@ -39,7 +61,7 @@ const InfoOfConflict: React.FC = () => {
         <IonItem>
           <div className="conflictName">
             <IonLabel position="stacked">Name of the conflict</IonLabel>
-            <IonInput></IonInput>
+            <IonInput ref={conflictName}></IonInput>
           </div>
         </IonItem>
 
@@ -50,13 +72,14 @@ const InfoOfConflict: React.FC = () => {
             className="ion-margin-top"
           ></IonDatetimeButton>
           <IonModal keepContentsMounted={true}>
-            <IonDatetime id="datetime" presentation="date"></IonDatetime>
+            <IonDatetime ref={conflictDate} id="datetime" presentation="date"></IonDatetime>
           </IonModal>
         </div>
 
         <div className="ion-margin">
           <IonLabel position="stacked">Intensity Level</IonLabel>
           <IonRange
+            ref={conflictIntensity}
             ticks={true}
             snaps={true}
             min={0}
@@ -68,7 +91,7 @@ const InfoOfConflict: React.FC = () => {
         </div>
 
         <IonRouterLink routerLink="trigger">
-          <IonButton color="light" className="ion-text-center buttonStyle">
+          <IonButton onClick={(e) => handleAddConflict(e)} color="light" className="ion-text-center buttonStyle">
             CONTINUE
           </IonButton>
         </IonRouterLink>
