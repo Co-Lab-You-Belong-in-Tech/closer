@@ -1,7 +1,29 @@
 .signInTitle {
-    height: 200px;
+    color: #F5F5F5;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    line-height: 150%;
 }
 
 .signInInput {
-    border: 2px black solid;
+    border: 2px $primaryColor solid;
+    border-radius: 100px;
+}
+
+.signinHeader {
+    padding: 20% 15%;
+    margin: 0;
+    background: $secondaryColor;
+    background-size: cover;
+}
+
+.signinButtons {
+    --border-radius: 100px;
+}
+
+
+// dashboard style
+
+.dashboardTitle {
+    height: 25%;
 }

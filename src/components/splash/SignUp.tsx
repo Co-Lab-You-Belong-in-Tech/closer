@@ -9,22 +9,19 @@ import {
   IonItem,
   IonLabel,
   IonButton,
-  IonCard,
   IonIcon,
-  IonCardHeader,
-  IonCardTitle,
   setupIonicReact,
 } from "@ionic/react";
 import { useRef } from "react";
 import { arrowForwardOutline, logoGoogle } from "ionicons/icons";
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 import { useMutation } from "@tanstack/react-query";
 import { registerUser } from "../../features/api/auth";
 // Import store
 import { useUserStatusStore } from "../../features/store";
-import { useShowToast } from '../../hooks/useShowToast';
+import { useShowToast } from "../../hooks/useShowToast";
 
 interface componentProps {
   history?: any;
@@ -53,7 +50,7 @@ const SignUp: React.FC<componentProps> = () => {
       },
       onError: (error: any) => {
         showToast(JSON.stringify(error.response.data.errors.data), "danger");
-      }
+      },
     }
   );
 
@@ -66,7 +63,9 @@ const SignUp: React.FC<componentProps> = () => {
       password: passwordRef.current!.value,
     };
     console.log(formData);
-    formData.email && formData.password ? register(formData) : showToast("Please fill in all fields", "warning");
+    formData.email && formData.password
+      ? register(formData)
+      : showToast("Please fill in all fields", "warning");
     // resume default behavior
   };
 
@@ -74,12 +73,11 @@ const SignUp: React.FC<componentProps> = () => {
 
   return (
     <IonPage className="ion-padding">
-      <IonHeader>
-        <IonCard>
-          <IonCardHeader>
-            <IonCardTitle className="signInTitle">Logo goes here</IonCardTitle>
-          </IonCardHeader>
-        </IonCard>
+      <IonHeader className="signinHeader">
+        <h5 className="signInTitle">
+          {" "}
+          Turning the pain of relationship conflict into positive experiences.
+        </h5>
       </IonHeader>
 
       <IonContent>
@@ -87,11 +85,11 @@ const SignUp: React.FC<componentProps> = () => {
           <IonRow>
             <h1 className="ion-text-left ion-font-weight-800">Sign up</h1>
           </IonRow>
-        
+
           <IonRow>
             <IonCol>
               <IonItem className="signInInput">
-                <IonLabel position="floating">Email address</IonLabel>
+                <IonLabel>Email address</IonLabel>
                 <IonInput ref={emailRef} type="email" required></IonInput>
               </IonItem>
             </IonCol>
@@ -99,7 +97,7 @@ const SignUp: React.FC<componentProps> = () => {
           <IonRow>
             <IonCol>
               <IonItem className="signInInput">
-                <IonLabel position="floating">Password</IonLabel>
+                <IonLabel>Password</IonLabel>
                 <IonInput ref={passwordRef} type="password"></IonInput>
               </IonItem>
             </IonCol>
@@ -110,10 +108,11 @@ const SignUp: React.FC<componentProps> = () => {
               <IonButton
                 onClick={(e) => handleSignUp(e)}
                 expand="block"
-                color="dark"
+                color="primary"
                 size="large"
                 routerDirection="back"
                 routerLink="/sign-in"
+                className="signinButtons"
               >
                 {isLoading ? "Loading..." : "Sign up"}
                 <IonIcon icon={arrowForwardOutline} slot="end"></IonIcon>

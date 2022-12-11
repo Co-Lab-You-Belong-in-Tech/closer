@@ -74,7 +74,7 @@ const EndOfSession: React.FC = () => {
           <IonButton
             expand="block"
             color="dark"
-            className="signInTitle ion-text-center ion-margin
+            className="dashboardTitle ion-text-center ion-margin
               "
           >
             Log in a new conflict cycle
@@ -84,7 +84,7 @@ const EndOfSession: React.FC = () => {
         <IonButton
           expand="block"
           color="medium"
-          className="signInTitle ion-text-center ion-margin"
+          className="dashboardTitle ion-text-center ion-margin"
           disabled
         >
           View past conflicts

@@ -9,11 +9,9 @@ import {
   IonItem,
   IonLabel,
   IonButton,
-  IonCard,
   IonIcon,
   setupIonicReact,
   IonNavLink,
-  IonCardContent,
 } from "@ionic/react";
 import { arrowForwardOutline, logoGoogle } from "ionicons/icons";
 import React from "react";
@@ -73,12 +71,11 @@ const SignIn: React.FC<SignInProps> = () => {
 
   return (
     <IonPage className="ion-padding">
-      <IonHeader>
-        <IonCard>
-          <IonCardContent>
-            Turning the pain of relationship conflict into positive experiences.
-          </IonCardContent>
-        </IonCard>
+      <IonHeader className="signinHeader">
+        <h5 className="signInTitle">
+          {" "}
+          Turning the pain of relationship conflict into positive experiences.
+        </h5>
       </IonHeader>
 
       <IonContent>
@@ -89,7 +86,7 @@ const SignIn: React.FC<SignInProps> = () => {
           <IonRow>
             <IonCol>
               <IonItem className="signInInput">
-                <IonLabel position="floating">Email address</IonLabel>
+                <IonLabel>Email address</IonLabel>
                 <IonInput ref={emailRef} type="email"></IonInput>
               </IonItem>
             </IonCol>
@@ -97,7 +94,7 @@ const SignIn: React.FC<SignInProps> = () => {
           <IonRow>
             <IonCol>
               <IonItem className="signInInput">
-                <IonLabel position="floating">Password</IonLabel>
+                <IonLabel>Password</IonLabel>
                 <IonInput ref={passwordRef} type="password"></IonInput>
               </IonItem>
             </IonCol>
@@ -110,8 +107,9 @@ const SignIn: React.FC<SignInProps> = () => {
                   handleSignIn(e);
                 }}
                 expand="block"
-                color="dark"
+                color="primary"
                 size="large"
+                className="signinButtons"
               >
                 {isLoading ? "Loading..." : "Sign In"}
                 <IonIcon icon={arrowForwardOutline} slot="end"></IonIcon>
@@ -126,7 +124,12 @@ const SignIn: React.FC<SignInProps> = () => {
                 routerDirection="forward"
                 component={() => <Dashboard />}
               >
-                <IonButton expand="block" color="dark" size="large">
+                <IonButton
+                  expand="block"
+                  color="primary"
+                  size="large"
+                  className="signinButtons"
+                >
                   Try out as guest
                   <IonIcon icon={arrowForwardOutline} slot="end"></IonIcon>
                 </IonButton>
