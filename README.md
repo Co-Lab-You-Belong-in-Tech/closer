@@ -6,8 +6,6 @@
 
   <br/>
 
-  <h3><b>Closer</b></h3>
-
 </div>
 
 <!-- TABLE OF CONTENTS -->
@@ -73,9 +71,7 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **[key_feature_1]**
-- **[key_feature_2]**
-- **[key_feature_3]**
+- **Conflict de-escalation cycle**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -210,9 +206,9 @@ Example:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **[new_feature_1]**
+<!-- - [ ] **[new_feature_1]**
 - [ ] **[new_feature_2]**
-- [ ] **[new_feature_3]**
+- [ ] **[new_feature_3]** -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -256,13 +252,13 @@ I would like to thank the following people for their support and guidance:
 
 <!-- > Add at least 2 questions new developers would ask when they decide to use your project. -->
 
-- **[Question_1]**
+<!-- - **[Question_1]**
 
   - [Answer_1]
 
 - **[Question_2]**
 
-  - [Answer_2]
+  - [Answer_2] -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
