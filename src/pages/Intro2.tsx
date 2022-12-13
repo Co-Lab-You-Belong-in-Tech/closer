@@ -29,7 +29,7 @@ const Intro2: React.FC = () => {
         ></img>
       </IonHeader>
 
-      <IonContent className="ion-padding-block">
+      <IonContent>
         <div className="introText">
           <IonText color="light">
             <p style={{ width: "80%", margin: "0 auto" }}>
@@ -50,9 +50,11 @@ const Intro2: React.FC = () => {
         </div>
 
         <IonRouterLink routerLink="infoOfConflict">
-          <IonButton color="primary" className="ion-text-center buttonStyle">
-            Let's do this!
-          </IonButton>
+          <div className="ion-padding">
+            <IonButton color="primary" className="ion-text-center buttonStyle">
+              Let's do this!
+            </IonButton>
+          </div>
         </IonRouterLink>
       </IonContent>
     </IonPage>

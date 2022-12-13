@@ -27,7 +27,7 @@ const Dashboard: React.FC = () => {
             className="dashboardTitle ion-text-center ion-margin
             "
           >
-            <h3>Log a new conflict cycle</h3>
+            <h5>Log a new conflict cycle</h5>
           </IonButton>
         </IonRouterLink>
 
@@ -36,7 +36,7 @@ const Dashboard: React.FC = () => {
           color="medium"
           className="dashboardTitle ion-text-center ion-margin"
         >
-          <h3>View completed sessions</h3>
+          <h5>View completed sessions</h5>
         </IonButton>
       </IonContent>
       <Intro />
