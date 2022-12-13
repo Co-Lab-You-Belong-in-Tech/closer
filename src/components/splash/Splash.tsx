@@ -2,7 +2,7 @@ import { IonContent } from "@ionic/react";
 import Cover from "../../assets/Cover.png";
 const Splash = () => {
   return (
-    <IonContent fullscreen className="ion-padding ion-align-self-center">
+    <IonContent fullscreen className="ion-align-self-center">
       <img
         src={Cover}
         alt="cover page for Closer App"

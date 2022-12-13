@@ -1,12 +1,8 @@
 import {
-  IonHeader,
   IonContent,
-  IonToolbar,
-  IonTitle,
   IonPage,
   IonRouterLink,
   IonButton,
-  IonItem,
   IonText,
 } from "@ionic/react";
 
@@ -16,7 +12,10 @@ const Dashboard: React.FC = () => {
   return (
     <IonPage className="dashboardPage">
       <IonContent className="ion-padding">
-        <IonText color="light" className="ion-text-center">
+        <IonText
+          color="light"
+          className="ion-text-center ion-padding-horizontal"
+        >
           <h2>Welcome!</h2>
           <h5 className="underline">What would you like to do today?</h5>
         </IonText>
@@ -24,8 +23,9 @@ const Dashboard: React.FC = () => {
           <IonButton
             expand="block"
             color="tertiary"
-            className="dashboardTitle ion-text-center ion-margin
+            className="dashboardTitle ion-text-center ion-margin  ion-text-uppercase
             "
+            style={{ marginTop: "15%" }}
           >
             <h5>Log a new conflict cycle</h5>
           </IonButton>
@@ -34,7 +34,7 @@ const Dashboard: React.FC = () => {
         <IonButton
           expand="block"
           color="medium"
-          className="dashboardTitle ion-text-center ion-margin"
+          className="dashboardTitle ion-text-center ion-margin-horizontal  ion-text-uppercase"
         >
           <h5>View completed sessions</h5>
         </IonButton>
