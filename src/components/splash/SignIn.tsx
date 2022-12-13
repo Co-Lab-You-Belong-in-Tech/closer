@@ -70,7 +70,7 @@ const SignIn: React.FC<SignInProps> = () => {
   };
 
   return (
-    <IonPage className="ion-padding">
+    <IonPage>
       <IonHeader className="signinHeader">
         <h5 className="signInTitle">
           {" "}
@@ -78,7 +78,7 @@ const SignIn: React.FC<SignInProps> = () => {
         </h5>
       </IonHeader>
 
-      <IonContent>
+      <IonContent className="ion-padding">
         <IonGrid>
           <IonRow>
             <h1 className="ion-text-left ion-font-weight-800">Sign In</h1>

@@ -32,7 +32,6 @@ const Trigger: React.FC = () => {
     addTrigger(triggerRef.current?.value);
   };
 
-
   return (
     <IonPage>
       <IonHeader>
@@ -47,10 +46,17 @@ const Trigger: React.FC = () => {
 
       <IonContent className="ion-padding ion-margin-top">
         <h3>What triggered your reaction?</h3>
-        <IonList>
+        <IonList className="ion-margin-top">
           <IonRadioGroup ref={triggerRef} value="triggers">
             {stockTriggers.map((trigger) => (
-              <IonItem key={Array.prototype.indexOf.call(stockTriggers, trigger)}>
+              <IonItem
+                style={{
+                  border: "2px #A982FF solid",
+                  borderRadius: "100px",
+                  marginTop: "30px",
+                }}
+                key={Array.prototype.indexOf.call(stockTriggers, trigger)}
+              >
                 <IonLabel>{trigger}</IonLabel>
                 <IonRadio slot="end" value={trigger}></IonRadio>
               </IonItem>
@@ -58,13 +64,17 @@ const Trigger: React.FC = () => {
           </IonRadioGroup>
         </IonList>
 
-        <IonItem className="ion-margin-top">
+        <IonItem className="ion-margin-top ion-padding-top">
           <IonLabel position="stacked">Other</IonLabel>
           <IonInput></IonInput>
         </IonItem>
 
         <IonRouterLink routerLink="emotion">
-          <IonButton onClick={(e) => handleAddTrigger(e)} color="light" className="ion-text-center buttonStyle">
+          <IonButton
+            onClick={(e) => handleAddTrigger(e)}
+            color="primary"
+            className="ion-text-center buttonStyle"
+          >
             CONTINUE
           </IonButton>
         </IonRouterLink>

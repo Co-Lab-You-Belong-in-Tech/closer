@@ -1,0 +1,21 @@
+.openModal {
+    margin-top: 50%;
+}
+
+// dashboard style
+
+.dashboardTitle {
+    height: 25%;
+    --border-radius: 25px;
+    position: relative;
+    top: 10%;
+}
+
+.dashboardPage {
+    --ion-background-color: linear-gradient(180deg, #8D6CD5 29.04%, #FFB36D 110.98%);
+}
+
+.underline {
+    text-decoration: underline;
+    text-underline-offset: 50px;
+}

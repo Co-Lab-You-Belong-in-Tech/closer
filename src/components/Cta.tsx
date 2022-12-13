@@ -25,7 +25,7 @@ const Cta: React.FC = () => {
       <IonRouterLink routerLink="dashboard">
         <IonButton
           className="cta"
-          color="light"
+          fill="clear"
           size="small"
           onClick={() => presentToast("top")}
         >

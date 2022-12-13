@@ -1,4 +1,18 @@
+// progress bar 
 ion-progress-bar {
     --background: lightgrey;
-    --progress-background: #000;
+    --progress-background: #A982FF;
+}
+
+//intro 2 page 
+
+.introImage {
+    width: 90%;
+    margin-left: 5%;
+}
+
+.introText {
+    background-color: $primaryColor;
+    border: 1px solid #000;
+    padding-block: 10%;
 }

@@ -53,7 +53,7 @@ const Discliamer: React.FC = () => {
         </IonGrid>
         <IonRouterLink routerLink="pain1">
           <IonButton
-            color="light"
+            color="primary"
             className="ion-text-center discliamerContinue buttonStyle"
           >
             CONTINUE
@@ -88,7 +88,7 @@ const Discliamer: React.FC = () => {
               size="large"
               className="ion-text-center buttonStyle"
               onClick={() => setIsOpen(false)}
-              color="light"
+              color="primary"
             >
               Continue
             </IonButton>
