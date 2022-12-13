@@ -63,7 +63,7 @@ const EndOfSession: React.FC = () => {
               size="large"
               className="ion-text-center buttonStyle"
               onClick={() => setIsOpen(false)}
-              color="light"
+              color="primary"
             >
               Close
             </IonButton>

@@ -22,14 +22,14 @@ import { useRef } from "react";
 import Cta from "../components/Cta";
 
 // import store
-import { useConflictsStore } from '../features/store';
+import { useConflictsStore } from "../features/store";
 
 const InfoOfConflict: React.FC = () => {
   const addConflict = useConflictsStore((state) => state.addConflict);
   const conflictName = useRef<HTMLIonInputElement>(null);
   const conflictDate = useRef<HTMLIonDatetimeElement>(null);
   const conflictIntensity = useRef<HTMLIonRangeElement>(null);
-  
+
   const handleAddConflict = (
     e: React.MouseEvent<HTMLIonButtonElement, MouseEvent>
   ) => {
@@ -72,7 +72,11 @@ const InfoOfConflict: React.FC = () => {
             className="ion-margin-top"
           ></IonDatetimeButton>
           <IonModal keepContentsMounted={true}>
-            <IonDatetime ref={conflictDate} id="datetime" presentation="date"></IonDatetime>
+            <IonDatetime
+              ref={conflictDate}
+              id="datetime"
+              presentation="date"
+            ></IonDatetime>
           </IonModal>
         </div>
 
@@ -85,13 +89,18 @@ const InfoOfConflict: React.FC = () => {
             min={0}
             max={5}
             pin={true}
+            className="ionRange"
           ></IonRange>
           <IonLabel>low</IonLabel>
           <IonLabel style={{ marginLeft: "79%" }}>High</IonLabel>
         </div>
 
         <IonRouterLink routerLink="trigger">
-          <IonButton onClick={(e) => handleAddConflict(e)} color="light" className="ion-text-center buttonStyle">
+          <IonButton
+            onClick={(e) => handleAddConflict(e)}
+            color="primary"
+            className="ion-text-center buttonStyle"
+          >
             CONTINUE
           </IonButton>
         </IonRouterLink>

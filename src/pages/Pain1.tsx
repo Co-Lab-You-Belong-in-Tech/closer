@@ -51,7 +51,11 @@ const Pain1: React.FC = () => {
           ></IonTextarea>
         </IonItem>
         <IonRouterLink routerLink="/pain2">
-          <IonButton onClick={(e) => handleAddPain1(e) } color="light" className="ion-text-center buttonStyle">
+          <IonButton
+            onClick={(e) => handleAddPain1(e)}
+            color="primary"
+            className="ion-text-center buttonStyle"
+          >
             CONTINUE
           </IonButton>
         </IonRouterLink>

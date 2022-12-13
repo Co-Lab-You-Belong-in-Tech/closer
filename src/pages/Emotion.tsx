@@ -58,7 +58,11 @@ const Emotion: React.FC = () => {
         </IonList>
 
         <IonRouterLink routerLink="action">
-          <IonButton onClick={(e) => handleAddEmotion(e)} color="light" className="ion-text-center buttonStyle">
+          <IonButton
+            onClick={(e) => handleAddEmotion(e)}
+            color="primary"
+            className="ion-text-center buttonStyle"
+          >
             CONTINUE
           </IonButton>
         </IonRouterLink>

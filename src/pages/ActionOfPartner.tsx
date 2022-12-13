@@ -24,7 +24,9 @@ import { usePartnerActionsStore } from "../features/store";
 const ActionOfPartner: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [sampleAction, setSampleAction] = useState<any | null>(null);
-  const addPartnerAction = usePartnerActionsStore( (state) => state.addPartnerAction);
+  const addPartnerAction = usePartnerActionsStore(
+    (state) => state.addPartnerAction
+  );
 
   const handleAddPartnerAction = (
     e: React.MouseEvent<HTMLIonButtonElement, MouseEvent>
@@ -68,8 +70,7 @@ const ActionOfPartner: React.FC = () => {
 
           <div className="wrapper">
             <>
-            {
-              stockActions.map((action, index) => {
+              {stockActions.map((action, index) => {
                 return (
                   <IonButton
                     key={index}
@@ -81,22 +82,25 @@ const ActionOfPartner: React.FC = () => {
                     {action}
                   </IonButton>
                 );
-              })
-            }
+              })}
 
-            {/* other option */}
-            <IonInput
-              placeholder="Others"
-              onIonChange={(e) => {
-                setSampleAction(e.target.value);
-              }}
-            ></IonInput>
+              {/* other option */}
+              <IonInput
+                placeholder="Others"
+                onIonChange={(e) => {
+                  setSampleAction(e.target.value);
+                }}
+              ></IonInput>
             </>
           </div>
         </IonModal>
 
         <IonRouterLink routerLink="discliamer">
-          <IonButton onClick={(e) => handleAddPartnerAction(e)} color="light" className="ion-text-center buttonStyle">
+          <IonButton
+            onClick={(e) => handleAddPartnerAction(e)}
+            color="primary"
+            className="ion-text-center buttonStyle"
+          >
             CONTINUE
           </IonButton>
         </IonRouterLink>
