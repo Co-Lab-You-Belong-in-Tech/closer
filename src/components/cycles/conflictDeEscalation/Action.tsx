@@ -18,36 +18,29 @@ import {
 } from "@ionic/react";
 
 import { close } from "ionicons/icons";
-import Cta from "../components/Cta";
 
 // import needed data
-import { stockActions } from "../data/stockActions";
-import { useActionsStore } from "../features/store";
+import { stockActions } from "../../../data/stockActions";
+import { useActionsStore } from "../../../features/store";
 
-const Action: React.FC = () => {
+interface FuncProps {
+  handleProgress?: () => void;
+}
+
+const Action: React.FC<FuncProps> = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const [sampleAction, setSampleAction] = useState<any | null>(null);
 
   const addAction = useActionsStore((state) => state.addAction);
-  const handleAddAction = (
+  const handleClick = (
     e: React.MouseEvent<HTMLIonButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
     addAction(sampleAction);
+    props.handleProgress && props.handleProgress();
   };
 
   return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <Cta />
-          <IonProgressBar
-            className="ion-margin-top"
-            value={0.6}
-          ></IonProgressBar>
-        </IonToolbar>
-      </IonHeader>
-
       <IonContent className="ion-padding ion-margin-top">
         <h3>What action did you take? </h3>
         <IonItem>
@@ -96,17 +89,14 @@ const Action: React.FC = () => {
           </div>
         </IonModal>
 
-        <IonRouterLink routerLink="action-Of-Partner">
           <IonButton
-            onClick={(e) => handleAddAction(e)}
+            onClick={(e) => handleClick(e)}
             color="primary"
             className="ion-text-center buttonStyle"
           >
             CONTINUE
           </IonButton>
-        </IonRouterLink>
       </IonContent>
-    </IonPage>
   );
 };
 

@@ -17,8 +17,7 @@ import Intro2 from '../components/cycles/conflictDeEscalation/Intro2';
 import InfoOfConflict from '../components/cycles/conflictDeEscalation/InfoOfConflict';
 import Trigger from '../components/cycles/conflictDeEscalation/Trigger';
 import Emotion from '../components/cycles/conflictDeEscalation/Emotion';
-
-
+import Action from '../components/cycles/conflictDeEscalation/Action';
 
 
 
@@ -48,7 +47,7 @@ const CycleMainPage = () => {
       case 0.2145:
         return <Emotion handleProgress={handleProgress} />;
       case 0.286:
-        return <Intro2 handleProgress={handleProgress} />;
+        return <Action handleProgress={handleProgress} />;
       case 0.3575:
         return <Intro2 handleProgress={handleProgress} />;
       case 0.429:
