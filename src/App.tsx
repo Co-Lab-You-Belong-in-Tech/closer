@@ -12,7 +12,7 @@ import Splash from "./components/splash/Splash";
 
 // import pages
 import Dashboard from "./pages/Dashboard";
-import Intro2 from "./pages/Intro2";
+import Intro2 from "./components/cycles/conflictDeEscalation/Intro2";
 import InfoOfConflict from "./pages/InfoOfConflict";
 import Trigger from "./pages/Trigger";
 import Emotion from "./pages/Emotion";
@@ -28,6 +28,8 @@ import CycleSummary from "./pages/CycleSummary";
 import Analysis from "./pages/Analysis";
 import Reflection from "./pages/Reflection";
 import EndOfSession from "./pages/EndOfSession";
+
+import CycleMainPage from "./pages/CycleMainPage";
 // Custom hooks
 import { useTimeout } from "./hooks/useTimeOut";
 // Get stores
@@ -71,6 +73,16 @@ const App: React.FC<RouteComponentProps> = () => {
             <Route exact path="/" render={() => <Redirect to="/signin" />} />
 
             {/* below is from  Jingru  after Dec 3   */}
+
+            <Route
+              path="/cycleMainPage"
+              render={
+                userStatus === "guest" || userStatus === "loggedIn"
+                  ? () => <CycleMainPage />
+                  : () => <Redirect to="/sign-in" />
+              }
+              exact={true}
+            />
 
             <Route
               path="/dashboard"

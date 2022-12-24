@@ -71,6 +71,7 @@ const Trigger: React.FC = () => {
 
         <IonRouterLink routerLink="emotion">
           <IonButton
+            disabled={!triggerRef.current?.value}
             onClick={(e) => handleAddTrigger(e)}
             color="primary"
             className="ion-text-center buttonStyle"

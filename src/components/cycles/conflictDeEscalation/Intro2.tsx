@@ -1,33 +1,18 @@
 import {
-  IonHeader,
   IonContent,
-  IonToolbar,
-  IonPage,
-  IonRouterLink,
   IonButton,
-  IonProgressBar,
   IonText,
 } from "@ionic/react";
 
-import Cta from "../components/Cta";
+import Cta from "../../Cta";
 import IntroImage from "../assets/IntroImage.png";
-const Intro2: React.FC = () => {
+
+interface FuncProps {
+  handleProgress?: () => void;
+}
+
+const Intro2: React.FC<FuncProps> = (handleProgress) => {
   return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <Cta />
-          <IonProgressBar
-            className="ion-margin-top"
-            value={0.2}
-          ></IonProgressBar>
-        </IonToolbar>
-        <img
-          src={IntroImage}
-          alt="couple sitting and watching sky"
-          className="introImage"
-        ></img>
-      </IonHeader>
 
       <IonContent>
         <div className="introText">
@@ -49,15 +34,12 @@ const Intro2: React.FC = () => {
           </IonText>
         </div>
 
-        <IonRouterLink routerLink="infoOfConflict">
           <div className="ion-padding">
-            <IonButton color="primary" className="ion-text-center buttonStyle">
+            <IonButton onClick={() => handleProgress.handleProgress!()} color="primary" className="ion-text-center buttonStyle">
               Let's do this!
             </IonButton>
           </div>
-        </IonRouterLink>
       </IonContent>
-    </IonPage>
   );
 };
 
