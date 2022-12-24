@@ -23,7 +23,7 @@ import Pain1 from "./components/cycles/conflictDeEscalation/Pain1";
 import Pain2 from "./components/cycles/conflictDeEscalation/Pain2";
 import Pain3 from "./components/cycles/conflictDeEscalation/Pain3";
 import Pain4 from "./components/cycles/conflictDeEscalation/Pain4";
-import PreSummary from "./pages/PreSummary";
+import PreSummary from "./components/cycles/conflictDeEscalation/PreSummary";
 import CycleSummary from "./pages/CycleSummary";
 import Analysis from "./pages/Analysis";
 import Reflection from "./pages/Reflection";

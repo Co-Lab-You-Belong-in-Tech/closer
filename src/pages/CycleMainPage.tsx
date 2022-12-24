@@ -24,6 +24,10 @@ import Pain1 from '../components/cycles/conflictDeEscalation/Pain1';
 import Pain2 from '../components/cycles/conflictDeEscalation/Pain2';
 import Pain3 from '../components/cycles/conflictDeEscalation/Pain3';
 import Pain4 from '../components/cycles/conflictDeEscalation/Pain4';
+import PreSummary from '../components/cycles/conflictDeEscalation/PreSummary';
+
+
+
 
 const CycleMainPage = () => {
   const [buffer, setBuffer] = React.useState(0.0715);
@@ -64,7 +68,7 @@ const CycleMainPage = () => {
       case 0.7145:
         return <Pain4 handleProgress={handleProgress} />;
       case 0.786:
-        return <Intro2 handleProgress={handleProgress} />;
+        return <PreSummary handleProgress={handleProgress} />;
       case 0.8575:
         return <Intro2 handleProgress={handleProgress} />;
       case 0.929:
