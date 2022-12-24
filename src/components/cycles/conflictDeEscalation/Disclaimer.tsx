@@ -17,23 +17,15 @@ import {
   IonIcon,
 } from "@ionic/react";
 import { close } from "ionicons/icons";
-import Cta from "../components/Cta";
 
-const Disclaimer: React.FC = () => {
+interface FuncProps {
+  handleProgress?: () => void;
+}
+
+const Disclaimer: React.FC<FuncProps> = (props) => {
   const [isOpen, setIsOpen] = useState(true);
 
   return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <Cta />
-          <IonProgressBar
-            className="ion-margin-top"
-            value={0.8}
-          ></IonProgressBar>
-        </IonToolbar>
-      </IonHeader>
-
       <IonContent className="ion-padding">
         <IonText color="dark" className="ion-text-center">
           <IonText>
@@ -51,14 +43,13 @@ const Disclaimer: React.FC = () => {
             </IonCol>
           </IonRow>
         </IonGrid>
-        <IonRouterLink routerLink="pain1">
           <IonButton
+            onClick={() => props.handleProgress!()}
             color="primary"
-            className="ion-text-center discliamerContinue buttonStyle"
+            className="ion-text-center disclaimerContinue buttonStyle"
           >
             CONTINUE
           </IonButton>
-        </IonRouterLink>
 
         {/* Modal copied from Intro component */}
         <IonModal
@@ -95,7 +86,6 @@ const Disclaimer: React.FC = () => {
           </IonContent>
         </IonModal>
       </IonContent>
-    </IonPage>
   );
 };
 
