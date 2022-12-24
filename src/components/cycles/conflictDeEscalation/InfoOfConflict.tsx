@@ -19,18 +19,20 @@ import {
 
 import { useRef } from "react";
 
-import Cta from "../components/Cta";
-
 // import store
-import { useConflictsStore } from "../features/store";
+import { useConflictsStore } from "../../../features/store";
 
-const InfoOfConflict: React.FC = () => {
+interface FuncProps {
+  handleProgress?: () => void;
+}
+
+const InfoOfConflict: React.FC<FuncProps> = (props) => {
   const addConflict = useConflictsStore((state) => state.addConflict);
   const conflictName = useRef<HTMLIonInputElement>(null);
   const conflictDate = useRef<HTMLIonDatetimeElement>(null);
   const conflictIntensity = useRef<HTMLIonRangeElement>(null);
 
-  const handleAddConflict = (
+  const handleClick = (
     e: React.MouseEvent<HTMLIonButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
@@ -39,20 +41,11 @@ const InfoOfConflict: React.FC = () => {
       date: conflictDate.current?.value,
       intensity: conflictIntensity.current?.value,
     });
+
+    props.handleProgress && props.handleProgress();
   };
 
   return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <Cta />
-          <IonProgressBar
-            className="ion-margin-top"
-            value={0.2}
-          ></IonProgressBar>
-        </IonToolbar>
-      </IonHeader>
-
       <IonContent className="ion-padding">
         <IonText>
           <h2> Tell us more about the conflict</h2>
@@ -95,17 +88,14 @@ const InfoOfConflict: React.FC = () => {
           <IonLabel style={{ marginLeft: "79%" }}>High</IonLabel>
         </div>
 
-        <IonRouterLink routerLink="trigger">
           <IonButton
-            onClick={(e) => handleAddConflict(e)}
+            onClick={(e) => handleClick(e)}
             color="primary"
             className="ion-text-center buttonStyle"
           >
             CONTINUE
           </IonButton>
-        </IonRouterLink>
       </IonContent>
-    </IonPage>
   );
 };
 

@@ -13,7 +13,7 @@ import Splash from "./components/splash/Splash";
 // import pages
 import Dashboard from "./pages/Dashboard";
 import Intro2 from "./components/cycles/conflictDeEscalation/Intro2";
-import InfoOfConflict from "./pages/InfoOfConflict";
+import InfoOfConflict from "./components/cycles/conflictDeEscalation/InfoOfConflict";
 import Trigger from "./pages/Trigger";
 import Emotion from "./pages/Emotion";
 import Action from "./pages/Action";

@@ -14,6 +14,7 @@ import Cta from "../components/Cta";
 import IntroImage from "../assets/IntroImage.png";
 
 import Intro2 from '../components/cycles/conflictDeEscalation/Intro2';
+import InfoOfConflict from '../components/cycles/conflictDeEscalation/InfoOfConflict';
 
 const CycleMainPage = () => {
   const [buffer, setBuffer] = React.useState(0.0715);
@@ -34,7 +35,7 @@ const CycleMainPage = () => {
     switch (progress) {
       // add cases till 1
       case 0.0715:
-        return <Intro2 handleProgress={handleProgress} />;
+        return <InfoOfConflict handleProgress={handleProgress} />;
       case 0.143:
         return <Intro2 handleProgress={handleProgress} />;
       case 0.2145:
