@@ -21,22 +21,17 @@ import {
 } from "@ionic/react";
 import { close } from "ionicons/icons";
 import Cta from "../components/Cta";
+import { useEndOfCycleStore } from "../features/store";
 
-const Reflection: React.FC = () => {
+interface FuncProps {
+  handleProgress?: () => void;
+}
+
+const Reflection: React.FC<FuncProps> = (props) => {
   const [isOpen, setIsOpen] = useState(true);
+  const setEndOfCycle = useEndOfCycleStore((state) => state.setEndOfCycle);
 
   return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <Cta />
-          <IonProgressBar
-            className="ion-margin-top"
-            value={1.0}
-          ></IonProgressBar>
-        </IonToolbar>
-      </IonHeader>
-
       <IonContent className="ion-padding">
         <IonText>
           <h2> How are you feeling after this session?</h2>
@@ -97,8 +92,8 @@ const Reflection: React.FC = () => {
           ></IonInput>
         </IonItem>
 
-        <IonRouterLink routerLink="endOfSession">
-          <IonButton color="primary" className="ion-text-center buttonStyle">
+        <IonRouterLink routerLink="dashboard">
+          <IonButton onClick={() => setEndOfCycle(true)} color="primary" className="ion-text-center buttonStyle">
             SAVE AND CLOSE
           </IonButton>
         </IonRouterLink>
@@ -149,7 +144,6 @@ const Reflection: React.FC = () => {
           </IonContent>
         </IonModal>
       </IonContent>
-    </IonPage>
   );
 };
 

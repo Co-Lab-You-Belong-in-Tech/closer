@@ -7,8 +7,11 @@ import {
 } from "@ionic/react";
 
 import Intro from "../components/Intro";
+import { useEndOfCycleStore } from "../features/store";
+import EndOfSession from "./EndOfSession";
 
 const Dashboard: React.FC = () => {
+  const endOfCycle = useEndOfCycleStore((state) => state.endOfCycle);
   return (
     <IonPage className="dashboardPage">
       <IonContent className="ion-padding">
@@ -39,7 +42,7 @@ const Dashboard: React.FC = () => {
           <h5>View completed sessions</h5>
         </IonButton>
       </IonContent>
-      <Intro />
+      {endOfCycle ? <EndOfSession /> : <Intro />}
     </IonPage>
   );
 };

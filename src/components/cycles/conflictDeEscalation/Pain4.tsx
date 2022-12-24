@@ -12,7 +12,7 @@ import {
 import Cta from "../../Cta";
 
 interface FuncProps {
-  handleProgress: () => void;
+  handleProgress?: () => void;
 }
 
 const Pain4: React.FC<FuncProps> = (props) => {
@@ -26,7 +26,7 @@ const Pain4: React.FC<FuncProps> = (props) => {
           react, I am protecting myself from ______________ (pain). I know now,
           I know why, this MAKES SENSE!
         </h2>
-          <IonButton color="primary" className="ion-text-center buttonStyle">
+          <IonButton onClick={() => props.handleProgress!()} color="primary" className="ion-text-center buttonStyle">
             CONTINUE
           </IonButton>
       </IonContent>

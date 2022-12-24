@@ -49,7 +49,7 @@ const CycleSummary: React.FC<FuncProps> = (props) => {
       </IonHeader>
 
       <IonContent className="ion-padding ion-margin-top">
-          <IonButton color="primary" className="ion-text-center buttonStyle">
+          <IonButton onClick={() => props.handleProgress!()} color="primary" className="ion-text-center buttonStyle">
             CONTINUE
           </IonButton>
       </IonContent>

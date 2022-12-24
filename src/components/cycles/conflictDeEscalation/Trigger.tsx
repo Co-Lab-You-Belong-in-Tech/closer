@@ -64,7 +64,7 @@ const Trigger: React.FC<FuncProps> = (props) => {
         </IonItem>
 
           <IonButton
-            disabled={!triggerRef.current?.value}
+            // disabled={!triggerRef.current?.value}
             onClick={(e) => handleClick(e)}
             color="primary"
             className="ion-text-center buttonStyle"

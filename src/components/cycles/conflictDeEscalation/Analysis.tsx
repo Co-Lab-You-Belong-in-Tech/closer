@@ -12,21 +12,14 @@ import {
   IonCol,
   IonToolbar,
 } from "@ionic/react";
-import Cta from "../components/Cta";
+import Cta from "../../Cta";
 
-const Analysis: React.FC = () => {
+interface FuncProps {
+  handleProgress?: () => void;
+}
+
+const Analysis: React.FC<FuncProps> = (props) => {
   return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <Cta />
-          <IonProgressBar
-            className="ion-margin-top"
-            value={0.8}
-          ></IonProgressBar>
-        </IonToolbar>
-      </IonHeader>
-
       <IonContent className="ion-padding ion-margin-top">
         <h2 className="ion-padding ion-text-center">Analysis </h2>
         <IonGrid>
@@ -78,13 +71,10 @@ const Analysis: React.FC = () => {
           </IonRow>
         </IonGrid>
 
-        <IonRouterLink routerLink="reflection">
-          <IonButton color="primary" className="ion-text-center buttonStyle">
+          <IonButton  onClick={() => props.handleProgress!()} color="primary" className="ion-text-center buttonStyle">
             CONTINUE
           </IonButton>
-        </IonRouterLink>
       </IonContent>
-    </IonPage>
   );
 };
 

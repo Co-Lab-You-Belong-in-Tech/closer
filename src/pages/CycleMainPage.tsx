@@ -26,8 +26,8 @@ import Pain3 from '../components/cycles/conflictDeEscalation/Pain3';
 import Pain4 from '../components/cycles/conflictDeEscalation/Pain4';
 import PreSummary from '../components/cycles/conflictDeEscalation/PreSummary';
 import CycleSummary from '../components/cycles/conflictDeEscalation/CycleSummary';
-
-
+import Analysis from '../components/cycles/conflictDeEscalation/Analysis';
+import Reflection from './Reflection';
 
 const CycleMainPage = () => {
   const [buffer, setBuffer] = React.useState(0.0715);
@@ -45,7 +45,7 @@ const CycleMainPage = () => {
   };
 
   const contentSelector = (progress: number) => {
-    switch (progress) {
+    switch (Number(progress.toFixed(4))) {
       // add cases till 1
       case 0.0715:
         return <InfoOfConflict handleProgress={handleProgress} />;
@@ -59,22 +59,22 @@ const CycleMainPage = () => {
         return <ActionOfPartner handleProgress={handleProgress} />;
       case 0.429:
         return <Disclaimer handleProgress={handleProgress} />;
-      case 0.5:
+      case 0.5005:
         return <Pain1 handleProgress={handleProgress} />;
-      case 0.5715:
+      case 0.572:
         return <Pain2 handleProgress={handleProgress} />;
-      case 0.643:
+      case 0.6435:
         return <Pain3 handleProgress={handleProgress} />;
-      case 0.7145:
+      case 0.715:
         return <Pain4 handleProgress={handleProgress} />;
-      case 0.786:
+      case 0.7865:
         return <PreSummary handleProgress={handleProgress} />;
-      case 0.8575:
+      case 0.858:
         return <CycleSummary handleProgress={handleProgress} />
-      case 0.929:
-        return <Intro2 handleProgress={handleProgress} />;
-      case 1:
-        return <Intro2 handleProgress={handleProgress} />;
+      case 0.9295:
+        return <Analysis handleProgress={handleProgress} />
+      case 1.001:
+        return <Reflection />
       default:
         return <Intro2 handleProgress={handleProgress} />;
     }

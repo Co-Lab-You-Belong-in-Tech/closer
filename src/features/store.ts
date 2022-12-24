@@ -32,6 +32,20 @@ export const useUserStatusStore = create(
   )
 );
 
+export const useEndOfCycleStore = create(
+  persist(
+    devtools(
+      (set: (arg0: { endOfCycle: boolean }) => any) => ({
+        endOfCycle: false,
+        setEndOfCycle: (status: boolean) => set({ endOfCycle : status }),
+      }),
+      {
+        name: "endOfCycle",
+      }
+    )
+  )
+);
+
 // Creates a store and persists it to local storage
 // The store contains an array of triggers and functions to add and remove triggers.
 export const useTriggersStore = create(

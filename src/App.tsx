@@ -25,7 +25,7 @@ import Pain3 from "./components/cycles/conflictDeEscalation/Pain3";
 import Pain4 from "./components/cycles/conflictDeEscalation/Pain4";
 import PreSummary from "./components/cycles/conflictDeEscalation/PreSummary";
 import CycleSummary from "./components/cycles/conflictDeEscalation/CycleSummary";
-import Analysis from "./pages/Analysis";
+import Analysis from "./components/cycles/conflictDeEscalation/Analysis";
 import Reflection from "./pages/Reflection";
 import EndOfSession from "./pages/EndOfSession";
 
