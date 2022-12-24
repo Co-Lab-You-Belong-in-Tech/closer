@@ -18,7 +18,7 @@ import Trigger from "./components/cycles/conflictDeEscalation/Trigger";
 import Emotion from "./components/cycles/conflictDeEscalation/Emotion";
 import Action from "./components/cycles/conflictDeEscalation/Action";
 import ActionOfPartner from "./components/cycles/conflictDeEscalation/ActionOfPartner";
-import Discliamer from "./pages/Discliamer";
+import Disclaimer from "./pages/Disclaimer";
 import Pain1 from "./pages/Pain1";
 import Pain2 from "./pages/Pain2";
 import Pain3 from "./pages/Pain3";
@@ -148,10 +148,10 @@ const App: React.FC<RouteComponentProps> = () => {
               exact={true}
             />
             <Route
-              path="/discliamer"
+              path="/disclaimer"
               render={
                 userStatus === "guest" || userStatus === "loggedIn"
-                  ? () => <Discliamer />
+                  ? () => <Disclaimer />
                   : () => <Redirect to="/sign-in" />
               }
               exact={true}

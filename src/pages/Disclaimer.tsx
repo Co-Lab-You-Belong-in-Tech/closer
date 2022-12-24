@@ -19,7 +19,7 @@ import {
 import { close } from "ionicons/icons";
 import Cta from "../components/Cta";
 
-const Discliamer: React.FC = () => {
+const Disclaimer: React.FC = () => {
   const [isOpen, setIsOpen] = useState(true);
 
   return (
@@ -99,4 +99,4 @@ const Discliamer: React.FC = () => {
   );
 };
 
-export default Discliamer;
+export default Disclaimer;
