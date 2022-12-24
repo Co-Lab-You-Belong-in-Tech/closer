@@ -12,32 +12,26 @@ import {
   IonToolbar,
 } from "@ionic/react";
 import React from "react";
-import Cta from "../components/Cta";
-import { useEmotionsStore } from "../features/store";
+import Cta from "../../Cta";
+import { useEmotionsStore } from "../../../features/store";
 
-const Emotion: React.FC = () => {
+interface FuncProps {
+  handleProgress?: () => void;
+}
+
+const Emotion: React.FC<FuncProps> = (props) => {
   const addEmotion = useEmotionsStore((state) => state.addEmotion);
   const emotionRef = React.useRef<HTMLIonSelectElement>(null);
 
-  const handleAddEmotion = (
+  const handleClick = (
     e: React.MouseEvent<HTMLIonButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
     addEmotion(emotionRef.current?.value);
+    props.handleProgress && props.handleProgress();
   };
 
   return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <Cta />
-          <IonProgressBar
-            className="ion-margin-top"
-            value={0.4}
-          ></IonProgressBar>
-        </IonToolbar>
-      </IonHeader>
-
       <IonContent className="ion-padding ion-margin-top">
         <h3>What emotion did you feel? </h3>
         <IonList>
@@ -57,17 +51,14 @@ const Emotion: React.FC = () => {
           </IonItem>
         </IonList>
 
-        <IonRouterLink routerLink="action">
           <IonButton
-            onClick={(e) => handleAddEmotion(e)}
+            onClick={(e) => handleClick(e)}
             color="primary"
             className="ion-text-center buttonStyle"
           >
             CONTINUE
           </IonButton>
-        </IonRouterLink>
       </IonContent>
-    </IonPage>
   );
 };
 

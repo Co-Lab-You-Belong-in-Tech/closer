@@ -15,7 +15,7 @@ import Dashboard from "./pages/Dashboard";
 import Intro2 from "./components/cycles/conflictDeEscalation/Intro2";
 import InfoOfConflict from "./components/cycles/conflictDeEscalation/InfoOfConflict";
 import Trigger from "./components/cycles/conflictDeEscalation/Trigger";
-import Emotion from "./pages/Emotion";
+import Emotion from "./components/cycles/conflictDeEscalation/Emotion";
 import Action from "./pages/Action";
 import ActionOfPartner from "./pages/ActionOfPartner";
 import Discliamer from "./pages/Discliamer";
