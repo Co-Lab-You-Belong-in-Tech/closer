@@ -98,7 +98,7 @@ const Reflection: React.FC = () => {
         </IonItem>
 
         <IonRouterLink routerLink="endOfSession">
-          <IonButton color="light" className="ion-text-center buttonStyle">
+          <IonButton color="primary" className="ion-text-center buttonStyle">
             SAVE AND CLOSE
           </IonButton>
         </IonRouterLink>
@@ -142,7 +142,7 @@ const Reflection: React.FC = () => {
               size="large"
               className="ion-text-center buttonStyle"
               onClick={() => setIsOpen(false)}
-              color="light"
+              color="primary"
             >
               Continue
             </IonButton>

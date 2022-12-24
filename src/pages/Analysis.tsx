@@ -79,7 +79,7 @@ const Analysis: React.FC = () => {
         </IonGrid>
 
         <IonRouterLink routerLink="reflection">
-          <IonButton color="light" className="ion-text-center buttonStyle">
+          <IonButton color="primary" className="ion-text-center buttonStyle">
             CONTINUE
           </IonButton>
         </IonRouterLink>

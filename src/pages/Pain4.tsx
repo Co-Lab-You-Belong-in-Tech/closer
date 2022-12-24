@@ -34,7 +34,7 @@ const Pain4: React.FC = () => {
           I know why, this MAKES SENSE!
         </h2>
         <IonRouterLink routerLink="preSummary">
-          <IonButton color="light" className="ion-text-center buttonStyle">
+          <IonButton color="primary" className="ion-text-center buttonStyle">
             CONTINUE
           </IonButton>
         </IonRouterLink>

@@ -6,44 +6,55 @@ import {
   IonRouterLink,
   IonButton,
   IonProgressBar,
-  IonCard,
-  IonCardContent,
+  IonText,
 } from "@ionic/react";
 
 import Cta from "../components/Cta";
-
+import IntroImage from "../assets/IntroImage.png";
 const Intro2: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
           <Cta />
+          <IonProgressBar
+            className="ion-margin-top"
+            value={0.2}
+          ></IonProgressBar>
         </IonToolbar>
-        <IonProgressBar className="ion-margin-top" value={0.2}></IonProgressBar>
+        <img
+          src={IntroImage}
+          alt="couple sitting and watching sky"
+          className="introImage"
+        ></img>
       </IonHeader>
 
-      <IonContent className="ion-padding">
-        <IonCard>
-          <IonCardContent>
-            <p>
+      <IonContent>
+        <div className="introText">
+          <IonText color="light">
+            <p style={{ width: "80%", margin: "0 auto" }}>
+              Exercise time:10mins
+              <br></br>
+              <br></br>
               Great job taking the first step! In a few moment, we will walk
-              through what EFT calls the *conflict de-escalation cycle*
-              (italic). This exercise will take you around 10 minutes to
-              complete. You will need to reflect on your triggers, feelings, and
-              actions in this specific conflict you have in mind.
+              through what EFT calls the conflict de-escalation cycle.
               <br></br>
               <br></br>
-              Reflecting on your emotions can be overwhelming. If at any moment
-              you feel too overwhelmed to continue, take a break, BREAAAATHE,
-              and come back when you're ready.
+              You will need to reflect on your triggers, feelings, and actions
+              in this specific conflict you have in mind. Reflecting on your
+              emotions can be overwhelming. If at any moment you feel too
+              overwhelmed to continue, take a break, BREAAAATHE, and come back
+              when you're ready."
             </p>
-          </IonCardContent>
-        </IonCard>
+          </IonText>
+        </div>
 
         <IonRouterLink routerLink="infoOfConflict">
-          <IonButton color="light" className="ion-text-center buttonStyle">
-            LET'S FIND OUT
-          </IonButton>
+          <div className="ion-padding">
+            <IonButton color="primary" className="ion-text-center buttonStyle">
+              Let's do this!
+            </IonButton>
+          </div>
         </IonRouterLink>
       </IonContent>
     </IonPage>

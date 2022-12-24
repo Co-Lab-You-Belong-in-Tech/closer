@@ -43,10 +43,17 @@ const Pain2: React.FC = () => {
           Where do I hold that pain in my body?{" "}
         </h2>
         <IonItem>
-          <IonTextarea ref={painRef} placeholder="i.e. twist in the stomach or pressure on the chest etc."></IonTextarea>
+          <IonTextarea
+            ref={painRef}
+            placeholder="i.e. twist in the stomach or pressure on the chest etc."
+          ></IonTextarea>
         </IonItem>
         <IonRouterLink routerLink="pain3">
-          <IonButton onClick={(e) => handleAddPain2(e)} color="light" className="ion-text-center buttonStyle">
+          <IonButton
+            onClick={(e) => handleAddPain2(e)}
+            color="primary"
+            className="ion-text-center buttonStyle"
+          >
             CONTINUE
           </IonButton>
         </IonRouterLink>

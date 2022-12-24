@@ -8,7 +8,7 @@ import {
   IonToolbar,
   IonIcon,
 } from "@ionic/react";
-import { close } from "ionicons/icons";
+import { close, arrowForwardOutline } from "ionicons/icons";
 
 const Intro: React.FC = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -29,7 +29,7 @@ const Intro: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
-        <h3>Welcome to Closer!</h3>
+        <h2>Welcome to Closer!</h2>
         <p>
           Closer aims to turn the pain of conflicts into positive experiences
           that promote a deeper understanding of your partner and yourself.
@@ -58,9 +58,10 @@ const Intro: React.FC = () => {
           size="large"
           className="ion-text-center buttonStyle"
           onClick={() => setIsOpen(false)}
-          color="light"
+          color="primary"
         >
           Continue
+          <IonIcon icon={arrowForwardOutline} slot="end"></IonIcon>
         </IonButton>
       </IonContent>
     </IonModal>

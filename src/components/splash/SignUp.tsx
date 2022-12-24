@@ -72,7 +72,7 @@ const SignUp: React.FC<componentProps> = () => {
   console.log("Sign up form rendered.");
 
   return (
-    <IonPage className="ion-padding">
+    <IonPage>
       <IonHeader className="signinHeader">
         <h5 className="signInTitle">
           {" "}
@@ -80,7 +80,7 @@ const SignUp: React.FC<componentProps> = () => {
         </h5>
       </IonHeader>
 
-      <IonContent>
+      <IonContent className="ion-padding">
         <IonGrid>
           <IonRow>
             <h1 className="ion-text-left ion-font-weight-800">Sign up</h1>
