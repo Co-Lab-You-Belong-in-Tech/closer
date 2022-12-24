@@ -12,20 +12,16 @@ import {
   IonCardContent,
   IonToolbar,
 } from "@ionic/react";
-import Cta from "../components/Cta";
+import Cta from "../../Cta";
 
-const CycleSummary: React.FC = () => {
+interface FuncProps {
+  handleProgress?: () => void;
+}
+
+const CycleSummary: React.FC<FuncProps> = (props) => {
   return (
-    <IonPage>
+    <>
       <IonHeader>
-        <IonToolbar>
-          <Cta />
-          <IonProgressBar
-            className="ion-margin-top"
-            value={0.8}
-          ></IonProgressBar>
-        </IonToolbar>
-
         <h2 className="ion-padding">Cycle summary </h2>
 
         <IonCard>
@@ -53,13 +49,11 @@ const CycleSummary: React.FC = () => {
       </IonHeader>
 
       <IonContent className="ion-padding ion-margin-top">
-        <IonRouterLink routerLink="analysis">
           <IonButton color="primary" className="ion-text-center buttonStyle">
             CONTINUE
           </IonButton>
-        </IonRouterLink>
       </IonContent>
-    </IonPage>
+    </>
   );
 };
 

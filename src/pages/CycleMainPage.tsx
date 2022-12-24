@@ -25,7 +25,7 @@ import Pain2 from '../components/cycles/conflictDeEscalation/Pain2';
 import Pain3 from '../components/cycles/conflictDeEscalation/Pain3';
 import Pain4 from '../components/cycles/conflictDeEscalation/Pain4';
 import PreSummary from '../components/cycles/conflictDeEscalation/PreSummary';
-
+import CycleSummary from '../components/cycles/conflictDeEscalation/CycleSummary';
 
 
 
@@ -70,7 +70,7 @@ const CycleMainPage = () => {
       case 0.786:
         return <PreSummary handleProgress={handleProgress} />;
       case 0.8575:
-        return <Intro2 handleProgress={handleProgress} />;
+        return <CycleSummary handleProgress={handleProgress} />
       case 0.929:
         return <Intro2 handleProgress={handleProgress} />;
       case 1:

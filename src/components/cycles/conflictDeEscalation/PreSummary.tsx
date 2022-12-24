@@ -31,7 +31,6 @@ const PreSummary: React.FC<FuncProps> = (props) => {
             <IonCol className="ion-text-center loader"></IonCol>
           </IonRow>
         </IonGrid>
-        <IonRouterLink routerLink="cycleSummary">
           <IonButton
             onClick={() => props.handleProgress!()}
             color="primary"
@@ -39,7 +38,6 @@ const PreSummary: React.FC<FuncProps> = (props) => {
           >
             CONTINUE
           </IonButton>
-        </IonRouterLink>
       </IonContent>
   );
 };
