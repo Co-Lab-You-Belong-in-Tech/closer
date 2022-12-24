@@ -9,21 +9,14 @@ import {
   IonRouterLink,
   IonToolbar,
 } from "@ionic/react";
-import Cta from "../components/Cta";
+import Cta from "../../Cta";
 
-const Pain4: React.FC = () => {
+interface FuncProps {
+  handleProgress: () => void;
+}
+
+const Pain4: React.FC<FuncProps> = (props) => {
   return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <Cta />
-          <IonProgressBar
-            className="ion-margin-top"
-            value={0.8}
-          ></IonProgressBar>
-        </IonToolbar>
-      </IonHeader>
-
       <IonContent className="ion-padding ion-margin-top">
         <h2
           className="ion-text-center"
@@ -33,13 +26,10 @@ const Pain4: React.FC = () => {
           react, I am protecting myself from ______________ (pain). I know now,
           I know why, this MAKES SENSE!
         </h2>
-        <IonRouterLink routerLink="preSummary">
           <IonButton color="primary" className="ion-text-center buttonStyle">
             CONTINUE
           </IonButton>
-        </IonRouterLink>
       </IonContent>
-    </IonPage>
   );
 };
 

@@ -1,5 +1,3 @@
-// import { useState } from "react";
-
 import {
   IonHeader,
   IonContent,
@@ -12,32 +10,26 @@ import {
   IonToolbar,
 } from "@ionic/react";
 import React from "react";
-import Cta from "../components/Cta";
-import { usePain3Store } from "../features/store";
+import Cta from "../../Cta";
+import { usePain3Store } from "../../../features/store";
 
-const Pain3: React.FC = () => {
+interface FuncProps {
+  handleProgress?: () => void;
+}
+
+const Pain3: React.FC<FuncProps> = (props) => {
   const addPain3 = usePain3Store((state) => state.addPain3);
   const painRef = React.useRef<HTMLIonInputElement>(null);
 
-  const handleAddPain3 = (
+  const handleClick = (
     e: React.MouseEvent<HTMLIonButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
     painRef.current?.value && addPain3(painRef.current.value.toString());
+    props.handleProgress && props.handleProgress();
   };
 
   return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <Cta />
-          <IonProgressBar
-            className="ion-margin-top"
-            value={0.8}
-          ></IonProgressBar>
-        </IonToolbar>
-      </IonHeader>
-
       <IonContent className="ion-padding ion-margin-top">
         <h3
           className="ion-text-center"
@@ -53,17 +45,14 @@ const Pain3: React.FC = () => {
             className="ion-text-center"
           ></IonInput>
         </IonItem>
-        <IonRouterLink routerLink="pain4">
           <IonButton
-            onClick={(e) => handleAddPain3(e)}
+            onClick={(e) => handleClick(e)}
             color="primary"
             className="ion-text-center buttonStyle"
           >
             CONTINUE
           </IonButton>
-        </IonRouterLink>
       </IonContent>
-    </IonPage>
   );
 };
 

@@ -13,32 +13,26 @@ import {
 } from "@ionic/react";
 import React from "react";
 
-import Cta from "../components/Cta";
-import { usePain1Store } from "../features/store";
+import Cta from "../../Cta";
+import { usePain1Store } from "../../../features/store";
 
-const Pain1: React.FC = () => {
+interface FuncProps {
+  handleProgress?: () => void;
+}
+
+const Pain1: React.FC<FuncProps> = (props) => {
   const addPain1 = usePain1Store((state) => state.addPain1);
   const painRef = React.useRef<HTMLIonTextareaElement>(null);
 
-  const handleAddPain1 = (
+  const handleClick = (
     e: React.MouseEvent<HTMLIonButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
     painRef.current?.value && addPain1(painRef.current.value);
+    props.handleProgress && props.handleProgress();
   };
 
   return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <Cta />
-          <IonProgressBar
-            className="ion-margin-top"
-            value={0.8}
-          ></IonProgressBar>
-        </IonToolbar>
-      </IonHeader>
-
       <IonContent className="ion-padding ion-margin-top">
         <h3 className="ion-text-center">
           What is the pain under my reaction?{" "}
@@ -50,17 +44,14 @@ const Pain1: React.FC = () => {
             placeholder="i.e. Hurt, loss, grief, loneliness, sadness, heartbreak, vulnerable, fear, confused, lost, etc."
           ></IonTextarea>
         </IonItem>
-        <IonRouterLink routerLink="/pain2">
           <IonButton
-            onClick={(e) => handleAddPain1(e)}
+            onClick={(e) => handleClick(e)}
             color="primary"
             className="ion-text-center buttonStyle"
           >
             CONTINUE
           </IonButton>
-        </IonRouterLink>
       </IonContent>
-    </IonPage>
   );
 };
 

@@ -20,7 +20,10 @@ import Emotion from '../components/cycles/conflictDeEscalation/Emotion';
 import Action from '../components/cycles/conflictDeEscalation/Action';
 import ActionOfPartner from '../components/cycles/conflictDeEscalation/ActionOfPartner';
 import Disclaimer from '../components/cycles/conflictDeEscalation/Disclaimer';
-
+import Pain1 from '../components/cycles/conflictDeEscalation/Pain1';
+import Pain2 from '../components/cycles/conflictDeEscalation/Pain2';
+import Pain3 from '../components/cycles/conflictDeEscalation/Pain3';
+import Pain4 from '../components/cycles/conflictDeEscalation/Pain4';
 
 const CycleMainPage = () => {
   const [buffer, setBuffer] = React.useState(0.0715);
@@ -53,13 +56,13 @@ const CycleMainPage = () => {
       case 0.429:
         return <Disclaimer handleProgress={handleProgress} />;
       case 0.5:
-        return <Intro2 handleProgress={handleProgress} />;
+        return <Pain1 handleProgress={handleProgress} />;
       case 0.5715:
-        return <Intro2 handleProgress={handleProgress} />;
+        return <Pain2 handleProgress={handleProgress} />;
       case 0.643:
-        return <Intro2 handleProgress={handleProgress} />;
+        return <Pain3 handleProgress={handleProgress} />;
       case 0.7145:
-        return <Intro2 handleProgress={handleProgress} />;
+        return <Pain4 handleProgress={handleProgress} />;
       case 0.786:
         return <Intro2 handleProgress={handleProgress} />;
       case 0.8575:
