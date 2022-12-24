@@ -15,6 +15,7 @@ import IntroImage from "../assets/IntroImage.png";
 
 import Intro2 from '../components/cycles/conflictDeEscalation/Intro2';
 import InfoOfConflict from '../components/cycles/conflictDeEscalation/InfoOfConflict';
+import Trigger from '../components/cycles/conflictDeEscalation/Trigger';
 
 const CycleMainPage = () => {
   const [buffer, setBuffer] = React.useState(0.0715);
@@ -37,7 +38,7 @@ const CycleMainPage = () => {
       case 0.0715:
         return <InfoOfConflict handleProgress={handleProgress} />;
       case 0.143:
-        return <Intro2 handleProgress={handleProgress} />;
+        return <Trigger handleProgress={handleProgress} />;
       case 0.2145:
         return <Intro2 handleProgress={handleProgress} />;
       case 0.286:

@@ -15,35 +15,29 @@ import {
 } from "@ionic/react";
 import React from "react";
 
-import Cta from "../components/Cta";
 
 // Import the store
-import { useTriggersStore } from "../features/store";
-import { stockTriggers } from "../data/stockTriggers";
+import { useTriggersStore } from "../../../features/store";
+import { stockTriggers } from "../../../data/stockTriggers";
 
-const Trigger: React.FC = () => {
+interface FuncProps {
+  handleProgress?: () => void;
+}
+
+const Trigger: React.FC<FuncProps> = (props) => {
   const addTrigger = useTriggersStore((state) => state.addTrigger);
   const triggerRef = React.useRef<HTMLIonRadioGroupElement>(null);
 
-  const handleAddTrigger = (
+  const handleClick = (
     e: React.MouseEvent<HTMLIonButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
     addTrigger(triggerRef.current?.value);
+
+    props.handleProgress && props.handleProgress();
   };
 
   return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <Cta />
-          <IonProgressBar
-            className="ion-margin-top"
-            value={0.2}
-          ></IonProgressBar>
-        </IonToolbar>
-      </IonHeader>
-
       <IonContent className="ion-padding ion-margin-top">
         <h3>What triggered your reaction?</h3>
         <IonList className="ion-margin-top">
@@ -69,18 +63,15 @@ const Trigger: React.FC = () => {
           <IonInput></IonInput>
         </IonItem>
 
-        <IonRouterLink routerLink="emotion">
           <IonButton
             disabled={!triggerRef.current?.value}
-            onClick={(e) => handleAddTrigger(e)}
+            onClick={(e) => handleClick(e)}
             color="primary"
             className="ion-text-center buttonStyle"
           >
             CONTINUE
           </IonButton>
-        </IonRouterLink>
       </IonContent>
-    </IonPage>
   );
 };
 
