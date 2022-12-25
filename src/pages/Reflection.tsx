@@ -21,7 +21,7 @@ import {
 } from "@ionic/react";
 import { close } from "ionicons/icons";
 import Cta from "../components/Cta";
-import { useEndOfCycleStore } from "../features/store";
+import { useFirstTimeStore } from "../features/store";
 
 interface FuncProps {
   handleProgress?: () => void;
@@ -29,7 +29,9 @@ interface FuncProps {
 
 const Reflection: React.FC<FuncProps> = (props) => {
   const [isOpen, setIsOpen] = useState(true);
-  const setEndOfCycle = useEndOfCycleStore((state) => state.setEndOfCycle);
+  // const setEndOfCycle = useEndOfCycleStore((state) => state.setEndOfCycle);
+  // const [endOfCycle, setEndofCycle] = useState(true);
+  const setFirstTime = useFirstTimeStore((state) => state.setFirstTime);
 
   return (
       <IonContent className="ion-padding">
@@ -40,7 +42,6 @@ const Reflection: React.FC<FuncProps> = (props) => {
         <IonGrid>
           <IonRow>
             <IonCol>
-              {/* credit from https://codepen.io/hesguru/pen/BaybqXv */}
               <div className="rate">
                 <input type="radio" id="star5" name="rate" value="5" />
                 <label htmlFor="star5" title="text">
@@ -92,8 +93,8 @@ const Reflection: React.FC<FuncProps> = (props) => {
           ></IonInput>
         </IonItem>
 
-        <IonRouterLink routerLink="dashboard">
-          <IonButton onClick={() => setEndOfCycle(true)} color="primary" className="ion-text-center buttonStyle">
+        <IonRouterLink routerLink="dashboard/endOfCycle">
+          <IonButton onClick={() => setFirstTime(false)} color="primary" className="ion-text-center buttonStyle">
             SAVE AND CLOSE
           </IonButton>
         </IonRouterLink>

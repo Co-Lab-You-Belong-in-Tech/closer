@@ -17,12 +17,15 @@ import { useEndOfCycleStore } from "../features/store";
 
 const EndOfSession: React.FC = () => {
   const [isOpen, setIsOpen] = useState(true);
-  const setEndOfCycle = useEndOfCycleStore((state) => state.setEndOfCycle);
+  // const setEndOfCycle = useEndOfCycleStore((state) => state.setEndOfCycle);
 
-  const handleClick = () => {
-    setIsOpen(false);
-    setEndOfCycle(false);
-  };
+  // const handleClick = (
+  //   e: React.MouseEvent<HTMLIonButtonElement, MouseEvent>
+  // ) => {
+  //   e.preventDefault();
+  //   setIsOpen(false);
+  //   setEndOfCycle(false);
+  // };
 
   return (
         <IonModal
@@ -64,7 +67,7 @@ const EndOfSession: React.FC = () => {
             <IonButton
               size="large"
               className="ion-text-center buttonStyle"
-              onClick={() => handleClick()}
+              onClick={() => setIsOpen(false)}
               color="primary"
             >
               Close

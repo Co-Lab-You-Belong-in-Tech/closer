@@ -46,6 +46,17 @@ export const useEndOfCycleStore = create(
   )
 );
 
+export const useFirstTimeStore = create(
+  persist(
+    devtools(
+      (set: (argO: { firstTime: boolean }) => any) => ({
+        firstTime: true,
+        setFirstTime: (status: boolean) => set({ firstTime: status }),
+      }),
+    )
+  )
+);
+
 // Creates a store and persists it to local storage
 // The store contains an array of triggers and functions to add and remove triggers.
 export const useTriggersStore = create(

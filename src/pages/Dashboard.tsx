@@ -5,13 +5,16 @@ import {
   IonButton,
   IonText,
 } from "@ionic/react";
+import { useParams } from "react-router";
 
 import Intro from "../components/Intro";
-import { useEndOfCycleStore } from "../features/store";
+import { useFirstTimeStore } from "../features/store";
 import EndOfSession from "./EndOfSession";
 
 const Dashboard: React.FC = () => {
-  const endOfCycle = useEndOfCycleStore((state) => state.endOfCycle);
+  const { endOfCycle } = useParams<{ endOfCycle: string }>();
+  const firstTime = useFirstTimeStore((state) => state.firstTime);
+  // const endOfCycle = useEndOfCycleStore((state) => state.endOfCycle);
   return (
     <IonPage className="dashboardPage">
       <IonContent className="ion-padding">
@@ -42,7 +45,8 @@ const Dashboard: React.FC = () => {
           <h5>View completed sessions</h5>
         </IonButton>
       </IonContent>
-      {endOfCycle ? <EndOfSession /> : <Intro />}
+      {firstTime ? <Intro /> : null}
+      {endOfCycle === "endOfCycle" ? <EndOfSession /> : null}
     </IonPage>
   );
 };

@@ -93,6 +93,17 @@ const App: React.FC<RouteComponentProps> = () => {
               }
               exact={true}
             />
+
+            <Route
+              path="/dashboard/:endOfCycle"
+              render={
+                userStatus === "guest" || userStatus === "loggedIn"
+                  ? () => <Dashboard />
+                  : () => <Redirect to="/sign-in" />
+              }
+              exact={true}
+            />
+
             <Route
               path="/infoOfConflict"
               render={
