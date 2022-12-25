@@ -1,15 +1,7 @@
-// import { useState } from "react";
-
 import {
-  IonHeader,
   IonContent,
-  IonPage,
   IonButton,
-  IonProgressBar,
-  IonRouterLink,
-  IonToolbar,
 } from "@ionic/react";
-import Cta from "../../Cta";
 
 interface FuncProps {
   handleProgress?: () => void;

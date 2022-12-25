@@ -12,23 +12,6 @@ import Splash from "./components/splash/Splash";
 
 // import pages
 import Dashboard from "./pages/Dashboard";
-import Intro2 from "./components/cycles/conflictDeEscalation/Intro2";
-import InfoOfConflict from "./components/cycles/conflictDeEscalation/InfoOfConflict";
-import Trigger from "./components/cycles/conflictDeEscalation/Trigger";
-import Emotion from "./components/cycles/conflictDeEscalation/Emotion";
-import Action from "./components/cycles/conflictDeEscalation/Action";
-import ActionOfPartner from "./components/cycles/conflictDeEscalation/ActionOfPartner";
-import Disclaimer from "./components/cycles/conflictDeEscalation/Disclaimer";
-import Pain1 from "./components/cycles/conflictDeEscalation/Pain1";
-import Pain2 from "./components/cycles/conflictDeEscalation/Pain2";
-import Pain3 from "./components/cycles/conflictDeEscalation/Pain3";
-import Pain4 from "./components/cycles/conflictDeEscalation/Pain4";
-import PreSummary from "./components/cycles/conflictDeEscalation/PreSummary";
-import CycleSummary from "./components/cycles/conflictDeEscalation/CycleSummary";
-import Analysis from "./components/cycles/conflictDeEscalation/Analysis";
-import Reflection from "./pages/Reflection";
-import EndOfSession from "./pages/EndOfSession";
-
 import CycleMainPage from "./pages/CycleMainPage";
 // Custom hooks
 import { useTimeout } from "./hooks/useTimeOut";
@@ -71,30 +54,29 @@ const App: React.FC<RouteComponentProps> = () => {
               }
               exact={true}
             />
-            <Route exact path="/" render={() => <Redirect to="/signin" />} />
 
             <Route
-              path="/dashboard"
+              path="/cycle"
               render={
                 userStatus === "guest" || userStatus === "loggedIn"
-                ? () => <Dashboard />
-                : () => <Redirect to="/sign-in" />
+                  ? () => <CycleMainPage />
+                  : () => <Redirect to="/sign-in" />
               }
               exact={true}
             />
 
-              <Route
-                path="dashboard/:startCycle"
-                render={
-                  userStatus === "guest" || userStatus === "loggedIn"
-                    ? () => <CycleMainPage />
-                    : () => <Redirect to="/sign-in" />
-                }
-                exact={true}
-              />
-
             <Route
               path="/dashboard/:endOfCycle"
+              render={
+                userStatus === "guest" || userStatus === "loggedIn"
+                  ? () => <Dashboard />
+                  : () => <Redirect to="/sign-in" />
+              }
+              exact={true}
+            />
+
+            <Route
+              path="/"
               render={
                 userStatus === "guest" || userStatus === "loggedIn"
                   ? () => <Dashboard />

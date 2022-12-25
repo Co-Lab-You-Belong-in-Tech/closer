@@ -1,31 +1,18 @@
-import { MouseEvent, useState } from "react";
+import { useState } from "react";
 
 import {
   IonHeader,
   IonContent,
   IonToolbar,
-  IonPage,
-  IonRouterLink,
   IonButton,
   IonModal,
   IonButtons,
   IonIcon,
-  IonText,
 } from "@ionic/react";
 import { close } from "ionicons/icons";
-import { useEndOfCycleStore } from "../features/store";
 
 const EndOfSession: React.FC = () => {
   const [isOpen, setIsOpen] = useState(true);
-  // const setEndOfCycle = useEndOfCycleStore((state) => state.setEndOfCycle);
-
-  // const handleClick = (
-  //   e: React.MouseEvent<HTMLIonButtonElement, MouseEvent>
-  // ) => {
-  //   e.preventDefault();
-  //   setIsOpen(false);
-  //   setEndOfCycle(false);
-  // };
 
   return (
         <IonModal

@@ -1,19 +1,13 @@
 // import { useState } from "react";
 
 import {
-  IonHeader,
   IonContent,
-  IonPage,
   IonButton,
-  IonProgressBar,
   IonItem,
-  IonRouterLink,
   IonTextarea,
-  IonToolbar,
 } from "@ionic/react";
 import React from "react";
 
-import Cta from "../../Cta";
 import { usePain1Store } from "../../../features/store";
 
 interface FuncProps {

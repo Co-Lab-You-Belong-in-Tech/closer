@@ -44,7 +44,7 @@ const Cta: React.FC = () => {
       >
         <IonIcon icon={close} color="dark"></IonIcon>
       </IonButton>
-      {handlerMessage === true && <Redirect to="dashboard" />}
+      {handlerMessage === true && <Redirect to="/" />}
     </>
   );
 };

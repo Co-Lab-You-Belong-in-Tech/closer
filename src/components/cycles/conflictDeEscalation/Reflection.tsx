@@ -4,11 +4,9 @@ import {
   IonHeader,
   IonContent,
   IonToolbar,
-  IonPage,
   IonRouterLink,
   IonButton,
   IonText,
-  IonProgressBar,
   IonButtons,
   IonModal,
   IonIcon,
@@ -20,11 +18,11 @@ import {
   IonLabel,
 } from "@ionic/react";
 import { close } from "ionicons/icons";
-import Cta from "../components/Cta";
-import { useFirstTimeStore } from "../features/store";
+import { useFirstTimeStore } from "../../../features/store";
 
 interface FuncProps {
   handleProgress?: () => void;
+  setProgress?: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const Reflection: React.FC<FuncProps> = (props) => {
@@ -33,6 +31,10 @@ const Reflection: React.FC<FuncProps> = (props) => {
   // const [endOfCycle, setEndofCycle] = useState(true);
   const setFirstTime = useFirstTimeStore((state) => state.setFirstTime);
 
+  const handleClick = () => {
+    setFirstTime(false);
+    props.handleProgress && props.handleProgress();
+  }
   return (
       <IonContent className="ion-padding">
         <IonText>
@@ -94,7 +96,7 @@ const Reflection: React.FC<FuncProps> = (props) => {
         </IonItem>
 
         <IonRouterLink routerLink="dashboard/endOfCycle">
-          <IonButton onClick={() => setFirstTime(false)} color="primary" className="ion-text-center buttonStyle">
+          <IonButton routerDirection="root" onClick={() => setFirstTime(false)} color="primary" className="ion-text-center buttonStyle">
             SAVE AND CLOSE
           </IonButton>
         </IonRouterLink>

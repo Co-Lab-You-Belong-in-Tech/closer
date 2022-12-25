@@ -1,18 +1,12 @@
 import {
-  IonHeader,
   IonContent,
-  IonPage,
   IonButton,
-  IonProgressBar,
   IonItem,
   IonList,
   IonSelect,
   IonSelectOption,
-  IonRouterLink,
-  IonToolbar,
 } from "@ionic/react";
 import React from "react";
-import Cta from "../../Cta";
 import { useEmotionsStore } from "../../../features/store";
 
 interface FuncProps {

@@ -1,13 +1,9 @@
 import React from 'react'
 import {
   IonHeader,
-  IonContent,
   IonToolbar,
   IonPage,
-  IonRouterLink,
-  IonButton,
   IonProgressBar,
-  IonText,
 } from "@ionic/react";
 
 import Cta from "../components/Cta";
@@ -27,7 +23,7 @@ import Pain4 from '../components/cycles/conflictDeEscalation/Pain4';
 import PreSummary from '../components/cycles/conflictDeEscalation/PreSummary';
 import CycleSummary from '../components/cycles/conflictDeEscalation/CycleSummary';
 import Analysis from '../components/cycles/conflictDeEscalation/Analysis';
-import Reflection from './Reflection';
+import Reflection from '../components/cycles/conflictDeEscalation/Reflection';
 
 const CycleMainPage = () => {
   const [buffer, setBuffer] = React.useState(0.0715);
@@ -36,6 +32,7 @@ const CycleMainPage = () => {
   const handleProgress = () => {
     setProgress((preProgress) => preProgress + 0.0715);
     setBuffer((preBuffer) => preBuffer + 0.0715);
+    
     console.log(progress);
     console.log(buffer);
   };
@@ -43,6 +40,8 @@ const CycleMainPage = () => {
   const handleBack = () => {
     setProgress(progress - 0.0715);
   };
+
+  // unmount this component when progress is 1
 
   const contentSelector = (progress: number) => {
     switch (Number(progress.toFixed(4))) {
@@ -74,7 +73,7 @@ const CycleMainPage = () => {
       case 0.9295:
         return <Analysis handleProgress={handleProgress} />
       case 1.001:
-        return <Reflection />
+        return <Reflection setProgress={setProgress} />
       default:
         return <Intro2 handleProgress={handleProgress} />;
     }

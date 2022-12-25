@@ -1,7 +1,6 @@
 import {
   IonContent,
   IonPage,
-  IonRouterLink,
   IonButton,
   IonText,
 } from "@ionic/react";
@@ -9,7 +8,8 @@ import { useParams } from "react-router";
 
 import Intro from "../components/Intro";
 import { useFirstTimeStore } from "../features/store";
-import EndOfSession from "./EndOfSession";
+import EndOfSession from "../components/cycles/conflictDeEscalation/EndOfSession";
+import { Link } from "react-router-dom";
 
 const Dashboard: React.FC = () => {
   const { endOfCycle } = useParams<{ endOfCycle: string }>();
@@ -25,8 +25,9 @@ const Dashboard: React.FC = () => {
           <h2>Welcome!</h2>
           <h5 className="underline">What would you like to do today?</h5>
         </IonText>
-        <IonRouterLink routerLink="intro2">
+        {/* <Link to="/cycle"> */}
           <IonButton
+            href="/cycle"
             expand="block"
             color="tertiary"
             className="dashboardTitle ion-text-center ion-margin  ion-text-uppercase
@@ -35,7 +36,7 @@ const Dashboard: React.FC = () => {
           >
             <h5>Log a new conflict cycle</h5>
           </IonButton>
-        </IonRouterLink>
+        {/* </Link> */}
 
         <IonButton
           expand="block"

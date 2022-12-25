@@ -1,15 +1,11 @@
 import { useState } from "react";
 
 import {
-  IonHeader,
   IonContent,
-  IonPage,
   IonButton,
-  IonProgressBar,
   IonItem,
   IonInput,
   IonModal,
-  IonRouterLink,
   IonButtons,
   IonToolbar,
   IonIcon,
@@ -17,7 +13,6 @@ import {
 import React from "react";
 
 import { close } from "ionicons/icons";
-import Cta from "../../Cta";
 import { stockActions } from "../../../data/stockActions";
 import { usePartnerActionsStore } from "../../../features/store";
 
