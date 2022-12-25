@@ -1,9 +1,4 @@
-import {
-  IonContent,
-  IonPage,
-  IonButton,
-  IonText,
-} from "@ionic/react";
+import { IonContent, IonPage, IonButton, IonText } from "@ionic/react";
 import { useParams } from "react-router";
 
 import Intro from "../components/Intro";
@@ -26,16 +21,16 @@ const Dashboard: React.FC = () => {
           <h5 className="underline">What would you like to do today?</h5>
         </IonText>
         {/* <Link to="/cycle"> */}
-          <IonButton
-            href="/cycle"
-            expand="block"
-            color="tertiary"
-            className="dashboardTitle ion-text-center ion-margin  ion-text-uppercase
+        <IonButton
+          href="/cycle"
+          expand="block"
+          color="tertiary"
+          className="dashboardTitle ion-text-center ion-margin  ion-text-uppercase
             "
-            style={{ marginTop: "15%" }}
-          >
-            <h5>Log a new conflict cycle</h5>
-          </IonButton>
+          style={{ marginTop: "15%" }}
+        >
+          <h5>Log a new conflict cycle</h5>
+        </IonButton>
         {/* </Link> */}
 
         <IonButton

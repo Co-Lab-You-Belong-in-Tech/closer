@@ -84,13 +84,13 @@ const ActionOfPartner: React.FC<FuncProps> = (props) => {
         </div>
       </IonModal>
 
-        <IonButton
-          onClick={(e) => handleClick(e)}
-          color="primary"
-          className="ion-text-center buttonStyle"
-        >
-          CONTINUE
-        </IonButton>
+      <IonButton
+        onClick={(e) => handleClick(e)}
+        color="primary"
+        className="ion-text-center buttonStyle"
+      >
+        CONTINUE
+      </IonButton>
     </IonContent>
   );
 };

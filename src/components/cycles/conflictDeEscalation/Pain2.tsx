@@ -1,9 +1,4 @@
-import {
-  IonContent,
-  IonButton,
-  IonItem,
-  IonTextarea,
-} from "@ionic/react";
+import { IonContent, IonButton, IonItem, IonTextarea } from "@ionic/react";
 import React from "react";
 import { usePain2Store } from "../../../features/store";
 
@@ -24,24 +19,24 @@ const Pain2: React.FC<FuncProps> = (props) => {
   };
 
   return (
-      <IonContent className="ion-padding ion-margin-top">
-        <h2 className="ion-text-center">
-          Where do I hold that pain in my body?{" "}
-        </h2>
-        <IonItem>
-          <IonTextarea
-            ref={painRef}
-            placeholder="i.e. twist in the stomach or pressure on the chest etc."
-          ></IonTextarea>
-        </IonItem>
-          <IonButton
-            onClick={(e) => handleClick(e)}
-            color="primary"
-            className="ion-text-center buttonStyle"
-          >
-            CONTINUE
-          </IonButton>
-      </IonContent>
+    <IonContent className="ion-padding ion-margin-top">
+      <h2 className="ion-text-center">
+        Where do I hold that pain in my body?{" "}
+      </h2>
+      <IonItem>
+        <IonTextarea
+          ref={painRef}
+          placeholder="i.e. twist in the stomach or pressure on the chest etc."
+        ></IonTextarea>
+      </IonItem>
+      <IonButton
+        onClick={(e) => handleClick(e)}
+        color="primary"
+        className="ion-text-center buttonStyle"
+      >
+        CONTINUE
+      </IonButton>
+    </IonContent>
   );
 };
 

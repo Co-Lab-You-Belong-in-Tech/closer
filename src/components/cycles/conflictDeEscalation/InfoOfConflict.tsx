@@ -41,56 +41,56 @@ const InfoOfConflict: React.FC<FuncProps> = (props) => {
   };
 
   return (
-      <IonContent className="ion-padding">
-        <IonText>
-          <h2> Tell us more about the conflict</h2>
-        </IonText>
+    <IonContent className="ion-padding">
+      <IonText>
+        <h2> Tell us more about the conflict</h2>
+      </IonText>
 
-        <IonItem>
-          <div className="conflictName">
-            <IonLabel position="stacked">Name of the conflict</IonLabel>
-            <IonInput ref={conflictName}></IonInput>
-          </div>
-        </IonItem>
-
-        <div className="ion-margin">
-          <IonLabel position="stacked">When did it happen?</IonLabel>
-          <IonDatetimeButton
-            datetime="datetime"
-            className="ion-margin-top"
-          ></IonDatetimeButton>
-          <IonModal keepContentsMounted={true}>
-            <IonDatetime
-              ref={conflictDate}
-              id="datetime"
-              presentation="date"
-            ></IonDatetime>
-          </IonModal>
+      <IonItem>
+        <div className="conflictName">
+          <IonLabel position="stacked">Name of the conflict</IonLabel>
+          <IonInput ref={conflictName}></IonInput>
         </div>
+      </IonItem>
 
-        <div className="ion-margin">
-          <IonLabel position="stacked">Intensity Level</IonLabel>
-          <IonRange
-            ref={conflictIntensity}
-            ticks={true}
-            snaps={true}
-            min={0}
-            max={5}
-            pin={true}
-            className="ionRange"
-          ></IonRange>
-          <IonLabel>low</IonLabel>
-          <IonLabel style={{ marginLeft: "79%" }}>High</IonLabel>
-        </div>
+      <div className="ion-margin">
+        <IonLabel position="stacked">When did it happen?</IonLabel>
+        <IonDatetimeButton
+          datetime="datetime"
+          className="ion-margin-top"
+        ></IonDatetimeButton>
+        <IonModal keepContentsMounted={true}>
+          <IonDatetime
+            ref={conflictDate}
+            id="datetime"
+            presentation="date"
+          ></IonDatetime>
+        </IonModal>
+      </div>
 
-          <IonButton
-            onClick={(e) => handleClick(e)}
-            color="primary"
-            className="ion-text-center buttonStyle"
-          >
-            CONTINUE
-          </IonButton>
-      </IonContent>
+      <div className="ion-margin">
+        <IonLabel position="stacked">Intensity Level</IonLabel>
+        <IonRange
+          ref={conflictIntensity}
+          ticks={true}
+          snaps={true}
+          min={0}
+          max={5}
+          pin={true}
+          className="ionRange"
+        ></IonRange>
+        <IonLabel>low</IonLabel>
+        <IonLabel style={{ marginLeft: "79%" }}>High</IonLabel>
+      </div>
+
+      <IonButton
+        onClick={(e) => handleClick(e)}
+        color="primary"
+        className="ion-text-center buttonStyle"
+      >
+        CONTINUE
+      </IonButton>
+    </IonContent>
   );
 };
 

@@ -1,9 +1,4 @@
-import {
-  IonContent,
-  IonButton,
-  IonItem,
-  IonInput,
-} from "@ionic/react";
+import { IonContent, IonButton, IonItem, IonInput } from "@ionic/react";
 import React from "react";
 import { usePain3Store } from "../../../features/store";
 
@@ -24,29 +19,29 @@ const Pain3: React.FC<FuncProps> = (props) => {
   };
 
   return (
-      <IonContent className="ion-padding ion-margin-top">
-        <h3
-          className="ion-text-center"
-          style={{ width: "55%", marginLeft: "22.5%", marginTop: "50%" }}
-        >
-          If the pain had words, it would say...{" "}
-        </h3>
+    <IonContent className="ion-padding ion-margin-top">
+      <h3
+        className="ion-text-center"
+        style={{ width: "55%", marginLeft: "22.5%", marginTop: "50%" }}
+      >
+        If the pain had words, it would say...{" "}
+      </h3>
 
-        <IonItem>
-          <IonInput
-            ref={painRef}
-            placeholder='i.e.  "I will always be alone."'
-            className="ion-text-center"
-          ></IonInput>
-        </IonItem>
-          <IonButton
-            onClick={(e) => handleClick(e)}
-            color="primary"
-            className="ion-text-center buttonStyle"
-          >
-            CONTINUE
-          </IonButton>
-      </IonContent>
+      <IonItem>
+        <IonInput
+          ref={painRef}
+          placeholder='i.e.  "I will always be alone."'
+          className="ion-text-center"
+        ></IonInput>
+      </IonItem>
+      <IonButton
+        onClick={(e) => handleClick(e)}
+        color="primary"
+        className="ion-text-center buttonStyle"
+      >
+        CONTINUE
+      </IonButton>
+    </IonContent>
   );
 };
 

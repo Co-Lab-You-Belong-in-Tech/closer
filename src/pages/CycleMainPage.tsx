@@ -1,29 +1,24 @@
-import React from 'react'
-import {
-  IonHeader,
-  IonToolbar,
-  IonPage,
-  IonProgressBar,
-} from "@ionic/react";
+import React from "react";
+import { IonHeader, IonToolbar, IonPage, IonProgressBar } from "@ionic/react";
 
 import Cta from "../components/Cta";
 import IntroImage from "../assets/IntroImage.png";
 
-import Intro2 from '../components/cycles/conflictDeEscalation/Intro2';
-import InfoOfConflict from '../components/cycles/conflictDeEscalation/InfoOfConflict';
-import Trigger from '../components/cycles/conflictDeEscalation/Trigger';
-import Emotion from '../components/cycles/conflictDeEscalation/Emotion';
-import Action from '../components/cycles/conflictDeEscalation/Action';
-import ActionOfPartner from '../components/cycles/conflictDeEscalation/ActionOfPartner';
-import Disclaimer from '../components/cycles/conflictDeEscalation/Disclaimer';
-import Pain1 from '../components/cycles/conflictDeEscalation/Pain1';
-import Pain2 from '../components/cycles/conflictDeEscalation/Pain2';
-import Pain3 from '../components/cycles/conflictDeEscalation/Pain3';
-import Pain4 from '../components/cycles/conflictDeEscalation/Pain4';
-import PreSummary from '../components/cycles/conflictDeEscalation/PreSummary';
-import CycleSummary from '../components/cycles/conflictDeEscalation/CycleSummary';
-import Analysis from '../components/cycles/conflictDeEscalation/Analysis';
-import Reflection from '../components/cycles/conflictDeEscalation/Reflection';
+import Intro2 from "../components/cycles/conflictDeEscalation/Intro2";
+import InfoOfConflict from "../components/cycles/conflictDeEscalation/InfoOfConflict";
+import Trigger from "../components/cycles/conflictDeEscalation/Trigger";
+import Emotion from "../components/cycles/conflictDeEscalation/Emotion";
+import Action from "../components/cycles/conflictDeEscalation/Action";
+import ActionOfPartner from "../components/cycles/conflictDeEscalation/ActionOfPartner";
+import Disclaimer from "../components/cycles/conflictDeEscalation/Disclaimer";
+import Pain1 from "../components/cycles/conflictDeEscalation/Pain1";
+import Pain2 from "../components/cycles/conflictDeEscalation/Pain2";
+import Pain3 from "../components/cycles/conflictDeEscalation/Pain3";
+import Pain4 from "../components/cycles/conflictDeEscalation/Pain4";
+import PreSummary from "../components/cycles/conflictDeEscalation/PreSummary";
+import CycleSummary from "../components/cycles/conflictDeEscalation/CycleSummary";
+import Analysis from "../components/cycles/conflictDeEscalation/Analysis";
+import Reflection from "../components/cycles/conflictDeEscalation/Reflection";
 
 const CycleMainPage = () => {
   const [buffer, setBuffer] = React.useState(0.0715);
@@ -32,7 +27,7 @@ const CycleMainPage = () => {
   const handleProgress = () => {
     setProgress((preProgress) => preProgress + 0.0715);
     setBuffer((preBuffer) => preBuffer + 0.0715);
-    
+
     console.log(progress);
     console.log(buffer);
   };
@@ -69,39 +64,39 @@ const CycleMainPage = () => {
       case 0.7865:
         return <PreSummary handleProgress={handleProgress} />;
       case 0.858:
-        return <CycleSummary handleProgress={handleProgress} />
+        return <CycleSummary handleProgress={handleProgress} />;
       case 0.9295:
-        return <Analysis handleProgress={handleProgress} />
+        return <Analysis handleProgress={handleProgress} />;
       case 1.001:
-        return <Reflection setProgress={setProgress} />
+        return <Reflection setProgress={setProgress} />;
       default:
         return <Intro2 handleProgress={handleProgress} />;
     }
   };
-
-
 
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
           <Cta />
-          <IonProgressBar className="ion-margin-top" buffer={buffer}  value={progress}></IonProgressBar>
+          <IonProgressBar
+            className="ion-margin-top"
+            buffer={buffer}
+            value={progress}
+          ></IonProgressBar>
         </IonToolbar>
-        { progress === 0 ? (
+        {progress === 0 ? (
           <img
             src={IntroImage}
             alt="couple sitting and watching sky"
             className="introImage"
           ></img>
-        ) : ( null ) }
+        ) : null}
       </IonHeader>
-      <>
-      {      console.log("Rendered")}
-      </>
+      <>{console.log("Rendered")}</>
       {contentSelector(progress)}
     </IonPage>
-  )
-}
+  );
+};
 
-export default CycleMainPage
+export default CycleMainPage;

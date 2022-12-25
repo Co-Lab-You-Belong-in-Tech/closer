@@ -26,33 +26,33 @@ const Emotion: React.FC<FuncProps> = (props) => {
   };
 
   return (
-      <IonContent className="ion-padding ion-margin-top">
-        <h3>What emotion did you feel? </h3>
-        <IonList>
-          <IonItem>
-            <IonSelect
-              ref={emotionRef}
-              placeholder="Select all Emotions that apply"
-              multiple={true}
-            >
-              <IonSelectOption value="frustrated">Frustrated</IonSelectOption>
-              <IonSelectOption value="annoyed">Annoyed</IonSelectOption>
-              <IonSelectOption value="numb">Numb</IonSelectOption>
-              <IonSelectOption value="helpless">Helpless</IonSelectOption>
-              <IonSelectOption value="threatened">Threatened</IonSelectOption>
-              <IonSelectOption value="exhausted">Exhausted</IonSelectOption>
-            </IonSelect>
-          </IonItem>
-        </IonList>
-
-          <IonButton
-            onClick={(e) => handleClick(e)}
-            color="primary"
-            className="ion-text-center buttonStyle"
+    <IonContent className="ion-padding ion-margin-top">
+      <h3>What emotion did you feel? </h3>
+      <IonList>
+        <IonItem>
+          <IonSelect
+            ref={emotionRef}
+            placeholder="Select all Emotions that apply"
+            multiple={true}
           >
-            CONTINUE
-          </IonButton>
-      </IonContent>
+            <IonSelectOption value="frustrated">Frustrated</IonSelectOption>
+            <IonSelectOption value="annoyed">Annoyed</IonSelectOption>
+            <IonSelectOption value="numb">Numb</IonSelectOption>
+            <IonSelectOption value="helpless">Helpless</IonSelectOption>
+            <IonSelectOption value="threatened">Threatened</IonSelectOption>
+            <IonSelectOption value="exhausted">Exhausted</IonSelectOption>
+          </IonSelect>
+        </IonItem>
+      </IonList>
+
+      <IonButton
+        onClick={(e) => handleClick(e)}
+        color="primary"
+        className="ion-text-center buttonStyle"
+      >
+        CONTINUE
+      </IonButton>
+    </IonContent>
   );
 };
 

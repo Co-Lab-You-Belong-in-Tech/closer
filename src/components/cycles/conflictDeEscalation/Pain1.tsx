@@ -1,11 +1,6 @@
 // import { useState } from "react";
 
-import {
-  IonContent,
-  IonButton,
-  IonItem,
-  IonTextarea,
-} from "@ionic/react";
+import { IonContent, IonButton, IonItem, IonTextarea } from "@ionic/react";
 import React from "react";
 
 import { usePain1Store } from "../../../features/store";
@@ -27,25 +22,23 @@ const Pain1: React.FC<FuncProps> = (props) => {
   };
 
   return (
-      <IonContent className="ion-padding ion-margin-top">
-        <h3 className="ion-text-center">
-          What is the pain under my reaction?{" "}
-        </h3>
-        <IonItem>
-          <IonTextarea
-            ref={painRef}
-            className="ion-padding"
-            placeholder="i.e. Hurt, loss, grief, loneliness, sadness, heartbreak, vulnerable, fear, confused, lost, etc."
-          ></IonTextarea>
-        </IonItem>
-          <IonButton
-            onClick={(e) => handleClick(e)}
-            color="primary"
-            className="ion-text-center buttonStyle"
-          >
-            CONTINUE
-          </IonButton>
-      </IonContent>
+    <IonContent className="ion-padding ion-margin-top">
+      <h3 className="ion-text-center">What is the pain under my reaction? </h3>
+      <IonItem>
+        <IonTextarea
+          ref={painRef}
+          className="ion-padding"
+          placeholder="i.e. Hurt, loss, grief, loneliness, sadness, heartbreak, vulnerable, fear, confused, lost, etc."
+        ></IonTextarea>
+      </IonItem>
+      <IonButton
+        onClick={(e) => handleClick(e)}
+        color="primary"
+        className="ion-text-center buttonStyle"
+      >
+        CONTINUE
+      </IonButton>
+    </IonContent>
   );
 };
 
