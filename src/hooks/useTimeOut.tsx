@@ -26,7 +26,6 @@ export const useTimeout = (
     if (delay !== null) {
       // Set a timeout with delay and call tick
       let id = setTimeout(tick, delay);
-      console.log("Timeout set");
       // Clear timeout when component unmounts
       return () => clearTimeout(id);
     }

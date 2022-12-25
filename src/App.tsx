@@ -24,8 +24,6 @@ const App: React.FC<RouteComponentProps> = () => {
   const userStatus = useUserStatusStore((state) => state.userStatus);
   const [loading, setLoading] = React.useState<boolean>(true);
 
-  console.log(userStatus);
-
   useTimeout(() => setLoading(false), 3000);
 
   return (

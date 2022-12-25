@@ -62,14 +62,11 @@ const SignUp: React.FC<componentProps> = () => {
       email: emailRef.current?.value,
       password: passwordRef.current?.value,
     };
-    console.log(formData);
     formData.email && formData.password
       ? register(formData)
       : showToast("Please fill in all fields", "warning");
     // resume default behavior
   };
-
-  console.log("Sign up form rendered.");
 
   return (
     <IonPage>

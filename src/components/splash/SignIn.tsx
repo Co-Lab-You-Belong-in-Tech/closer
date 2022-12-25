@@ -43,12 +43,10 @@ const SignIn: React.FC<SignInProps> = () => {
     (FormData: object) => loginUser(FormData),
     {
       onSuccess: (data) => {
-        console.log(data);
         setUserStatus("loggedIn");
         showToast(data.status.message, "success");
       },
       onError: (error: any) => {
-        console.log(error);
         showToast(JSON.stringify(error.response.data), "danger");
       },
     }
@@ -62,7 +60,6 @@ const SignIn: React.FC<SignInProps> = () => {
       email: emailRef.current!.value,
       password: passwordRef.current!.value,
     };
-    console.log(formData);
     formData.email && formData.password
       ? signIn(formData)
       : showToast("Please fill in all fields", "warning");

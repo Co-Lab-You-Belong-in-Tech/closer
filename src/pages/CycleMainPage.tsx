@@ -27,9 +27,6 @@ const CycleMainPage = () => {
   const handleProgress = () => {
     setProgress((preProgress) => preProgress + 0.0715);
     setBuffer((preBuffer) => preBuffer + 0.0715);
-
-    console.log(progress);
-    console.log(buffer);
   };
 
   const handleBack = () => {
@@ -93,7 +90,6 @@ const CycleMainPage = () => {
           ></img>
         ) : null}
       </IonHeader>
-      <>{console.log("Rendered")}</>
       {contentSelector(progress)}
     </IonPage>
   );
