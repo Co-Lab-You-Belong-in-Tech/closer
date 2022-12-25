@@ -61,6 +61,7 @@ const App: React.FC<RouteComponentProps> = () => {
               }
               exact={true}
             />
+
             <Route
               path="/sign-up"
               render={
@@ -72,189 +73,31 @@ const App: React.FC<RouteComponentProps> = () => {
             />
             <Route exact path="/" render={() => <Redirect to="/signin" />} />
 
-            {/* below is from  Jingru  after Dec 3   */}
-
-            <Route
-              path="/cycleMainPage"
-              render={
-                userStatus === "guest" || userStatus === "loggedIn"
-                  ? () => <CycleMainPage />
-                  : () => <Redirect to="/sign-in" />
-              }
-              exact={true}
-            />
-
             <Route
               path="/dashboard"
               render={
                 userStatus === "guest" || userStatus === "loggedIn"
-                  ? () => <Dashboard />
-                  : () => <Redirect to="/sign-in" />
+                ? () => <Dashboard />
+                : () => <Redirect to="/sign-in" />
               }
               exact={true}
             />
+
+              <Route
+                path="dashboard/:startCycle"
+                render={
+                  userStatus === "guest" || userStatus === "loggedIn"
+                    ? () => <CycleMainPage />
+                    : () => <Redirect to="/sign-in" />
+                }
+                exact={true}
+              />
 
             <Route
               path="/dashboard/:endOfCycle"
               render={
                 userStatus === "guest" || userStatus === "loggedIn"
                   ? () => <Dashboard />
-                  : () => <Redirect to="/sign-in" />
-              }
-              exact={true}
-            />
-
-            <Route
-              path="/infoOfConflict"
-              render={
-                userStatus === "guest" || userStatus === "loggedIn"
-                  ? () => <InfoOfConflict />
-                  : () => <Redirect to="/sign-in" />
-              }
-              exact={true}
-            />
-            <Route
-              path="/trigger"
-              render={
-                userStatus === "guest" || userStatus === "loggedIn"
-                  ? () => <Trigger />
-                  : () => <Redirect to="/sign-in" />
-              }
-              exact={true}
-            />
-            <Route
-              path="/emotion"
-              render={
-                userStatus === "guest" || userStatus === "loggedIn"
-                  ? () => <Emotion />
-                  : () => <Redirect to="/sign-in" />
-              }
-              exact={true}
-            />
-            <Route
-              path="/action"
-              render={
-                userStatus === "guest" || userStatus === "loggedIn"
-                  ? () => <Action />
-                  : () => <Redirect to="/sign-in" />
-              }
-              exact={true}
-            />
-            <Route
-              path="/intro2"
-              render={
-                userStatus === "guest" || userStatus === "loggedIn"
-                  ? () => <Intro2 />
-                  : () => <Redirect to="/sign-in" />
-              }
-              exact={true}
-            />
-            <Route
-              path="/action-of-partner"
-              render={
-                userStatus === "guest" || userStatus === "loggedIn"
-                  ? () => <ActionOfPartner />
-                  : () => <Redirect to="/sign-in" />
-              }
-              exact={true}
-            />
-            <Route
-              path="/disclaimer"
-              render={
-                userStatus === "guest" || userStatus === "loggedIn"
-                  ? () => <Disclaimer />
-                  : () => <Redirect to="/sign-in" />
-              }
-              exact={true}
-            />
-            <Route
-              path="/"
-              render={
-                userStatus === "guest" || userStatus === "loggedIn"
-                  ? () => <Dashboard />
-                  : () => <Redirect to="/sign-in" />
-              }
-              exact={true}
-            />
-
-            <Route
-              path="/pain1"
-              render={
-                userStatus === "guest" || userStatus === "loggedIn"
-                  ? () => <Pain1 />
-                  : () => <Redirect to="/sign-in" />
-              }
-              exact={true}
-            />
-            <Route
-              path="/pain2"
-              render={
-                userStatus === "guest" || userStatus === "loggedIn"
-                  ? () => <Pain2 />
-                  : () => <Redirect to="/sign-in" />
-              }
-              exact={true}
-            />
-            <Route
-              path="/pain3"
-              render={
-                userStatus === "guest" || userStatus === "loggedIn"
-                  ? () => <Pain3 />
-                  : () => <Redirect to="/sign-in" />
-              }
-              exact={true}
-            />
-            <Route
-              path="/pain4"
-              render={
-                userStatus === "guest" || userStatus === "loggedIn"
-                  ? () => <Pain4 />
-                  : () => <Redirect to="/sign-in" />
-              }
-              exact={true}
-            />
-            <Route
-              path="/preSummary"
-              render={
-                userStatus === "guest" || userStatus === "loggedIn"
-                  ? () => <PreSummary />
-                  : () => <Redirect to="/sign-in" />
-              }
-              exact={true}
-            />
-            <Route
-              path="/cycleSummary"
-              render={
-                userStatus === "guest" || userStatus === "loggedIn"
-                  ? () => <CycleSummary />
-                  : () => <Redirect to="/sign-in" />
-              }
-              exact={true}
-            />
-            <Route
-              path="/analysis"
-              render={
-                userStatus === "guest" || userStatus === "loggedIn"
-                  ? () => <Analysis />
-                  : () => <Redirect to="/sign-in" />
-              }
-              exact={true}
-            />
-
-            <Route
-              path="/reflection"
-              render={
-                userStatus === "guest" || userStatus === "loggedIn"
-                  ? () => <Reflection />
-                  : () => <Redirect to="/sign-in" />
-              }
-              exact={true}
-            />
-            <Route
-              path="/endOfSession"
-              render={
-                userStatus === "guest" || userStatus === "loggedIn"
-                  ? () => <EndOfSession />
                   : () => <Redirect to="/sign-in" />
               }
               exact={true}
