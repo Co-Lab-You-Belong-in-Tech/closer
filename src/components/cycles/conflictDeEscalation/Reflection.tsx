@@ -21,19 +21,16 @@ import { close } from "ionicons/icons";
 import { useFirstTimeStore } from "../../../features/store";
 
 interface FuncProps {
-  handleProgress?: () => void;
   setProgress?: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const Reflection: React.FC<FuncProps> = (props) => {
   const [isOpen, setIsOpen] = useState(true);
-  // const setEndOfCycle = useEndOfCycleStore((state) => state.setEndOfCycle);
-  // const [endOfCycle, setEndofCycle] = useState(true);
   const setFirstTime = useFirstTimeStore((state) => state.setFirstTime);
 
   const handleClick = () => {
+    props.setProgress && props.setProgress(0);
     setFirstTime(false);
-    props.handleProgress && props.handleProgress();
   };
   return (
     <IonContent className="ion-padding">
@@ -92,7 +89,7 @@ const Reflection: React.FC<FuncProps> = (props) => {
       <IonRouterLink routerLink="dashboard/endOfCycle">
         <IonButton
           routerDirection="root"
-          onClick={() => setFirstTime(false)}
+          onClick={() => handleClick()}
           color="primary"
           className="ion-text-center buttonStyle"
         >

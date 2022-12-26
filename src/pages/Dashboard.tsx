@@ -20,9 +20,9 @@ const Dashboard: React.FC = () => {
           <h2>Welcome!</h2>
           <h5 className="underline">What would you like to do today?</h5>
         </IonText>
-        {/* <Link to="/cycle"> */}
+        <Link to="/cycle">
         <IonButton
-          href="/cycle"
+          // href="/cycle"
           expand="block"
           color="tertiary"
           className="dashboardTitle ion-text-center ion-margin  ion-text-uppercase
@@ -31,7 +31,7 @@ const Dashboard: React.FC = () => {
         >
           <h5>Log a new conflict cycle</h5>
         </IonButton>
-        {/* </Link> */}
+        </Link>
 
         <IonButton
           expand="block"

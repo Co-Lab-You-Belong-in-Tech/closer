@@ -25,8 +25,15 @@ const CycleMainPage = () => {
   const [progress, setProgress] = React.useState(0);
 
   const handleProgress = () => {
-    setProgress((preProgress) => preProgress + 0.0715);
-    setBuffer((preBuffer) => preBuffer + 0.0715);
+    if (Number(progress.toFixed(4)) < 1.001) {
+      setProgress((preProgress) => preProgress + 0.0715);
+      setBuffer((preBuffer) => preBuffer + 0.0715);
+    } else {
+      setProgress(0);
+      setBuffer(0.0715);
+    }
+    // setProgress((preProgress) => preProgress + 0.0715);
+    // setBuffer((preBuffer) => preBuffer + 0.0715);
   };
 
   const handleBack = () => {
@@ -36,8 +43,11 @@ const CycleMainPage = () => {
   // unmount this component when progress is 1
 
   const contentSelector = (progress: number) => {
+    console.log(progress);
     switch (Number(progress.toFixed(4))) {
       // add cases till 1
+      case 0:
+        return <Intro2 handleProgress={handleProgress} />;
       case 0.0715:
         return <InfoOfConflict handleProgress={handleProgress} />;
       case 0.143:
