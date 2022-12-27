@@ -37,7 +37,7 @@ const App: React.FC<RouteComponentProps> = () => {
               path="/sign-in"
               render={
                 userStatus === "guest" || userStatus === "loggedIn"
-                  ? () => <Redirect to="/dashboard" />
+                  ? () => <Redirect to="/" />
                   : () => <SignIn />
               }
               exact={true}
