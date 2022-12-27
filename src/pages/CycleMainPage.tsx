@@ -1,5 +1,6 @@
 import React from "react";
 import { IonHeader, IonToolbar, IonPage, IonProgressBar } from "@ionic/react";
+import { Redirect } from "react-router-dom";
 
 import Cta from "../components/Cta";
 import IntroImage from "../assets/IntroImage.png";
@@ -37,7 +38,8 @@ const CycleMainPage = () => {
   };
 
   const handleBack = () => {
-    setProgress(progress - 0.0715);
+    setProgress((prevProgress) => prevProgress - 0.0715);
+    console.log(progress);
   };
 
   // unmount this component when progress is 1
@@ -77,7 +79,7 @@ const CycleMainPage = () => {
       case 1.001:
         return <Reflection setProgress={setProgress} />;
       default:
-        return <Intro2 handleProgress={handleProgress} />;
+        return <Redirect to="/" />;
     }
   };
 
@@ -85,7 +87,7 @@ const CycleMainPage = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <Cta />
+          <Cta setProgress={setProgress} progress={progress} />
           <IonProgressBar
             className="ion-margin-top"
             buffer={buffer}

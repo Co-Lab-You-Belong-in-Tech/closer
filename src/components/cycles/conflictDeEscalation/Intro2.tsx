@@ -6,7 +6,7 @@ interface FuncProps {
 
 const Intro2: React.FC<FuncProps> = (handleProgress) => {
   return (
-    <IonContent>
+    <IonContent className="intro-content">
       <div className="introText">
         <IonText color="light">
           <p style={{ width: "80%", margin: "0 auto" }}>
