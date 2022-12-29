@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 
-import { IonBackButton, IonButton, IonButtons, IonIcon, useIonAlert } from '@ionic/react';
+import { IonButton, IonButtons, IonIcon, useIonAlert } from '@ionic/react';
 
 import backIcon from '../assets/images/chevron-back-circle-outline.svg';
 import close from '../assets/images/close-circle-outline.svg';

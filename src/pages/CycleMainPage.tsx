@@ -33,16 +33,8 @@ const CycleMainPage = () => {
       setProgress(0);
       setBuffer(0.07);
     }
-    // setProgress((preProgress) => preProgress + 0.0715);
-    // setBuffer((preBuffer) => preBuffer + 0.0715);
   };
 
-  const handleBack = () => {
-    setProgress((prevProgress) => prevProgress - 0.0715);
-    console.log(progress);
-  };
-
-  // unmount this component when progress is 1
 
   const contentSelector = (progress: number) => {
     console.log(progress);
