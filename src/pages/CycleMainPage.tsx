@@ -87,7 +87,7 @@ const CycleMainPage = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <Cta setProgress={setProgress} progress={progress} />
+          <Cta setProgress={setProgress} setBuffer={setBuffer} progress={progress} />
           <IonProgressBar
             className="ion-margin-top"
             buffer={buffer}

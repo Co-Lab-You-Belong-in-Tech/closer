@@ -8,6 +8,7 @@ import close from '../assets/images/close-circle-outline.svg';
 
 interface FuncProps {
   setProgress?: React.Dispatch<React.SetStateAction<number>>;
+  setBuffer?: React.Dispatch<React.SetStateAction<number>>;
   progress?: number;
 }
 
@@ -18,6 +19,7 @@ const Cta: React.FC<FuncProps> = (props) => {
   const handleBack = (e: any) => {
     e.preventDefault();
     props.setProgress && props.setProgress((prevProgress) => prevProgress - 0.07);
+    props.setBuffer && props.setBuffer((prevBuffer) => prevBuffer - 0.07)
   }
 
   const handleAlert = (e: any) => {
