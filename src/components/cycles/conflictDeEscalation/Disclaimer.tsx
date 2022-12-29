@@ -1,19 +1,10 @@
-import { useState } from "react";
+import { close } from 'ionicons/icons';
+import { useState } from 'react';
 
 import {
-  IonHeader,
-  IonContent,
-  IonToolbar,
-  IonButton,
-  IonText,
-  IonGrid,
-  IonRow,
-  IonCol,
-  IonButtons,
-  IonModal,
-  IonIcon,
-} from "@ionic/react";
-import { close } from "ionicons/icons";
+    IonButton, IonButtons, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonModal, IonRow,
+    IonText, IonToolbar
+} from '@ionic/react';
 
 interface FuncProps {
   handleProgress?: () => void;

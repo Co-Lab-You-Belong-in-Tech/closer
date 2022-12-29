@@ -1,22 +1,23 @@
-import React from "react";
-import { setupIonicReact, IonApp, IonRouterOutlet } from "@ionic/react";
-import { Redirect, Route, RouteComponentProps } from "react-router-dom";
-import { IonReactRouter } from "@ionic/react-router";
-
 // import components styles
-import "./App.scss";
-// import components
-import SignIn from "./components/splash/SignIn";
-import SignUp from "./components/splash/SignUp";
-import Splash from "./components/splash/Splash";
+import './App.scss';
 
-// import pages
-import Dashboard from "./pages/Dashboard";
-import CycleMainPage from "./pages/CycleMainPage";
-// Custom hooks
-import { useTimeout } from "./hooks/useTimeOut";
+import React from 'react';
+import { Redirect, Route, RouteComponentProps } from 'react-router-dom';
+
+import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
+import { IonReactRouter } from '@ionic/react-router';
+
+// import components
+import SignIn from './components/splash/SignIn';
+import SignUp from './components/splash/SignUp';
+import Splash from './components/splash/Splash';
 // Get stores
-import { useUserStatusStore } from "./features/store";
+import { useUserStatusStore } from './features/store';
+// Custom hooks
+import { useTimeout } from './hooks/useTimeOut';
+import CycleMainPage from './pages/CycleMainPage';
+// import pages
+import Dashboard from './pages/Dashboard';
 
 setupIonicReact();
 

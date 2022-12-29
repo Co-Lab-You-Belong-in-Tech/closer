@@ -1,9 +1,10 @@
 // import { useState } from "react";
 
-import { IonContent, IonButton, IonItem, IonTextarea } from "@ionic/react";
-import React from "react";
+import React from 'react';
 
-import { usePain1Store } from "../../../features/store";
+import { IonButton, IonContent, IonItem, IonTextarea } from '@ionic/react';
+
+import { usePain1Store } from '../../../features/store';
 
 interface FuncProps {
   handleProgress?: () => void;

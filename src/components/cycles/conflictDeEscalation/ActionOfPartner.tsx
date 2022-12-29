@@ -1,20 +1,12 @@
-import { useState } from "react";
+import { close } from 'ionicons/icons';
+import React, { useState } from 'react';
 
 import {
-  IonContent,
-  IonButton,
-  IonItem,
-  IonInput,
-  IonModal,
-  IonButtons,
-  IonToolbar,
-  IonIcon,
-} from "@ionic/react";
-import React from "react";
+    IonButton, IonButtons, IonContent, IonIcon, IonInput, IonItem, IonModal, IonToolbar
+} from '@ionic/react';
 
-import { close } from "ionicons/icons";
-import { stockActions } from "../../../data/stockActions";
-import { usePartnerActionsStore } from "../../../features/store";
+import { stockActions } from '../../../data/stockActions';
+import { usePartnerActionsStore } from '../../../features/store';
 
 interface FuncProps {
   handleProgress?: () => void;

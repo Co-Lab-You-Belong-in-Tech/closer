@@ -1,16 +1,10 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
 
-import {
-  IonButtons,
-  IonBackButton,
-  IonIcon,
-  IonButton,
-  useIonAlert,
-} from "@ionic/react";
-import { Redirect } from "react-router-dom";
+import { IonBackButton, IonButton, IonButtons, IonIcon, useIonAlert } from '@ionic/react';
 
-import backIcon from "../assets/images/chevron-back-circle-outline.svg";
-import close from "../assets/images/close-circle-outline.svg";
+import backIcon from '../assets/images/chevron-back-circle-outline.svg';
+import close from '../assets/images/close-circle-outline.svg';
 
 interface FuncProps {
   setProgress?: React.Dispatch<React.SetStateAction<number>>;

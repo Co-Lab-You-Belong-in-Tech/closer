@@ -1,18 +1,9 @@
 // import { useState } from "react";
 
 import {
-  IonHeader,
-  IonContent,
-  IonPage,
-  IonButton,
-  IonProgressBar,
-  IonRouterLink,
-  IonGrid,
-  IonRow,
-  IonCol,
-  IonCard,
-  IonImg,
-} from "@ionic/react";
+    IonButton, IonCard, IonCol, IonContent, IonGrid, IonHeader, IonImg, IonPage, IonProgressBar,
+    IonRouterLink, IonRow
+} from '@ionic/react';
 
 const Insights: React.FC = () => {
   return (

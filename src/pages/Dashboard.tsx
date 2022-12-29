@@ -1,10 +1,11 @@
-import { IonContent, IonPage, IonButton, IonText } from "@ionic/react";
-import { useParams } from "react-router";
+import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 
-import Intro from "../components/Intro";
-import { useFirstTimeStore } from "../features/store";
-import EndOfSession from "../components/cycles/conflictDeEscalation/EndOfSession";
-import { Link } from "react-router-dom";
+import { IonButton, IonContent, IonPage, IonText } from '@ionic/react';
+
+import EndOfSession from '../components/cycles/conflictDeEscalation/EndOfSession';
+import Intro from '../components/Intro';
+import { useFirstTimeStore } from '../features/store';
 
 const Dashboard: React.FC = () => {
   const { endOfCycle } = useParams<{ endOfCycle: string }>();

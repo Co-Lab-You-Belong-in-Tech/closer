@@ -1,24 +1,12 @@
-import { useState } from "react";
+import { close } from 'ionicons/icons';
+import { useState } from 'react';
 
 import {
-  IonHeader,
-  IonContent,
-  IonToolbar,
-  IonRouterLink,
-  IonButton,
-  IonText,
-  IonButtons,
-  IonModal,
-  IonIcon,
-  IonGrid,
-  IonRow,
-  IonCol,
-  IonItem,
-  IonInput,
-  IonLabel,
-} from "@ionic/react";
-import { close } from "ionicons/icons";
-import { useFirstTimeStore } from "../../../features/store";
+    IonButton, IonButtons, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInput, IonItem,
+    IonLabel, IonModal, IonRouterLink, IonRow, IonText, IonToolbar
+} from '@ionic/react';
+
+import { useFirstTimeStore } from '../../../features/store';
 
 interface FuncProps {
   setProgress?: React.Dispatch<React.SetStateAction<number>>;

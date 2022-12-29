@@ -1,11 +1,4 @@
-import {
-  IonContent,
-  IonButton,
-  IonText,
-  IonGrid,
-  IonRow,
-  IonCol,
-} from "@ionic/react";
+import { IonButton, IonCol, IonContent, IonGrid, IonRow, IonText } from '@ionic/react';
 
 interface FuncProps {
   handleProgress?: () => void;

@@ -1,11 +1,6 @@
 import {
-  IonHeader,
-  IonContent,
-  IonButton,
-  IonCard,
-  IonCardHeader,
-  IonCardContent,
-} from "@ionic/react";
+    IonButton, IonCard, IonCardContent, IonCardHeader, IonContent, IonHeader
+} from '@ionic/react';
 
 interface FuncProps {
   handleProgress?: () => void;

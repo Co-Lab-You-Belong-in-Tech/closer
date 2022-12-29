@@ -1,6 +1,6 @@
 // import { useState } from "react";
 
-import { IonContent, IonButton, IonGrid, IonRow, IonCol } from "@ionic/react";
+import { IonButton, IonCol, IonContent, IonGrid, IonRow } from '@ionic/react';
 
 interface FuncProps {
   handleProgress?: () => void;

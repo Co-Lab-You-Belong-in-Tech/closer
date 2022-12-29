@@ -1,18 +1,12 @@
-import {
-  IonContent,
-  IonButton,
-  IonItem,
-  IonLabel,
-  IonList,
-  IonRadio,
-  IonRadioGroup,
-  IonInput,
-} from "@ionic/react";
-import React from "react";
+import React from 'react';
 
+import {
+    IonButton, IonContent, IonInput, IonItem, IonLabel, IonList, IonRadio, IonRadioGroup
+} from '@ionic/react';
+
+import { stockTriggers } from '../../../data/stockTriggers';
 // Import the store
-import { useTriggersStore } from "../../../features/store";
-import { stockTriggers } from "../../../data/stockTriggers";
+import { useTriggersStore } from '../../../features/store';
 
 interface FuncProps {
   handleProgress?: () => void;

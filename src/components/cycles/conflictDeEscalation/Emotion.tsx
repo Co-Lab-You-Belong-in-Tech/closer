@@ -1,13 +1,8 @@
-import {
-  IonContent,
-  IonButton,
-  IonItem,
-  IonList,
-  IonSelect,
-  IonSelectOption,
-} from "@ionic/react";
-import React from "react";
-import { useEmotionsStore } from "../../../features/store";
+import React from 'react';
+
+import { IonButton, IonContent, IonItem, IonList, IonSelect, IonSelectOption } from '@ionic/react';
+
+import { useEmotionsStore } from '../../../features/store';
 
 interface FuncProps {
   handleProgress?: () => void;

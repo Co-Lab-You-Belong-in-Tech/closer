@@ -2,7 +2,7 @@
   // It also creates an effect that clears the timeout when the component unmounts.
   // It returns the ref.
 
-import { useRef, useEffect } from "react";
+import { useEffect, useRef } from 'react';
 
 export const useTimeout = (
   callback: () => void,

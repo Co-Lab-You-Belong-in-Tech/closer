@@ -1,4 +1,4 @@
-import { useIonToast } from "@ionic/react"
+import { useIonToast } from '@ionic/react';
 
 export const useShowToast = () => {
     const [present] = useIonToast();

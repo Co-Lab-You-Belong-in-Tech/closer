@@ -1,15 +1,9 @@
-import { useState } from "react";
+import { close } from 'ionicons/icons';
+import { useState } from 'react';
 
 import {
-  IonHeader,
-  IonContent,
-  IonToolbar,
-  IonButton,
-  IonModal,
-  IonButtons,
-  IonIcon,
-} from "@ionic/react";
-import { close } from "ionicons/icons";
+    IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonModal, IonToolbar
+} from '@ionic/react';
 
 const EndOfSession: React.FC = () => {
   const [isOpen, setIsOpen] = useState(true);

@@ -1,27 +1,17 @@
-import {
-  IonPage,
-  IonHeader,
-  IonContent,
-  IonGrid,
-  IonRow,
-  IonCol,
-  IonInput,
-  IonItem,
-  IonLabel,
-  IonButton,
-  IonIcon,
-  setupIonicReact,
-} from "@ionic/react";
-import { useRef } from "react";
-import { arrowForwardOutline, logoGoogle } from "ionicons/icons";
-import React from "react";
-import { Link } from "react-router-dom";
+import { arrowForwardOutline, logoGoogle } from 'ionicons/icons';
+import React, { useRef } from 'react';
+import { Link } from 'react-router-dom';
 
-import { useMutation } from "@tanstack/react-query";
-import { registerUser } from "../../features/api/auth";
+import {
+    IonButton, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInput, IonItem, IonLabel,
+    IonPage, IonRow, setupIonicReact
+} from '@ionic/react';
+import { useMutation } from '@tanstack/react-query';
+
+import { registerUser } from '../../features/api/auth';
 // Import store
-import { useUserStatusStore } from "../../features/store";
-import { useShowToast } from "../../hooks/useShowToast";
+import { useUserStatusStore } from '../../features/store';
+import { useShowToast } from '../../hooks/useShowToast';
 
 interface componentProps {
   history?: any;

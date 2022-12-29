@@ -1,21 +1,12 @@
-import React from "react";
-import {
-  IonContent,
-  IonButton,
-  IonText,
-  IonItem,
-  IonInput,
-  IonLabel,
-  IonDatetime,
-  IonDatetimeButton,
-  IonModal,
-  IonRange,
-} from "@ionic/react";
+import React, { useRef } from 'react';
 
-import { useRef } from "react";
+import {
+    IonButton, IonContent, IonDatetime, IonDatetimeButton, IonInput, IonItem, IonLabel, IonModal,
+    IonRange, IonText
+} from '@ionic/react';
 
 // import store
-import { useConflictsStore } from "../../../features/store";
+import { useConflictsStore } from '../../../features/store';
 
 interface FuncProps {
   handleProgress?: () => void;
