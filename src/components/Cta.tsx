@@ -23,7 +23,7 @@ const Cta: React.FC<FuncProps> = (props) => {
 
   const handleBack = (e: any) => {
     e.preventDefault();
-    props.setProgress && props.setProgress((prevProgress) => prevProgress - 0.0715);
+    props.setProgress && props.setProgress((prevProgress) => prevProgress - 0.07);
   }
 
   const handleAlert = (e: any) => {

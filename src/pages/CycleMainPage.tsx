@@ -22,16 +22,16 @@ import Analysis from "../components/cycles/conflictDeEscalation/Analysis";
 import Reflection from "../components/cycles/conflictDeEscalation/Reflection";
 
 const CycleMainPage = () => {
-  const [buffer, setBuffer] = React.useState(0.0715);
-  const [progress, setProgress] = React.useState(0);
+  const [buffer, setBuffer] = React.useState<number>(0.07);
+  const [progress, setProgress] = React.useState<number>(0);
 
   const handleProgress = () => {
-    if (Number(progress.toFixed(4)) < 1.001) {
-      setProgress((preProgress) => preProgress + 0.0715);
-      setBuffer((preBuffer) => preBuffer + 0.0715);
+    if (Number(progress.toFixed(2)) < 1.00) {
+      setProgress((preProgress) => preProgress + 0.07);
+      setBuffer((preBuffer) => preBuffer + 0.07);
     } else {
       setProgress(0);
-      setBuffer(0.0715);
+      setBuffer(0.07);
     }
     // setProgress((preProgress) => preProgress + 0.0715);
     // setBuffer((preBuffer) => preBuffer + 0.0715);
@@ -46,37 +46,37 @@ const CycleMainPage = () => {
 
   const contentSelector = (progress: number) => {
     console.log(progress);
-    switch (Number(progress.toFixed(4))) {
+    switch (Number(progress.toFixed(2))) {
       // add cases till 1
       case 0:
         return <Intro2 handleProgress={handleProgress} />;
-      case 0.0715:
+      case 0.07:
         return <InfoOfConflict handleProgress={handleProgress} />;
-      case 0.143:
+      case 0.14:
         return <Trigger handleProgress={handleProgress} />;
-      case 0.2145:
+      case 0.21:
         return <Emotion handleProgress={handleProgress} />;
-      case 0.286:
+      case 0.28:
         return <Action handleProgress={handleProgress} />;
-      case 0.3575:
+      case 0.35:
         return <ActionOfPartner handleProgress={handleProgress} />;
-      case 0.429:
+      case 0.42:
         return <Disclaimer handleProgress={handleProgress} />;
-      case 0.5005:
+      case 0.49:
         return <Pain1 handleProgress={handleProgress} />;
-      case 0.572:
+      case 0.56:
         return <Pain2 handleProgress={handleProgress} />;
-      case 0.6435:
+      case 0.63:
         return <Pain3 handleProgress={handleProgress} />;
-      case 0.715:
+      case 0.70:
         return <Pain4 handleProgress={handleProgress} />;
-      case 0.7865:
+      case 0.77:
         return <PreSummary handleProgress={handleProgress} />;
-      case 0.858:
+      case 0.84:
         return <CycleSummary handleProgress={handleProgress} />;
-      case 0.9295:
+      case 0.91:
         return <Analysis handleProgress={handleProgress} />;
-      case 1.001:
+      case 0.98:
         return <Reflection setProgress={setProgress} />;
       default:
         return <Redirect to="/" />;
