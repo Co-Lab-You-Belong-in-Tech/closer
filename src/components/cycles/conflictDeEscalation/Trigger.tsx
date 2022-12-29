@@ -1,17 +1,12 @@
 import {
-  IonHeader,
   IonContent,
-  IonPage,
   IonButton,
-  IonProgressBar,
   IonItem,
   IonLabel,
   IonList,
   IonRadio,
   IonRadioGroup,
   IonInput,
-  IonRouterLink,
-  IonToolbar,
 } from "@ionic/react";
 import React from "react";
 
