@@ -8,28 +8,40 @@ import { stockTriggers } from '../../../data/stockTriggers';
 // Import the store
 import { useTriggersStore } from '../../../features/store';
 
+import { useShowToast } from '../../../hooks/useShowToast';
+
 interface FuncProps {
   handleProgress?: () => void;
 }
 
 const Trigger: React.FC<FuncProps> = (props) => {
   const addTrigger = useTriggersStore((state) => state.addTrigger);
-  const triggerRef = React.useRef<HTMLIonRadioGroupElement>(null);
+  const [trigger, setTrigger] = React.useState<string>("");
+
+  const showToast = useShowToast();
 
   const handleClick = (
     e: React.MouseEvent<HTMLIonButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
-    addTrigger(triggerRef.current?.value);
-
-    props.handleProgress && props.handleProgress();
+    if (trigger) {
+      addTrigger(trigger);
+      props.handleProgress && props.handleProgress();
+    } else {
+      showToast("Please select or enter a trigger", "danger");
+    }
   };
+
 
   return (
     <IonContent className="ion-padding ion-margin-top">
       <h3>What triggered your reaction?</h3>
       <IonList className="ion-margin-top">
-        <IonRadioGroup ref={triggerRef} value="triggers">
+        <IonRadioGroup
+          onIonChange={(e) => {
+            setTrigger(e.detail.value!);
+          }}
+          value={trigger}>
           {stockTriggers.map((trigger) => (
             <IonItem
               style={{
@@ -48,7 +60,12 @@ const Trigger: React.FC<FuncProps> = (props) => {
 
       <IonItem className="ion-margin-top ion-padding-top">
         <IonLabel position="stacked">Other</IonLabel>
-        <IonInput></IonInput>
+        <IonInput
+          type="text"
+          onIonChange={(e) => {
+            setTrigger(e.detail.value!);
+          }}
+        ></IonInput>
       </IonItem>
 
       <IonButton
