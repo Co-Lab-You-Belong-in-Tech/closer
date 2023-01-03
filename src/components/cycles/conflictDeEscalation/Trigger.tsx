@@ -28,7 +28,7 @@ const Trigger: React.FC<FuncProps> = (props) => {
       addTrigger(trigger);
       props.handleProgress && props.handleProgress();
     } else {
-      showToast("Please select or enter a trigger", "danger");
+      showToast("Please select or enter a trigger", "warning");
     }
   };
 

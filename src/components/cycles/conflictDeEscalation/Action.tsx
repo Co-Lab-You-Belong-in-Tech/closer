@@ -9,6 +9,8 @@ import {
 import { stockActions } from '../../../data/stockActions';
 import { useActionsStore } from '../../../features/store';
 
+import { useShowToast } from '../../../hooks/useShowToast';
+
 interface FuncProps {
   handleProgress?: () => void;
 }
@@ -18,12 +20,18 @@ const Action: React.FC<FuncProps> = (props) => {
   const [sampleAction, setSampleAction] = useState<any | null>(null);
 
   const addAction = useActionsStore((state) => state.addAction);
+  const showToast = useShowToast();
+
   const handleClick = (
     e: React.MouseEvent<HTMLIonButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
-    addAction(sampleAction);
-    props.handleProgress && props.handleProgress();
+    if (sampleAction) {
+      addAction(sampleAction);
+      props.handleProgress && props.handleProgress();
+    } else {
+      showToast("Please select an action", "warning");
+    }
   };
 
   return (

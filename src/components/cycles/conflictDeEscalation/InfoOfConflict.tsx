@@ -38,7 +38,7 @@ const InfoOfConflict: React.FC<FuncProps> = (props) => {
       addConflict(conflictObj);
       props.handleProgress && props.handleProgress();
     } else {
-      showToast("Please fill all fields", "danger");
+      showToast("Please fill all fields", "warning");
     }
 
   };

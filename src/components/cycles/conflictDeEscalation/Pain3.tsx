@@ -4,20 +4,27 @@ import { IonButton, IonContent, IonInput, IonItem } from '@ionic/react';
 
 import { usePain3Store } from '../../../features/store';
 
+import { useShowToast } from '../../../hooks/useShowToast';
+
 interface FuncProps {
   handleProgress?: () => void;
 }
 
 const Pain3: React.FC<FuncProps> = (props) => {
   const addPain3 = usePain3Store((state) => state.addPain3);
-  const painRef = React.useRef<HTMLIonInputElement>(null);
+  const [pain, setPain] = React.useState<string>("");
+  const showToast = useShowToast();
 
   const handleClick = (
     e: React.MouseEvent<HTMLIonButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
-    painRef.current?.value && addPain3(painRef.current.value.toString());
-    props.handleProgress && props.handleProgress();
+    if (pain) {
+      addPain3(pain);
+      props.handleProgress && props.handleProgress();
+    } else {
+      showToast("Please input pain", "warning");
+    }
   };
 
   return (
@@ -31,7 +38,8 @@ const Pain3: React.FC<FuncProps> = (props) => {
 
       <IonItem>
         <IonInput
-          ref={painRef}
+          onIonChange={(e) => setPain(e.detail.value!)}
+          value={pain}
           placeholder='i.e.  "I will always be alone."'
           className="ion-text-center"
         ></IonInput>

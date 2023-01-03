@@ -4,20 +4,29 @@ import { IonButton, IonContent, IonItem, IonList, IonSelect, IonSelectOption } f
 
 import { useEmotionsStore } from '../../../features/store';
 
+import { useShowToast } from '../../../hooks/useShowToast';
+
 interface FuncProps {
   handleProgress?: () => void;
 }
 
 const Emotion: React.FC<FuncProps> = (props) => {
   const addEmotion = useEmotionsStore((state) => state.addEmotion);
-  const emotionRef = React.useRef<HTMLIonSelectElement>(null);
+  // const emotionRef = React.useRef<HTMLIonSelectElement>(null);
+  const [emotion, setEmotion] = React.useState<string[]>([]);
+
+  const showToast = useShowToast();
 
   const handleClick = (
     e: React.MouseEvent<HTMLIonButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
-    addEmotion(emotionRef.current?.value);
-    props.handleProgress && props.handleProgress();
+    if (emotion.length > 0) {
+      addEmotion(emotion);
+      props.handleProgress && props.handleProgress();
+    } else {
+      showToast('Please select at least one emotion', 'warning');
+    }
   };
 
   return (
@@ -26,7 +35,10 @@ const Emotion: React.FC<FuncProps> = (props) => {
       <IonList>
         <IonItem>
           <IonSelect
-            ref={emotionRef}
+            onIonChange={(e) => {
+              setEmotion(e.detail.value!);
+            }}
+            value={emotion}
             placeholder="Select all Emotions that apply"
             multiple={true}
           >

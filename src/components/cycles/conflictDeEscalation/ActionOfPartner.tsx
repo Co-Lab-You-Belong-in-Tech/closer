@@ -8,6 +8,8 @@ import {
 import { stockActions } from '../../../data/stockActions';
 import { usePartnerActionsStore } from '../../../features/store';
 
+import { useShowToast } from '../../../hooks/useShowToast';
+
 interface FuncProps {
   handleProgress?: () => void;
 }
@@ -19,12 +21,18 @@ const ActionOfPartner: React.FC<FuncProps> = (props) => {
     (state) => state.addPartnerAction
   );
 
+  const showToast = useShowToast();
+
   const handleClick = (
     e: React.MouseEvent<HTMLIonButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
-    addPartnerAction(sampleAction);
-    props.handleProgress && props.handleProgress();
+    if (sampleAction) {
+      addPartnerAction(sampleAction);
+      props.handleProgress && props.handleProgress();
+    } else {
+      showToast("Please select an action", "warning");
+    }
   };
 
   return (

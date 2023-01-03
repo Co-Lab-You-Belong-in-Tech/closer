@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { IonButton, IonContent, IonItem, IonTextarea } from '@ionic/react';
 
 import { usePain2Store } from '../../../features/store';
+
+import { useShowToast } from '../../../hooks/useShowToast';
 
 interface FuncProps {
   handleProgress?: () => void;
@@ -10,16 +12,22 @@ interface FuncProps {
 
 const Pain2: React.FC<FuncProps> = (props) => {
   const addPain2 = usePain2Store((state) => state.addPain2);
-  const painRef = React.useRef<HTMLIonTextareaElement>(null);
+  const [pain, setPain] = useState<string>("");
+
+  const showToast = useShowToast();
 
   const handleClick = (
     e: React.MouseEvent<HTMLIonButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
-    painRef.current?.value && addPain2(painRef.current.value);
-    props.handleProgress && props.handleProgress();
+    if (pain) {
+      addPain2(pain);
+      props.handleProgress && props.handleProgress();
+    } else {
+      showToast("Please input pain", "warning");
+    }
   };
-
+  
   return (
     <IonContent className="ion-padding ion-margin-top">
       <h2 className="ion-text-center">
@@ -27,7 +35,8 @@ const Pain2: React.FC<FuncProps> = (props) => {
       </h2>
       <IonItem>
         <IonTextarea
-          ref={painRef}
+        onIonChange={(e) => setPain(e.detail.value!)}
+        value={pain}
           placeholder="i.e. twist in the stomach or pressure on the chest etc."
         ></IonTextarea>
       </IonItem>

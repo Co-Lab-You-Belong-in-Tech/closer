@@ -1,10 +1,12 @@
 // import { useState } from "react";
 
-import React from 'react';
+import React, { useState } from 'react';
 
 import { IonButton, IonContent, IonItem, IonTextarea } from '@ionic/react';
 
 import { usePain1Store } from '../../../features/store';
+
+import { useShowToast } from '../../../hooks/useShowToast';
 
 interface FuncProps {
   handleProgress?: () => void;
@@ -12,14 +14,21 @@ interface FuncProps {
 
 const Pain1: React.FC<FuncProps> = (props) => {
   const addPain1 = usePain1Store((state) => state.addPain1);
-  const painRef = React.useRef<HTMLIonTextareaElement>(null);
+  // const painRef = React.useRef<HTMLIonTextareaElement>(null);
+  const [pain, setPain] = useState<string>("");
+
+  const showToast = useShowToast();
 
   const handleClick = (
     e: React.MouseEvent<HTMLIonButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
-    painRef.current?.value && addPain1(painRef.current.value);
-    props.handleProgress && props.handleProgress();
+    if (pain) {
+      addPain1(pain);
+      props.handleProgress && props.handleProgress();
+    } else {
+      showToast("Please input pain", "warning");
+    }
   };
 
   return (
@@ -27,7 +36,11 @@ const Pain1: React.FC<FuncProps> = (props) => {
       <h3 className="ion-text-center">What is the pain under my reaction? </h3>
       <IonItem>
         <IonTextarea
-          ref={painRef}
+          // ref={painRef}
+          onIonChange={(e) => {
+            setPain(e.detail.value!);
+          }}
+          value={pain}
           className="ion-padding"
           placeholder="i.e. Hurt, loss, grief, loneliness, sadness, heartbreak, vulnerable, fear, confused, lost, etc."
         ></IonTextarea>
