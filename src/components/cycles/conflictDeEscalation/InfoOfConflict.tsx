@@ -11,7 +11,7 @@ import { useConflictsStore } from '../../../features/store';
 import { useShowToast } from '../../../hooks/useShowToast';
 
 // import custom hooks
-import { objEmptyValidate } from '../../../hooks/useObjValidate';
+import { useObjEmptyValidate } from '../../../hooks/useObjValidate';
 
 interface FuncProps {
   handleProgress?: () => void;
@@ -24,6 +24,7 @@ const InfoOfConflict: React.FC<FuncProps> = (props) => {
   const conflictIntensity = useRef<HTMLIonRangeElement>(null);
 
   const showToast = useShowToast();
+  const {disabled, validate} = useObjEmptyValidate();
   const [conflictObj, setConflictObj] = React.useState<{
     name: string;
     date: string | string[];
@@ -54,16 +55,19 @@ const InfoOfConflict: React.FC<FuncProps> = (props) => {
 
   };
 
-  const handleInput = (e: any) => {
-    e.preventDefault();
-    // TODO: fix this to work with the new objEmptyValidate
-    // setConflictObj({ ...conflictObj, name: e.detail.value! });
-    if (conflictObj.name && conflictObj.date && conflictObj.intensity) {
-      setDisableButton(false);
-    }
+  // const handleInput = (e: any) => {
+  //   e.preventDefault();
+  //   // TODO: fix this to work with the new objEmptyValidate
+  //   // setConflictObj({ ...conflictObj, name: e.detail.value! });
+  //   // if (conflictObj.name && conflictObj.date && conflictObj.intensity) {
+  //   //   setDisableButton(false);
+  //   // }
 
-    console.log(conflictObj);
-  };
+  //   // use custom hook to check if all fields are filled
+  //   validate(conflictObj);
+
+  //   console.log(conflictObj);
+  // };
 
   return (
     <IonContent className="ion-padding">
@@ -80,7 +84,7 @@ const InfoOfConflict: React.FC<FuncProps> = (props) => {
             onIonChange={(e) => {
               setConflictObj({ ...conflictObj, name: e.detail.value! });
               // objEmptyValidate(conflictObj) ? setDisableButton(true) : setDisableButton(false);
-              handleInput(e);
+              // handleInput(e);
             }}
           />
         </div>
@@ -97,10 +101,11 @@ const InfoOfConflict: React.FC<FuncProps> = (props) => {
             // ref={conflictDate}
             id="datetime"
             presentation="date"
+            // preferWheel={true}
             onIonChange={(e) => {
               setConflictObj({ ...conflictObj, date: e.detail.value! });
               // objEmptyValidate(conflictObj) ? setDisableButton(true) : setDisableButton(false);
-              handleInput(e);
+              // handleInput(e);
             }}
           ></IonDatetime>
         </IonModal>
@@ -120,7 +125,7 @@ const InfoOfConflict: React.FC<FuncProps> = (props) => {
             setConflictObj({ ...conflictObj, intensity: e.detail.value!.toString() });
             // objEmptyValidate(conflictObj) ? setDisableButton(true) : setDisableButton(false);
             // console.log(conflictObj);
-            handleInput(e);
+            // handleInput(e);
           }}
           className="ionRange"
         ></IonRange>
@@ -132,7 +137,7 @@ const InfoOfConflict: React.FC<FuncProps> = (props) => {
         onClick={(e) => handleClick(e)}
         color="primary"
         className="ion-text-center buttonStyle"
-        disabled={disableButton}
+        // disabled={disabled}
       >
         CONTINUE
       </IonButton>
