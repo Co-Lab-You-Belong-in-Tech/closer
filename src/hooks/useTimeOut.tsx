@@ -2,7 +2,7 @@
   // It also creates an effect that clears the timeout when the component unmounts.
   // It returns the ref.
 
-import { useRef, useEffect } from "react";
+import { useEffect, useRef } from 'react';
 
 export const useTimeout = (
   callback: () => void,
@@ -26,7 +26,6 @@ export const useTimeout = (
     if (delay !== null) {
       // Set a timeout with delay and call tick
       let id = setTimeout(tick, delay);
-      console.log("Timeout set");
       // Clear timeout when component unmounts
       return () => clearTimeout(id);
     }

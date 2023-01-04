@@ -1,31 +1,15 @@
-// import { useState } from "react";
-
 import {
-  IonHeader,
-  IonContent,
-  IonPage,
-  IonButton,
-  IonProgressBar,
-  IonRouterLink,
-  IonCard,
-  IonCardHeader,
-  IonCardContent,
-  IonToolbar,
-} from "@ionic/react";
-import Cta from "../components/Cta";
+    IonButton, IonCard, IonCardContent, IonCardHeader, IonContent, IonHeader
+} from '@ionic/react';
 
-const CycleSummary: React.FC = () => {
+interface FuncProps {
+  handleProgress?: () => void;
+}
+
+const CycleSummary: React.FC<FuncProps> = (props) => {
   return (
-    <IonPage>
+    <>
       <IonHeader>
-        <IonToolbar>
-          <Cta />
-          <IonProgressBar
-            className="ion-margin-top"
-            value={0.8}
-          ></IonProgressBar>
-        </IonToolbar>
-
         <h2 className="ion-padding">Cycle summary </h2>
 
         <IonCard>
@@ -53,13 +37,15 @@ const CycleSummary: React.FC = () => {
       </IonHeader>
 
       <IonContent className="ion-padding ion-margin-top">
-        <IonRouterLink routerLink="analysis">
-          <IonButton color="primary" className="ion-text-center buttonStyle">
-            CONTINUE
-          </IonButton>
-        </IonRouterLink>
+        <IonButton
+          onClick={() => props.handleProgress!()}
+          color="primary"
+          className="ion-text-center buttonStyle"
+        >
+          CONTINUE
+        </IonButton>
       </IonContent>
-    </IonPage>
+    </>
   );
 };
 

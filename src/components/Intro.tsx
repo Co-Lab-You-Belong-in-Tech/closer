@@ -1,14 +1,9 @@
-import { useState } from "react";
+import { arrowForwardOutline, close } from 'ionicons/icons';
+import { useState } from 'react';
+
 import {
-  IonButtons,
-  IonButton,
-  IonModal,
-  IonHeader,
-  IonContent,
-  IonToolbar,
-  IonIcon,
-} from "@ionic/react";
-import { close, arrowForwardOutline } from "ionicons/icons";
+    IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonModal, IonToolbar
+} from '@ionic/react';
 
 const Intro: React.FC = () => {
   const [isOpen, setIsOpen] = useState(true);

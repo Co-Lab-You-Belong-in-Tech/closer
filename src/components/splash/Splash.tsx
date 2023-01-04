@@ -1,5 +1,7 @@
-import { IonContent } from "@ionic/react";
-import Cover from "../../assets/Cover.png";
+import { IonContent } from '@ionic/react';
+
+import Cover from '../../assets/Cover.png';
+
 const Splash = () => {
   return (
     <IonContent fullscreen className="ion-align-self-center">

@@ -1,5 +1,5 @@
-import create from "zustand";
-import { devtools, persist } from "zustand/middleware";
+import create from 'zustand';
+import { devtools, persist } from 'zustand/middleware';
 
 interface DefaultProps{
   id?: string;
@@ -28,6 +28,31 @@ export const useUserStatusStore = create(
       {
         name: "userStatus",
       }
+    )
+  )
+);
+
+export const useEndOfCycleStore = create(
+  persist(
+    devtools(
+      (set: (arg0: { endOfCycle: boolean }) => any) => ({
+        endOfCycle: false,
+        setEndOfCycle: (status: boolean) => set({ endOfCycle : status }),
+      }),
+      {
+        name: "endOfCycle",
+      }
+    )
+  )
+);
+
+export const useFirstTimeStore = create(
+  persist(
+    devtools(
+      (set: (argO: { firstTime: boolean }) => any) => ({
+        firstTime: true,
+        setFirstTime: (status: boolean) => set({ firstTime: status }),
+      }),
     )
   )
 );
@@ -103,10 +128,10 @@ export const useEmotionsStore = create(
   persist(
     devtools( (set: any) => ({
       emotions: [],
-      addEmotion: (emotion: string) =>
+      addEmotion: (emotion: string[]) =>
         set((state: any) => ({
           // check if the emotion already exists and it's not empty
-          emotions: state.emotions.includes(emotion) || emotion === "" ? state.emotions : [...state.emotions, emotion],
+          emotions: state.emotions.includes(emotion) || emotion.length === 0 ? state.emotions : [...state.emotions, emotion],
         })),
       removeEmotion: (id: string) =>
         set((state: any) => ({

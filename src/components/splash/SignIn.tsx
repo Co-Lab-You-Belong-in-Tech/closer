@@ -1,28 +1,18 @@
-import {
-  IonPage,
-  IonHeader,
-  IonContent,
-  IonGrid,
-  IonRow,
-  IonCol,
-  IonInput,
-  IonItem,
-  IonLabel,
-  IonButton,
-  IonIcon,
-  setupIonicReact,
-  IonNavLink,
-} from "@ionic/react";
-import { arrowForwardOutline, logoGoogle } from "ionicons/icons";
-import React from "react";
-import { Link } from "react-router-dom";
-import { useUserStatusStore } from "../../features/store";
-import { useMutation } from "@tanstack/react-query";
-import { loginUser } from "../../features/api/auth";
+import { arrowForwardOutline, logoGoogle } from 'ionicons/icons';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
+import {
+    IonButton, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInput, IonItem, IonLabel,
+    IonNavLink, IonPage, IonRow, setupIonicReact
+} from '@ionic/react';
+import { useMutation } from '@tanstack/react-query';
+
+import { loginUser } from '../../features/api/auth';
+import { useUserStatusStore } from '../../features/store';
 // import hooks
-import { useShowToast } from "../../hooks/useShowToast";
-import Dashboard from "../../pages/Dashboard";
+import { useShowToast } from '../../hooks/useShowToast';
+import Dashboard from '../../pages/Dashboard';
 
 interface SignInProps {
   history?: any;
@@ -43,12 +33,10 @@ const SignIn: React.FC<SignInProps> = () => {
     (FormData: object) => loginUser(FormData),
     {
       onSuccess: (data) => {
-        console.log(data);
         setUserStatus("loggedIn");
         showToast(data.status.message, "success");
       },
       onError: (error: any) => {
-        console.log(error);
         showToast(JSON.stringify(error.response.data), "danger");
       },
     }
@@ -62,7 +50,6 @@ const SignIn: React.FC<SignInProps> = () => {
       email: emailRef.current!.value,
       password: passwordRef.current!.value,
     };
-    console.log(formData);
     formData.email && formData.password
       ? signIn(formData)
       : showToast("Please fill in all fields", "warning");

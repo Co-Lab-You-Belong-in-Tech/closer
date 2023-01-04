@@ -1,5 +1,6 @@
-import { API_URL } from "../../react-app-env.d";
-import axios from "axios";
+import axios from 'axios';
+
+import { API_URL } from '../../react-app-env.d';
 
 export const registerUser = async (formData: object) => {
     const {data} = await axios({
