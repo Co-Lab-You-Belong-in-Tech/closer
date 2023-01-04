@@ -19,7 +19,7 @@ const Pain3: React.FC<FuncProps> = (props) => {
     e: React.MouseEvent<HTMLIonButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
-    if (pain) {
+    if (pain !== "") {
       addPain3(pain);
       props.handleProgress && props.handleProgress();
     } else {

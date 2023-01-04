@@ -76,11 +76,12 @@ http://ionicframework.com/docs/theming/ */
   --ion-color-light-tint: #f5f6f9;
 }
 
-@media (prefers-color-scheme: light) {
+/* Incase you need to detect dark mode, uncomment */
+/* @media (prefers-color-scheme: dark) {
   /*
    * Dark Colors
    * -------------------------------------------
-   */
+   
 
   body {
     --ion-color-primary: #428cff;
@@ -150,7 +151,7 @@ http://ionicframework.com/docs/theming/ */
   /*
    * iOS Dark Theme
    * -------------------------------------------
-   */
+   
 
   .ios body {
     --ion-background-color: #000000;
@@ -194,7 +195,7 @@ http://ionicframework.com/docs/theming/ */
   /*
    * Material Design Dark Theme
    * -------------------------------------------
-   */
+   
 
   .md body {
     --ion-background-color: #121212;
@@ -233,4 +234,4 @@ http://ionicframework.com/docs/theming/ */
 
     --ion-card-background: #1e1e1e;
   }
-}
+} */
