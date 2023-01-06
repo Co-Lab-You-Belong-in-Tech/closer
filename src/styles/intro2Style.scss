@@ -6,9 +6,17 @@ ion-progress-bar {
 
 //intro 2 page 
 
+
+.introImageContainer {
+    margin-inline: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+}
+
 .introImage {
-    // width: 1000%;
-    height: 100%;
+    width: 100%;
 }
 
 .intro-content {
