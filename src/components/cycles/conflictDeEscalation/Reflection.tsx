@@ -1,12 +1,27 @@
-import { close } from 'ionicons/icons';
-import { useState } from 'react';
-
+import { close } from "ionicons/icons";
+import { useState } from "react";
+import smile from "../../../assets/smile.png";
+import neutral from "../../../assets/neutral.png";
+import sad from "../../../assets/sad.png";
 import {
-    IonButton, IonButtons, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInput, IonItem,
-    IonLabel, IonModal, IonRouterLink, IonRow, IonText, IonToolbar
-} from '@ionic/react';
+  IonButton,
+  IonButtons,
+  IonCol,
+  IonContent,
+  IonGrid,
+  IonHeader,
+  IonIcon,
+  IonInput,
+  IonItem,
+  IonLabel,
+  IonModal,
+  IonRouterLink,
+  IonRow,
+  IonText,
+  IonToolbar,
+} from "@ionic/react";
 
-import { useFirstTimeStore } from '../../../features/store';
+import { useFirstTimeStore } from "../../../features/store";
 
 interface FuncProps {
   setProgress?: React.Dispatch<React.SetStateAction<number>>;
@@ -29,27 +44,42 @@ const Reflection: React.FC<FuncProps> = (props) => {
       <IonGrid>
         <IonRow>
           <IonCol>
-            <div className="rate">
+            {/* <div className="rate">
               <input type="radio" id="star5" name="rate" value="5" />
               <label htmlFor="star5" title="text">
-                {/* 5 stars */}
               </label>
               <input type="radio" id="star4" name="rate" value="4" />
               <label htmlFor="star4" title="text">
-                {/* 4 stars */}
               </label>
               <input type="radio" id="star3" name="rate" value="3" />
               <label htmlFor="star3" title="text">
-                {/* 3 stars */}
               </label>
               <input type="radio" id="star2" name="rate" value="2" />
               <label htmlFor="star2" title="text">
-                {/* 2 stars */}
               </label>
               <input type="radio" id="star1" name="rate" value="1" />
               <label htmlFor="star1" title="text">
-                {/* 1 star */}
               </label>
+            </div> */}
+            <div className="rating">
+              <div>
+                <input type="checkbox" id="btnControl" />
+                <label className="btn" htmlFor="btnControl">
+                  <img src={smile} alt="" />
+                </label>
+              </div>
+              <div>
+                <input type="checkbox" id="btnControl2" />
+                <label className="btn" htmlFor="btnControl2">
+                  <img src={neutral} alt="" />
+                </label>
+              </div>
+              <div>
+                <input type="checkbox" id="btnControl3" />
+                <label className="btn" htmlFor="btnControl3">
+                  <img src={sad} alt="" />
+                </label>
+              </div>
             </div>
           </IonCol>
         </IonRow>
