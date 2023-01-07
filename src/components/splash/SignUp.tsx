@@ -1,17 +1,27 @@
-import { arrowForwardOutline, logoGoogle } from 'ionicons/icons';
-import React, { useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { arrowForwardOutline } from "ionicons/icons";
+import React, { useRef } from "react";
+import { Link } from "react-router-dom";
 
 import {
-    IonButton, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInput, IonItem, IonLabel,
-    IonPage, IonRow, setupIonicReact
-} from '@ionic/react';
-import { useMutation } from '@tanstack/react-query';
+  IonButton,
+  IonCol,
+  IonContent,
+  IonGrid,
+  IonHeader,
+  IonIcon,
+  IonInput,
+  IonItem,
+  IonLabel,
+  IonPage,
+  IonRow,
+  setupIonicReact,
+} from "@ionic/react";
+import { useMutation } from "@tanstack/react-query";
 
-import { registerUser } from '../../features/api/auth';
+import { registerUser } from "../../features/api/auth";
 // Import store
-import { useUserStatusStore } from '../../features/store';
-import { useShowToast } from '../../hooks/useShowToast';
+import { useUserStatusStore } from "../../features/store";
+import { useShowToast } from "../../hooks/useShowToast";
 
 interface componentProps {
   history?: any;
@@ -104,24 +114,6 @@ const SignUp: React.FC<componentProps> = () => {
                 {isLoading ? "Loading..." : "Sign up"}
                 <IonIcon icon={arrowForwardOutline} slot="end"></IonIcon>
               </IonButton>
-            </IonCol>
-          </IonRow>
-
-          <IonRow className="ion-text-center ion-margin-top">
-            <IonCol>
-              <a href="https://google.com">
-                <IonIcon icon={logoGoogle} size="large" color="dark"></IonIcon>
-              </a>
-            </IonCol>
-            <IonCol>
-              <a href="https://google.com">
-                <IonIcon icon={logoGoogle} size="large" color="dark"></IonIcon>
-              </a>
-            </IonCol>
-            <IonCol>
-              <a href="https://google.com">
-                <IonIcon icon={logoGoogle} size="large" color="dark"></IonIcon>
-              </a>
             </IonCol>
           </IonRow>
 

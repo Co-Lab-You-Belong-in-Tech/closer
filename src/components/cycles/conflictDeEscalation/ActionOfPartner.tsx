@@ -1,14 +1,21 @@
-import { close } from 'ionicons/icons';
-import React, { useState } from 'react';
+import { close } from "ionicons/icons";
+import React, { useState } from "react";
 
 import {
-    IonButton, IonButtons, IonContent, IonIcon, IonInput, IonItem, IonModal, IonToolbar
-} from '@ionic/react';
+  IonButton,
+  IonButtons,
+  IonContent,
+  IonIcon,
+  IonInput,
+  IonItem,
+  IonModal,
+  IonToolbar,
+} from "@ionic/react";
 
-import { stockActions } from '../../../data/stockActions';
-import { usePartnerActionsStore } from '../../../features/store';
+import { stockActions } from "../../../data/stockActions";
+import { usePartnerActionsStore } from "../../../features/store";
 
-import { useShowToast } from '../../../hooks/useShowToast';
+import { useShowToast } from "../../../hooks/useShowToast";
 
 interface FuncProps {
   handleProgress?: () => void;
@@ -40,7 +47,21 @@ const ActionOfPartner: React.FC<FuncProps> = (props) => {
       <h3>What action did your partner take? </h3>
       <IonItem>
         <IonInput maxlength={20} onClick={() => setIsOpen(true)}>
-          {sampleAction}
+          {sampleAction && (
+            <p
+              style={{
+                borderRadius: "100px",
+                padding: "5px 10px",
+                position: "absolute",
+                display: "block",
+                color: "white",
+                backgroundColor: "#FF8F3D",
+              }}
+            >
+              {" "}
+              {sampleAction}
+            </p>
+          )}
         </IonInput>
       </IonItem>
       <IonModal
@@ -62,6 +83,9 @@ const ActionOfPartner: React.FC<FuncProps> = (props) => {
             {stockActions.map((action, index) => {
               return (
                 <IonButton
+                  color="dark"
+                  fill="clear"
+                  style={{ border: "2px solid #FF8F3D", borderRadius: "100px" }}
                   key={index}
                   onClick={() => {
                     setSampleAction(action);
@@ -75,6 +99,7 @@ const ActionOfPartner: React.FC<FuncProps> = (props) => {
 
             {/* other option */}
             <IonInput
+              className="ion-margin"
               placeholder="Others"
               onIonChange={(e) => {
                 setSampleAction(e.target.value);
