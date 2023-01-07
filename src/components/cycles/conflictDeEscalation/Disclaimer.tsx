@@ -1,5 +1,6 @@
 import { close } from 'ionicons/icons';
 import { useState } from 'react';
+import IntroImage from "../../../assets/IntroImage.png";
 
 import {
     IonButton, IonButtons, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonModal, IonRow,
@@ -26,8 +27,8 @@ const Disclaimer: React.FC<FuncProps> = (props) => {
       </IonText>
       <IonGrid>
         <IonRow>
-          <IonCol className="ion-text-center anim-circle">
-            <h5>Breath</h5>
+          <IonCol className="ion-text-center">
+            <img src={IntroImage} alt="IntroImage" />
           </IonCol>
         </IonRow>
       </IonGrid>
