@@ -57,15 +57,15 @@ const CycleMainPage = () => {
       case 0.63:
         return <Pain3 handleProgress={handleProgress} />;
       case 0.7:
-        return <Pain4 handleProgress={handleProgress} />;
-      case 0.77:
+        // return <Pain4 handleProgress={handleProgress} />;
         return <PreSummary handleProgress={handleProgress} />;
-      case 0.84:
+      case 0.77:
         return <CycleSummary handleProgress={handleProgress} />;
-      case 0.91:
+      case 0.84:
         return <Analysis handleProgress={handleProgress} />;
-      case 0.98:
+      case 0.91:
         return <Reflection setProgress={setProgress} />;
+      // case 0.98:
       default:
         return <Redirect to="/" />;
     }
