@@ -22,16 +22,13 @@ import Reflection from "../components/cycles/conflictDeEscalation/Reflection";
 import Trigger from "../components/cycles/conflictDeEscalation/Trigger";
 
 const CycleMainPage = () => {
-  const [buffer, setBuffer] = React.useState<number>(0.07);
   const [progress, setProgress] = React.useState<number>(0);
 
   const handleProgress = () => {
     if (Number(progress.toFixed(2)) < 1.0) {
       setProgress((preProgress) => preProgress + 0.07);
-      setBuffer((preBuffer) => preBuffer + 0.07);
     } else {
       setProgress(0);
-      setBuffer(0.07);
     }
   };
 
@@ -80,12 +77,10 @@ const CycleMainPage = () => {
         <IonToolbar>
           <Cta
             setProgress={setProgress}
-            setBuffer={setBuffer}
             progress={progress}
           />
           <IonProgressBar
             className="ion-margin-top"
-            buffer={buffer}
             value={progress}
           ></IonProgressBar>
         </IonToolbar>
