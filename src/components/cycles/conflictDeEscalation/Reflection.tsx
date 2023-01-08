@@ -90,7 +90,7 @@ const Reflection: React.FC<FuncProps> = (props) => {
       </IonGrid>
 
       <IonItem>
-        <IonLabel position="stacked">
+        <IonLabel position="stacked" style={{ fontSize: "18px" }}>
           What is one way that your partner<br></br> can make it better next
           time?
         </IonLabel>
@@ -98,7 +98,7 @@ const Reflection: React.FC<FuncProps> = (props) => {
       </IonItem>
 
       <IonItem>
-        <IonLabel position="stacked">
+        <IonLabel position="stacked" style={{ fontSize: "18px" }}>
           What is one way that you can make it <br></br> better next time?
         </IonLabel>
         <IonInput placeholder="Type here" className="ion-margin-top"></IonInput>
