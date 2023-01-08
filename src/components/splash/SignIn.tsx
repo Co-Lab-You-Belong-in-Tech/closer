@@ -20,7 +20,7 @@ import {
 import { useMutation } from "@tanstack/react-query";
 
 import { loginUser } from "../../features/api/auth";
-import { useUserStatusStore } from "../../features/store";
+import { useStore } from "../../features/store";
 // import hooks
 import { useShowToast } from "../../hooks/useShowToast";
 import Dashboard from "../../pages/Dashboard";
@@ -33,7 +33,8 @@ interface SignInProps {
 
 setupIonicReact();
 const SignIn: React.FC<SignInProps> = () => {
-  const setUserStatus = useUserStatusStore((state) => state.setUserStatus);
+  // Get store
+  const { setUserStatus } = useStore((state) => state);
   const emailRef = React.useRef<HTMLIonInputElement>(null);
   const passwordRef = React.useRef<HTMLIonInputElement>(null);
 

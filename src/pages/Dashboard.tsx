@@ -5,11 +5,11 @@ import { IonButton, IonContent, IonPage, IonText } from '@ionic/react';
 
 import EndOfSession from '../components/cycles/conflictDeEscalation/EndOfSession';
 import Intro from '../components/Intro';
-import { useFirstTimeStore } from '../features/store';
+import { useStore } from '../features/store';
 
 const Dashboard: React.FC = () => {
   const { endOfCycle } = useParams<{ endOfCycle: string }>();
-  const firstTime = useFirstTimeStore((state) => state.firstTime);
+  const firstTime = useStore((state) => state.firstTime);
   // const endOfCycle = useEndOfCycleStore((state) => state.endOfCycle);
   return (
     <IonPage className="dashboardPage">

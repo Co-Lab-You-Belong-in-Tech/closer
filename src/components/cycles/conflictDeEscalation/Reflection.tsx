@@ -21,7 +21,7 @@ import {
   IonToolbar,
 } from "@ionic/react";
 
-import { useFirstTimeStore } from "../../../features/store";
+import { useStore } from "../../../features/store";
 
 interface FuncProps {
   setProgress?: React.Dispatch<React.SetStateAction<number>>;
@@ -29,7 +29,7 @@ interface FuncProps {
 
 const Reflection: React.FC<FuncProps> = (props) => {
   const [isOpen, setIsOpen] = useState(true);
-  const setFirstTime = useFirstTimeStore((state) => state.setFirstTime);
+  const setFirstTime = useStore((state) => state.setFirstTime);
 
   const handleClick = () => {
     props.setProgress && props.setProgress(0);

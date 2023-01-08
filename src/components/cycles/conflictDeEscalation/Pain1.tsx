@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 
 import { IonButton, IonContent, IonItem, IonTextarea } from '@ionic/react';
 
-import { usePain1Store } from '../../../features/store';
+import { useStore } from '../../../features/store';
 
 import { useShowToast } from '../../../hooks/useShowToast';
 
@@ -13,7 +13,7 @@ interface FuncProps {
 }
 
 const Pain1: React.FC<FuncProps> = (props) => {
-  const addPain1 = usePain1Store((state) => state.addPain1);
+  const addPain1 = useStore((state) => state.addPain1);
   // const painRef = React.useRef<HTMLIonTextareaElement>(null);
   const [pain, setPain] = useState<string>("");
 

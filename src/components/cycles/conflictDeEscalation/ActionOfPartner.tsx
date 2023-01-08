@@ -17,7 +17,7 @@ import {
   stockActionsPursue,
   stockActionsWithdraw,
 } from "../../../data/stockActions";
-import { usePartnerActionsStore } from "../../../features/store";
+import { useStore } from "../../../features/store";
 
 import { useShowToast } from "../../../hooks/useShowToast";
 
@@ -28,7 +28,7 @@ interface FuncProps {
 const ActionOfPartner: React.FC<FuncProps> = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const [sampleAction, setSampleAction] = useState<any | null>(null);
-  const addPartnerAction = usePartnerActionsStore(
+  const addPartnerAction = useStore(
     (state) => state.addPartnerAction
   );
 

@@ -7,7 +7,7 @@ import IntroImage from "../assets/IntroImage.png";
 import Cta from "../components/Cta";
 import Action from "../components/cycles/conflictDeEscalation/Action";
 import ActionOfPartner from "../components/cycles/conflictDeEscalation/ActionOfPartner";
-import Analysis from "../components/cycles/conflictDeEscalation/Analysis";
+// import Analysis from "../components/cycles/conflictDeEscalation/Analysis";
 import CycleSummary from "../components/cycles/conflictDeEscalation/CycleSummary";
 import Disclaimer from "../components/cycles/conflictDeEscalation/Disclaimer";
 import Emotion from "../components/cycles/conflictDeEscalation/Emotion";
@@ -16,22 +16,19 @@ import Intro2 from "../components/cycles/conflictDeEscalation/Intro2";
 import Pain1 from "../components/cycles/conflictDeEscalation/Pain1";
 import Pain2 from "../components/cycles/conflictDeEscalation/Pain2";
 import Pain3 from "../components/cycles/conflictDeEscalation/Pain3";
-import Pain4 from "../components/cycles/conflictDeEscalation/Pain4";
+// import Pain4 from "../components/cycles/conflictDeEscalation/Pain4";
 import PreSummary from "../components/cycles/conflictDeEscalation/PreSummary";
 import Reflection from "../components/cycles/conflictDeEscalation/Reflection";
 import Trigger from "../components/cycles/conflictDeEscalation/Trigger";
 
 const CycleMainPage = () => {
-  const [buffer, setBuffer] = React.useState<number>(0.07);
   const [progress, setProgress] = React.useState<number>(0);
 
   const handleProgress = () => {
     if (Number(progress.toFixed(2)) < 1.0) {
       setProgress((preProgress) => preProgress + 0.07);
-      setBuffer((preBuffer) => preBuffer + 0.07);
     } else {
       setProgress(0);
-      setBuffer(0.07);
     }
   };
 
@@ -60,15 +57,15 @@ const CycleMainPage = () => {
       case 0.63:
         return <Pain3 handleProgress={handleProgress} />;
       case 0.7:
-        return <Pain4 handleProgress={handleProgress} />;
-      case 0.77:
+        // return <Pain4 handleProgress={handleProgress} />;
         return <PreSummary handleProgress={handleProgress} />;
-      case 0.84:
+      case 0.77:
         return <CycleSummary handleProgress={handleProgress} />;
-      case 0.91:
-        return <Analysis handleProgress={handleProgress} />;
-      case 0.98:
+      case 0.84:
+        // return <Analysis handleProgress={handleProgress} />;
         return <Reflection setProgress={setProgress} />;
+      // case 0.91:
+      // case 0.98:
       default:
         return <Redirect to="/" />;
     }
@@ -80,12 +77,10 @@ const CycleMainPage = () => {
         <IonToolbar>
           <Cta
             setProgress={setProgress}
-            setBuffer={setBuffer}
             progress={progress}
           />
           <IonProgressBar
             className="ion-margin-top"
-            buffer={buffer}
             value={progress}
           ></IonProgressBar>
         </IonToolbar>

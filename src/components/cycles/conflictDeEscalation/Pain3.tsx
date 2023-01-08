@@ -2,28 +2,25 @@ import React from 'react';
 
 import { IonButton, IonContent, IonInput, IonItem } from '@ionic/react';
 
-import { usePain3Store } from '../../../features/store';
-
-import { useShowToast } from '../../../hooks/useShowToast';
+import { useStore } from '../../../features/store';
 
 interface FuncProps {
   handleProgress?: () => void;
 }
 
 const Pain3: React.FC<FuncProps> = (props) => {
-  const addPain3 = usePain3Store((state) => state.addPain3);
+  const addPain3 = useStore((state) => state.addPain3);
   const [pain, setPain] = React.useState<string>("");
-  const showToast = useShowToast();
 
   const handleClick = (
     e: React.MouseEvent<HTMLIonButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
-    if (pain) {
+    if (pain !== "") {
       addPain3(pain);
       props.handleProgress && props.handleProgress();
     } else {
-      showToast("Please input pain", "warning");
+      props.handleProgress && props.handleProgress();
     }
   };
 
@@ -33,7 +30,7 @@ const Pain3: React.FC<FuncProps> = (props) => {
         className="ion-text-center"
         style={{ width: "55%", marginLeft: "22.5%", marginTop: "50%" }}
       >
-        If the pain had words, it would say...{" "}
+        If the pain had words, it would say...{" "} (Optional)
       </h3>
 
       <IonItem>

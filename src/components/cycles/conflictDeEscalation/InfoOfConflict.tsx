@@ -6,7 +6,7 @@ import {
 } from '@ionic/react';
 
 // import store
-import { useConflictsStore } from '../../../features/store';
+import { useStore } from '../../../features/store';
 
 import { useShowToast } from '../../../hooks/useShowToast';
 
@@ -15,7 +15,7 @@ interface FuncProps {
 }
 
 const InfoOfConflict: React.FC<FuncProps> = (props) => {
-  const addConflict = useConflictsStore((state) => state.addConflict);
+  const addConflict = useStore((state) => state.addConflict);
   const showToast = useShowToast();
   // TODO: fix this to work with the new useObjEmptyValidate
   const [conflictObj, setConflictObj] = React.useState<{

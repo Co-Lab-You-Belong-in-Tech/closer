@@ -19,6 +19,7 @@ import { createRoot } from 'react-dom/client';
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
+// import service worker
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
