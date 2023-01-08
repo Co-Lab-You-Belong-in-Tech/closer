@@ -1,15 +1,20 @@
 // Array that holds all the stock actions
-export const stockActions  = [
+export const stockActionsPursue  = [
   "attacked",
+  "expressed disapproval",
   "complained",
-  "expressed frustration",
-  "yelled",
   "made threats",
-  "criticized",
-  "zone out",
-  "analyzed",
+  "expressed frustration",
+  "criticized"
+];
+
+export const stockActionsWithdraw = [
+  "zoned out",
   "became quiet",
+  "analyzed",
   "walked away",
+  "expressed frustration",
+  "placated",
   "sulked",
   "tried to reason"
-];
+]

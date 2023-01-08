@@ -65,7 +65,7 @@ const Reflection: React.FC<FuncProps> = (props) => {
               <div>
                 <input type="checkbox" id="btnControl" />
                 <label className="btn" htmlFor="btnControl">
-                  <img src={smile} alt="" />
+                  <img src={sad} alt="" />
                 </label>
               </div>
               <div>
@@ -77,7 +77,7 @@ const Reflection: React.FC<FuncProps> = (props) => {
               <div>
                 <input type="checkbox" id="btnControl3" />
                 <label className="btn" htmlFor="btnControl3">
-                  <img src={sad} alt="" />
+                  <img src={smile} alt="" />
                 </label>
               </div>
             </div>
@@ -90,7 +90,7 @@ const Reflection: React.FC<FuncProps> = (props) => {
       </IonGrid>
 
       <IonItem>
-        <IonLabel position="stacked">
+        <IonLabel position="stacked" style={{ fontSize: "18px" }}>
           What is one way that your partner<br></br> can make it better next
           time?
         </IonLabel>
@@ -98,7 +98,7 @@ const Reflection: React.FC<FuncProps> = (props) => {
       </IonItem>
 
       <IonItem>
-        <IonLabel position="stacked">
+        <IonLabel position="stacked" style={{ fontSize: "18px" }}>
           What is one way that you can make it <br></br> better next time?
         </IonLabel>
         <IonInput placeholder="Type here" className="ion-margin-top"></IonInput>

@@ -53,13 +53,24 @@ const Emotion: React.FC<FuncProps> = (props) => {
           }}
           value={emotion}
         >
-          <div style={{ height: "50vh", overflowY: "scroll" }}>
+          <div
+            style={{
+              height: "50vh",
+              overflowY: "scroll",
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "space-between",
+              paddingInline: "1px",
+            }}
+          >
             {stockEmotions.map((emo) => (
               <IonItem
                 style={{
                   border: "2px #A982FF solid",
                   borderRadius: "100px",
                   marginTop: "30px",
+                  flexBasis: "49%",
+                  fontSize: "12px",
                 }}
                 key={Array.prototype.indexOf.call(stockEmotions, emo)}
               >
