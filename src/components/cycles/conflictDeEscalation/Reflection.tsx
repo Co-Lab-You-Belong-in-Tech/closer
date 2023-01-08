@@ -65,7 +65,7 @@ const Reflection: React.FC<FuncProps> = (props) => {
               <div>
                 <input type="checkbox" id="btnControl" />
                 <label className="btn" htmlFor="btnControl">
-                  <img src={smile} alt="" />
+                  <img src={sad} alt="" />
                 </label>
               </div>
               <div>
@@ -77,7 +77,7 @@ const Reflection: React.FC<FuncProps> = (props) => {
               <div>
                 <input type="checkbox" id="btnControl3" />
                 <label className="btn" htmlFor="btnControl3">
-                  <img src={sad} alt="" />
+                  <img src={smile} alt="" />
                 </label>
               </div>
             </div>

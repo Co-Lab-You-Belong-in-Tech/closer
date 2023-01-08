@@ -8,6 +8,7 @@ import {
   IonIcon,
   IonInput,
   IonItem,
+  IonLabel,
   IonModal,
   IonToolbar,
 } from "@ionic/react";
@@ -97,13 +98,16 @@ const Action: React.FC<FuncProps> = (props) => {
             })}
 
             {/* other option */}
-            <IonInput
-              className="ion-margin"
-              placeholder="Others"
-              onIonChange={(e) => {
-                setSampleAction(e.target.value);
-              }}
-            ></IonInput>
+            <IonItem>
+              <IonLabel>Others</IonLabel>
+              <IonInput
+                className="ion-margin"
+                placeholder="i.e. Ignored"
+                onIonChange={(e) => {
+                  setSampleAction(e.target.value);
+                }}
+              ></IonInput>
+            </IonItem>
           </>
         </div>
       </IonModal>

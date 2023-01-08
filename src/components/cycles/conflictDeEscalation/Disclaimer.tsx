@@ -1,10 +1,19 @@
-import { close } from 'ionicons/icons';
-import { useState } from 'react';
+import { close } from "ionicons/icons";
+import { useState } from "react";
 
 import {
-    IonButton, IonButtons, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonModal, IonRow,
-    IonText, IonToolbar
-} from '@ionic/react';
+  IonButton,
+  IonButtons,
+  IonCol,
+  IonContent,
+  IonGrid,
+  IonHeader,
+  IonIcon,
+  IonModal,
+  IonRow,
+  IonText,
+  IonToolbar,
+} from "@ionic/react";
 
 interface FuncProps {
   handleProgress?: () => void;
@@ -27,7 +36,7 @@ const Disclaimer: React.FC<FuncProps> = (props) => {
       <IonGrid>
         <IonRow>
           <IonCol className="ion-text-center anim-circle">
-            <h5>Breath</h5>
+            <h5>Breathe</h5>
           </IonCol>
         </IonRow>
       </IonGrid>

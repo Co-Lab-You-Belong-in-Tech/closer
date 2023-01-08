@@ -8,6 +8,7 @@ import {
   IonIcon,
   IonInput,
   IonItem,
+  IonLabel,
   IonModal,
   IonToolbar,
 } from "@ionic/react";
@@ -44,7 +45,10 @@ const ActionOfPartner: React.FC<FuncProps> = (props) => {
 
   return (
     <IonContent className="ion-padding ion-margin-top">
-      <h3>What action did your partner take? </h3>
+      <h3>
+        What action did your <span style={{ color: "#A982FF" }}>partner</span>{" "}
+        take?{" "}
+      </h3>
       <IonItem>
         <IonInput maxlength={20} onClick={() => setIsOpen(true)}>
           {sampleAction && (
@@ -98,13 +102,16 @@ const ActionOfPartner: React.FC<FuncProps> = (props) => {
             })}
 
             {/* other option */}
-            <IonInput
-              className="ion-margin"
-              placeholder="Others"
-              onIonChange={(e) => {
-                setSampleAction(e.target.value);
-              }}
-            ></IonInput>
+            <IonItem>
+              <IonLabel>Others</IonLabel>
+              <IonInput
+                className="ion-margin"
+                placeholder="i.e. Ignored"
+                onIonChange={(e) => {
+                  setSampleAction(e.target.value);
+                }}
+              ></IonInput>
+            </IonItem>
           </>
         </div>
       </IonModal>
