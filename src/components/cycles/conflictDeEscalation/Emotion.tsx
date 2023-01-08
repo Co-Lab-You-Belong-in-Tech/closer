@@ -12,7 +12,7 @@ import {
   IonRadio,
 } from "@ionic/react";
 
-import { useEmotionsStore } from "../../../features/store";
+import { useStore } from "../../../features/store";
 
 import { useShowToast } from "../../../hooks/useShowToast";
 
@@ -21,7 +21,7 @@ interface FuncProps {
 }
 
 const Emotion: React.FC<FuncProps> = (props) => {
-  const addEmotion = useEmotionsStore((state) => state.addEmotion);
+  const addEmotion = useStore((state) => state.addEmotion);
   // const emotionRef = React.useRef<HTMLIonSelectElement>(null);
   const [emotion, setEmotion] = React.useState<any | null>(null);
 

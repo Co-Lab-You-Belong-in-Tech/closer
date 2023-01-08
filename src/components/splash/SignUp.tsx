@@ -20,7 +20,7 @@ import { useMutation } from "@tanstack/react-query";
 
 import { registerUser } from "../../features/api/auth";
 // Import store
-import { useUserStatusStore } from "../../features/store";
+import { useStore } from "../../features/store";
 import { useShowToast } from "../../hooks/useShowToast";
 
 interface componentProps {
@@ -34,7 +34,8 @@ interface componentProps {
 
 setupIonicReact();
 const SignUp: React.FC<componentProps> = () => {
-  const setUserStatus = useUserStatusStore((state) => state.setUserStatus);
+  // Get store
+  const { setUserStatus } = useStore((state) => state);
   const emailRef = useRef<HTMLIonInputElement>(null);
   const passwordRef = useRef<HTMLIonInputElement>(null);
 

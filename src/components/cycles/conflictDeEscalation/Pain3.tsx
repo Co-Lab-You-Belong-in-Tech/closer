@@ -2,14 +2,14 @@ import React from 'react';
 
 import { IonButton, IonContent, IonInput, IonItem } from '@ionic/react';
 
-import { usePain3Store } from '../../../features/store';
+import { useStore } from '../../../features/store';
 
 interface FuncProps {
   handleProgress?: () => void;
 }
 
 const Pain3: React.FC<FuncProps> = (props) => {
-  const addPain3 = usePain3Store((state) => state.addPain3);
+  const addPain3 = useStore((state) => state.addPain3);
   const [pain, setPain] = React.useState<string>("");
 
   const handleClick = (

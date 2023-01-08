@@ -14,7 +14,7 @@ import {
 
 // import needed data
 import { stockActions } from "../../../data/stockActions";
-import { useActionsStore } from "../../../features/store";
+import { useStore } from "../../../features/store";
 
 import { useShowToast } from "../../../hooks/useShowToast";
 
@@ -26,7 +26,7 @@ const Action: React.FC<FuncProps> = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const [sampleAction, setSampleAction] = useState<any | null>(null);
 
-  const addAction = useActionsStore((state) => state.addAction);
+  const addAction = useStore((state) => state.addAction);
   const showToast = useShowToast();
 
   const handleClick = (

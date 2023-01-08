@@ -12,7 +12,7 @@ import SignIn from './components/splash/SignIn';
 import SignUp from './components/splash/SignUp';
 import Splash from './components/splash/Splash';
 // Get stores
-import { useUserStatusStore } from './features/store';
+import { useStore } from './features/store';
 // Custom hooks
 import { useTimeout } from './hooks/useTimeOut';
 import CycleMainPage from './pages/CycleMainPage';
@@ -22,7 +22,7 @@ import Dashboard from './pages/Dashboard';
 setupIonicReact();
 
 const App: React.FC<RouteComponentProps> = () => {
-  const userStatus = useUserStatusStore((state) => state.userStatus);
+  const userStatus = useStore((state) => state.userStatus);
   const [loading, setLoading] = React.useState<boolean>(true);
 
   useTimeout(() => setLoading(false), 3000);

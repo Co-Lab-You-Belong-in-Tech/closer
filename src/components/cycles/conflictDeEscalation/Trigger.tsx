@@ -6,7 +6,7 @@ import {
 
 import { stockTriggers } from '../../../data/stockTriggers';
 // Import the store
-import { useTriggersStore } from '../../../features/store';
+import { useStore } from '../../../features/store';
 
 import { useShowToast } from '../../../hooks/useShowToast';
 
@@ -15,7 +15,7 @@ interface FuncProps {
 }
 
 const Trigger: React.FC<FuncProps> = (props) => {
-  const addTrigger = useTriggersStore((state) => state.addTrigger);
+  const addTrigger = useStore((state) => state.addTrigger);
   const [trigger, setTrigger] = React.useState<string>("");
 
   const showToast = useShowToast();
