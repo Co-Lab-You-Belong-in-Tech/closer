@@ -1,6 +1,11 @@
 import {
-    IonButton, IonCard, IonCardContent, IonCardHeader, IonContent, IonHeader
-} from '@ionic/react';
+  IonButton,
+  IonCard,
+  IonCardContent,
+  IonCardHeader,
+  IonContent,
+  IonHeader,
+} from "@ionic/react";
 
 interface FuncProps {
   handleProgress?: () => void;
@@ -15,22 +20,27 @@ const CycleSummary: React.FC<FuncProps> = (props) => {
         <IonCard>
           <IonCardHeader>
             <IonCardContent>
+              {/* 
+              Ingrid's new copywriting for video recording 
+
+              When dirty dishes in the sink happens, I get annoyed, and I criticize you. The more I pursue, the more you sulk. But deep down, I feel insecure and fear that I'm not good enough for you . */}
               When{" "}
-              <span className="cycleSummarySpan"> negative tone of voice </span>
-              happens, I feel
-              <span className="cycleSummarySpan">frustrated</span> , and I{" "}
-              <span className="cycleSummarySpan">
-                respond in a negative tone.
-              </span>{" "}
-              The more I<span className="cycleSummarySpan"> speak </span>, the
-              more you <span className="cycleSummarySpan"> withdraw </span> .
-              But deep down, I'm experiencing{" "}
-              <span className="cycleSummarySpan"> pain </span>and am protecting
-              myself from{" "}
               <span className="cycleSummarySpan">
                 {" "}
-                disappointment from my parents.
+                dirty dishes in the sink{" "}
               </span>
+              happens, I feel
+              <span className="cycleSummarySpan">annoyed</span> , and I
+              <span className="cycleSummarySpan">criticized you</span>. The more
+              I<span className="cycleSummarySpan">pursue</span>, the more you{" "}
+              <span className="cycleSummarySpan">sulk</span>. But deep down, I
+              feel <span className="cycleSummarySpan">insecure</span>and fear
+              that{" "}
+              <span className="cycleSummarySpan">
+                {" "}
+                I'm not good enough for you
+              </span>
+              .
             </IonCardContent>
           </IonCardHeader>
         </IonCard>
