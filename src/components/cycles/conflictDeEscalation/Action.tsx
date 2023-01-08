@@ -1,6 +1,5 @@
-import { close } from "ionicons/icons";
+import { close, informationCircleOutline } from "ionicons/icons";
 import React, { useState } from "react";
-
 import {
   IonButton,
   IonButtons,
@@ -8,12 +7,16 @@ import {
   IonIcon,
   IonInput,
   IonItem,
+  IonLabel,
   IonModal,
   IonToolbar,
 } from "@ionic/react";
 
 // import needed data
-import { stockActions } from "../../../data/stockActions";
+import {
+  stockActionsPursue,
+  stockActionsWithdraw,
+} from "../../../data/stockActions";
 import { useActionsStore } from "../../../features/store";
 
 import { useShowToast } from "../../../hooks/useShowToast";
@@ -79,7 +82,15 @@ const Action: React.FC<FuncProps> = (props) => {
 
         <div className="wrapper">
           <>
-            {stockActions.map((action, index) => {
+            <h5 className="ion-margin-start">
+              Pursue
+              <IonIcon
+                icon={informationCircleOutline}
+                slot="end"
+                style={{ verticalAlign: "text-bottom" }}
+              ></IonIcon>
+            </h5>
+            {stockActionsPursue.map((action, index) => {
               return (
                 <IonButton
                   color="dark"
@@ -95,15 +106,44 @@ const Action: React.FC<FuncProps> = (props) => {
                 </IonButton>
               );
             })}
+            <br />
+            <br />
+            <h5 className="ion-margin-start">
+              Withdraw
+              <IonIcon
+                icon={informationCircleOutline}
+                slot="end"
+                style={{ verticalAlign: "text-bottom" }}
+              ></IonIcon>
+            </h5>
+            {stockActionsWithdraw.map((action, index) => {
+              return (
+                <IonButton
+                  color="dark"
+                  fill="clear"
+                  style={{ border: "2px solid #FF8F3D", borderRadius: "100px" }}
+                  key={index}
+                  onClick={() => {
+                    setSampleAction(action);
+                    setIsOpen(false);
+                  }}
+                >
+                  {action}
+                </IonButton>
+              );
+            })}
 
             {/* other option */}
-            <IonInput
-              className="ion-margin"
-              placeholder="Others"
-              onIonChange={(e) => {
-                setSampleAction(e.target.value);
-              }}
-            ></IonInput>
+            <IonItem>
+              <IonLabel>Others</IonLabel>
+              <IonInput
+                className="ion-margin"
+                placeholder="i.e. Ignored"
+                onIonChange={(e) => {
+                  setSampleAction(e.target.value);
+                }}
+              ></IonInput>
+            </IonItem>
           </>
         </div>
       </IonModal>
