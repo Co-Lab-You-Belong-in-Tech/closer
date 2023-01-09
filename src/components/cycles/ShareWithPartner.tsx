@@ -46,13 +46,12 @@ const ShareWithPartner: React.FC<FuncProps> = (props) => {
                     fontWeight: "bold",
                     backgroundColor: "#A982FF",
                     border: "2px #A982FF solid",
-                    borderRadius: "100px",
                     marginTop: "30px",
                     flexBasis: "45%",
                     fontSize: "12px",
                   }}
                 >
-                  <IonLabel>Sticky Note</IonLabel>
+                  <IonLabel className="shareOption">Sticky Note</IonLabel>
                   <IonRadio
                     mode="ios"
                     slot="end"
@@ -69,7 +68,6 @@ const ShareWithPartner: React.FC<FuncProps> = (props) => {
                     fontWeight: "bold",
                     backgroundColor: "#FF8F3D",
                     border: "2px #FF8F3D solid",
-                    borderRadius: "100px",
                     marginTop: "30px",
                     flexBasis: "45%",
                     fontSize: "12px",
@@ -77,6 +75,7 @@ const ShareWithPartner: React.FC<FuncProps> = (props) => {
                 >
                   <IonLabel>Send a text</IonLabel>
                   <IonRadio
+                    mode="ios"
                     slot="end"
                     value="Send a text"
                     color="black"
@@ -91,7 +90,6 @@ const ShareWithPartner: React.FC<FuncProps> = (props) => {
                     fontWeight: "bold",
                     backgroundColor: "#FF8F3D",
                     border: "2px #FF8F3D solid",
-                    borderRadius: "100px",
                     marginTop: "30px",
                     flexBasis: "45%",
                     fontSize: "12px",
@@ -99,6 +97,7 @@ const ShareWithPartner: React.FC<FuncProps> = (props) => {
                 >
                   <IonLabel>Make a Call</IonLabel>
                   <IonRadio
+                    mode="ios"
                     slot="end"
                     value="Voice/Video Call"
                     color="black"
@@ -113,7 +112,6 @@ const ShareWithPartner: React.FC<FuncProps> = (props) => {
                     fontWeight: "bold",
                     backgroundColor: "#A982FF",
                     border: "2px #A982FF solid",
-                    borderRadius: "100px",
                     marginTop: "30px",
                     flexBasis: "45%",
                     fontSize: "12px",
@@ -121,6 +119,7 @@ const ShareWithPartner: React.FC<FuncProps> = (props) => {
                 >
                   <IonLabel>Talk It out</IonLabel>
                   <IonRadio
+                    mode="ios"
                     slot="end"
                     value="Talk It out"
                     color="black"
