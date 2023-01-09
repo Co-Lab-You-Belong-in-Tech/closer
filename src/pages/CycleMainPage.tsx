@@ -20,6 +20,7 @@ import Pain3 from "../components/cycles/conflictDeEscalation/Pain3";
 import PreSummary from "../components/cycles/conflictDeEscalation/PreSummary";
 import Reflection from "../components/cycles/conflictDeEscalation/Reflection";
 import Trigger from "../components/cycles/conflictDeEscalation/Trigger";
+import ShareWithPartner from "../components/cycles/ShareWithPartner";
 
 const CycleMainPage = () => {
   const [progress, setProgress] = React.useState<number>(0);
@@ -62,9 +63,9 @@ const CycleMainPage = () => {
       case 0.77:
         return <CycleSummary handleProgress={handleProgress} />;
       case 0.84:
-        // return <Analysis handleProgress={handleProgress} />;
+        return <ShareWithPartner handleProgress={handleProgress} />;
+      case 0.91:
         return <Reflection setProgress={setProgress} />;
-      // case 0.91:
       // case 0.98:
       default:
         return <Redirect to="/" />;
@@ -75,10 +76,7 @@ const CycleMainPage = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <Cta
-            setProgress={setProgress}
-            progress={progress}
-          />
+          <Cta setProgress={setProgress} progress={progress} />
           <IonProgressBar
             className="ion-margin-top"
             value={progress}
