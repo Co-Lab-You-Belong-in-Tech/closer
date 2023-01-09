@@ -5,3 +5,15 @@
     text-align: center;
     margin-top: 10%;
 }
+
+.shareWithPartner {
+    padding-block: 30px;
+    --background: $primaryColor;
+    --color-checked: black;
+    border-radius: 35px;
+}
+
+.shareWithPartner.orange {
+    --background: #FF8F3D;
+
+}
