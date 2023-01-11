@@ -17,6 +17,7 @@ const CycleSummary: React.FC<FuncProps> = (props) => {
   const partnerAction = useStore((state) => state.partnerActions);
   const pain1 = useStore((state) => state.pain1);
   const pain2 = useStore((state) => state.pain2);
+  const pain3 = useStore((state) => state.pain3);
   return (
     <>
       <IonHeader>
@@ -32,12 +33,8 @@ const CycleSummary: React.FC<FuncProps> = (props) => {
               <span className="cycleSummarySpan">{myactionDisplay}</span>, the
               more you <span className="cycleSummarySpan">{partnerAction}</span>
               . But deep down, I feel {pain2}
-              <span className="cycleSummarySpan">insecure</span> and fear that{" "}
-              <span className="cycleSummarySpan">
-                {" "}
-                I'm not good enough for you
-              </span>
-              .
+              <span className="cycleSummarySpan">{pain2}</span> and fear that{" "}
+              <span className="cycleSummarySpan"> {pain3}</span>.
             </IonCardContent>
           </IonCardHeader>
         </IonCard>
