@@ -13,6 +13,8 @@ interface FuncProps {
 }
 
 const CycleSummary: React.FC<FuncProps> = (props) => {
+  const triggers = useStore((state) => state.triggers);
+  const emotions = useStore((state) => state.emotions);
   const myactionDisplay = useStore((state) => state.actions);
   const partnerAction = useStore((state) => state.partnerActions);
   const pain1 = useStore((state) => state.pain1);
@@ -26,13 +28,14 @@ const CycleSummary: React.FC<FuncProps> = (props) => {
         <IonCard style={{ background: "#F8F8F8" }}>
           <IonCardHeader>
             <IonCardContent>
-              When <span className="cycleSummarySpan"> {myactionDisplay}</span>{" "}
-              happens, I feel <span className="cycleSummarySpan">{pain1}</span>,
-              and I <span className="cycleSummarySpan"> {myactionDisplay}</span>
-              . The more I{" "}
-              <span className="cycleSummarySpan">{myactionDisplay}</span>, the
-              more you <span className="cycleSummarySpan">{partnerAction}</span>
-              . But deep down, I feel {pain2}
+              When <span className="cycleSummarySpan"> {triggers}</span>{" "}
+              happens, I feel{" "}
+              <span className="cycleSummarySpan">{emotions}</span>, and I{" "}
+              <span className="cycleSummarySpan"> {myactionDisplay}</span>. The
+              more I <span className="cycleSummarySpan">{myactionDisplay}</span>
+              , the more you{" "}
+              <span className="cycleSummarySpan">{partnerAction}</span>. But
+              deep down, I feel {pain1}
               <span className="cycleSummarySpan">{pain2}</span> and fear that{" "}
               <span className="cycleSummarySpan"> {pain3}</span>.
             </IonCardContent>
