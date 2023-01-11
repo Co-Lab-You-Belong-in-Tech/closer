@@ -1,4 +1,4 @@
-import { IonButton, IonContent, IonText } from '@ionic/react';
+import { IonButton, IonContent, IonText } from "@ionic/react";
 
 interface FuncProps {
   handleProgress?: () => void;
@@ -29,6 +29,7 @@ const Intro2: React.FC<FuncProps> = (handleProgress) => {
       <div className="ion-padding">
         {/* TODO: Change how handleProgress function is called */}
         <IonButton
+          style={{ bottom: "3%" }}
           onClick={() => handleProgress.handleProgress!()}
           color="primary"
           className="ion-text-center buttonStyle"
