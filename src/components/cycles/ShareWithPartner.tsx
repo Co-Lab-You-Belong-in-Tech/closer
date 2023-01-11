@@ -4,10 +4,10 @@ import {
   IonCardContent,
   IonCardHeader,
   IonContent,
-  IonItem,
-  IonLabel,
+  // IonItem,
+  // IonLabel,
   IonList,
-  IonRadio,
+  // IonRadio,
   IonRadioGroup,
 } from "@ionic/react";
 
@@ -19,7 +19,7 @@ const ShareWithPartner: React.FC<FuncProps> = (props) => {
   return (
     <>
       <header>
-        <h2 className="ion-padding">Share with Your Partner </h2>
+        <h2 className="ion-padding-start">Share with Your Partner </h2>
       </header>
 
       <IonContent className="ion-padding">
@@ -38,8 +38,8 @@ const ShareWithPartner: React.FC<FuncProps> = (props) => {
                   paddingInline: "1px",
                 }}
               >
-                <IonItem
-                  lines="none"
+                <div
+                  // lines="none"
                   className="shareWithPartner"
                   style={{
                     color: "black",
@@ -49,19 +49,21 @@ const ShareWithPartner: React.FC<FuncProps> = (props) => {
                     marginTop: "30px",
                     flexBasis: "45%",
                     fontSize: "12px",
+                    display: "flex",
+                    justifyContent: "center",
                   }}
                 >
-                  <IonLabel className="shareOption">Sticky Note</IonLabel>
-                  <IonRadio
+                  <h5>Sticky Note</h5>
+                  {/* <IonRadio
                     mode="ios"
                     slot="end"
                     value="Sticky Note"
                     color="black"
-                  ></IonRadio>
-                </IonItem>
+                  ></IonRadio> */}
+                </div>
 
-                <IonItem
-                  lines="none"
+                <div
+                  // lines="none"
                   className="shareWithPartner orange ion-margin-start"
                   style={{
                     color: "black",
@@ -71,19 +73,21 @@ const ShareWithPartner: React.FC<FuncProps> = (props) => {
                     marginTop: "30px",
                     flexBasis: "45%",
                     fontSize: "12px",
+                    display: "flex",
+                    justifyContent: "center",
                   }}
                 >
-                  <IonLabel>Send a text</IonLabel>
-                  <IonRadio
+                  <h5>Send a text</h5>
+                  {/* <IonRadio
                     mode="ios"
                     slot="end"
                     value="Send a text"
                     color="black"
-                  ></IonRadio>
-                </IonItem>
+                  ></IonRadio> */}
+                </div>
 
-                <IonItem
-                  lines="none"
+                <div
+                  // lines="none"
                   className="shareWithPartner orange"
                   style={{
                     color: "black",
@@ -93,19 +97,21 @@ const ShareWithPartner: React.FC<FuncProps> = (props) => {
                     marginTop: "30px",
                     flexBasis: "45%",
                     fontSize: "12px",
+                    display: "flex",
+                    justifyContent: "center",
                   }}
                 >
-                  <IonLabel>Make a Call</IonLabel>
-                  <IonRadio
+                  <h5>Make a Call</h5>
+                  {/* <IonRadio
                     mode="ios"
                     slot="end"
                     value="Voice/Video Call"
                     color="black"
-                  ></IonRadio>
-                </IonItem>
+                  ></IonRadio> */}
+                </div>
 
-                <IonItem
-                  lines="none"
+                <div
+                  // lines="none"
                   className="shareWithPartner ion-margin-start"
                   style={{
                     color: "black",
@@ -115,22 +121,24 @@ const ShareWithPartner: React.FC<FuncProps> = (props) => {
                     marginTop: "30px",
                     flexBasis: "45%",
                     fontSize: "12px",
+                    display: "flex",
+                    justifyContent: "center",
                   }}
                 >
-                  <IonLabel>Talk It out</IonLabel>
-                  <IonRadio
+                  <h5>Talk It out</h5>
+                  {/* <IonRadio
                     mode="ios"
                     slot="end"
                     value="Talk It out"
                     color="black"
-                  ></IonRadio>
-                </IonItem>
+                  ></IonRadio> */}
+                </div>
               </div>
             </IonRadioGroup>
           </IonList>
         </div>
 
-        <IonCard style={{ background: "#F8F8F8" }}>
+        <IonCard style={{ background: "#F8F8F8", marginBottom: "20%" }}>
           <IonCardHeader>
             <IonCardContent>
               When{" "}
@@ -155,7 +163,7 @@ const ShareWithPartner: React.FC<FuncProps> = (props) => {
         <IonButton
           onClick={() => props.handleProgress!()}
           color="primary"
-          className="ion-text-center buttonStyle"
+          className="ion-text-center buttonStyle sharePageButton"
         >
           CONTINUE
         </IonButton>

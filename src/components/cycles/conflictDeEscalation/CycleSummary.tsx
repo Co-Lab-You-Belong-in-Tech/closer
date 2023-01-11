@@ -15,15 +15,11 @@ const CycleSummary: React.FC<FuncProps> = (props) => {
   return (
     <>
       <IonHeader>
-        <h2 className="ion-padding">Cycle summary </h2>
+        <h2 className="ion-padding-start">Cycle summary </h2>
 
-        <IonCard>
+        <IonCard style={{ background: "#F8F8F8" }}>
           <IonCardHeader>
             <IonCardContent>
-              {/* 
-              Ingrid's new copywriting for video recording 
-
-              When dirty dishes in the sink happens, I get annoyed, and I criticize you. The more I pursue, the more you sulk. But deep down, I feel insecure and fear that I'm not good enough for you . */}
               When{" "}
               <span className="cycleSummarySpan">
                 {" "}
@@ -45,11 +41,11 @@ const CycleSummary: React.FC<FuncProps> = (props) => {
         </IonCard>
       </IonHeader>
 
-      <IonContent className="ion-padding ion-margin-top">
+      <IonContent>
         <IonButton
           onClick={() => props.handleProgress!()}
           color="primary"
-          className="ion-text-center buttonStyle"
+          className="buttonStyle"
         >
           CONTINUE
         </IonButton>
