@@ -14,7 +14,7 @@ import Emotion from "../components/cycles/conflictDeEscalation/Emotion";
 import InfoOfConflict from "../components/cycles/conflictDeEscalation/InfoOfConflict";
 import Intro2 from "../components/cycles/conflictDeEscalation/Intro2";
 import Pain1 from "../components/cycles/conflictDeEscalation/Pain1";
-import Pain2 from "../components/cycles/conflictDeEscalation/Pain2";
+// import Pain2 from "../components/cycles/conflictDeEscalation/Pain2";
 import Pain3 from "../components/cycles/conflictDeEscalation/Pain3";
 // import Pain4 from "../components/cycles/conflictDeEscalation/Pain4";
 import PreSummary from "../components/cycles/conflictDeEscalation/PreSummary";
@@ -27,7 +27,7 @@ const CycleMainPage = () => {
 
   const handleProgress = () => {
     if (Number(progress.toFixed(2)) < 1.0) {
-      setProgress((preProgress) => preProgress + 0.07);
+      setProgress((preProgress) => preProgress + 0.08);
     } else {
       setProgress(0);
     }
@@ -39,34 +39,32 @@ const CycleMainPage = () => {
       // add cases till 1
       case 0:
         return <Intro2 handleProgress={handleProgress} />;
-      case 0.07:
+      case 0.08:
         return <InfoOfConflict handleProgress={handleProgress} />;
-      case 0.14:
+      case 0.16:
         return <Trigger handleProgress={handleProgress} />;
-      case 0.21:
+      case 0.24:
         return <Emotion handleProgress={handleProgress} />;
-      case 0.28:
+      case 0.32:
         return <Action handleProgress={handleProgress} />;
-      case 0.35:
+      case 0.4:
         return <ActionOfPartner handleProgress={handleProgress} />;
-      case 0.42:
+      case 0.48:
         return <Disclaimer handleProgress={handleProgress} />;
-      case 0.49:
-        return <Pain1 handleProgress={handleProgress} />;
       case 0.56:
-        return <Pain2 handleProgress={handleProgress} />;
-      case 0.63:
+        return <Pain1 handleProgress={handleProgress} />;
+      case 0.64:
+        // return <Pain2 handleProgress={handleProgress} />;
         return <Pain3 handleProgress={handleProgress} />;
-      case 0.7:
-        // return <Pain4 handleProgress={handleProgress} />;
+      case 0.72:
         return <PreSummary handleProgress={handleProgress} />;
-      case 0.77:
+      case 0.8:
         return <CycleSummary handleProgress={handleProgress} />;
-      case 0.84:
+      // return <Pain4 handleProgress={handleProgress} />;
+      case 0.88:
         return <ShareWithPartner handleProgress={handleProgress} />;
-      case 0.91:
+      case 0.96:
         return <Reflection setProgress={setProgress} />;
-      // case 0.98:
       default:
         return <Redirect to="/" />;
     }
