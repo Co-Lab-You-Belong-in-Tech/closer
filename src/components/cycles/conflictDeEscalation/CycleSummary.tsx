@@ -18,7 +18,7 @@ const CycleSummary: React.FC<FuncProps> = (props) => {
   const myactionDisplay = useStore((state) => state.actions);
   const partnerAction = useStore((state) => state.partnerActions);
   const pain1 = useStore((state) => state.pain1);
-  const pain2 = useStore((state) => state.pain2);
+  // const pain2 = useStore((state) => state.pain2);
   const pain3 = useStore((state) => state.pain3);
   return (
     <>
@@ -32,11 +32,10 @@ const CycleSummary: React.FC<FuncProps> = (props) => {
               happens, I feel{" "}
               <span className="cycleSummarySpan">{emotions}</span>, and I{" "}
               <span className="cycleSummarySpan"> {myactionDisplay}</span>. The
-              more I <span className="cycleSummarySpan">{myactionDisplay}</span>
-              , the more you{" "}
+              more I pursue , the more you{" "}
               <span className="cycleSummarySpan">{partnerAction}</span>. But
-              deep down, I feel {pain1}
-              <span className="cycleSummarySpan">{pain2}</span> and fear that{" "}
+              deep down, I feel{" "}
+              <span className="cycleSummarySpan">{pain1}</span> and fear that{" "}
               <span className="cycleSummarySpan"> {pain3}</span>.
             </IonCardContent>
           </IonCardHeader>
