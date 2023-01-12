@@ -8,16 +8,14 @@ ion-progress-bar {
 
 
 .introImageContainer {
-    margin-inline: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 1200px;
+    max-width: 400px;
+    margin: 0 auto;
 }
 
-.introImage {
-    width: 100%;
-}
+
 
 .intro-content {
     display: flex;

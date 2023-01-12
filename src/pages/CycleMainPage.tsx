@@ -20,7 +20,7 @@ import Pain3 from "../components/cycles/conflictDeEscalation/Pain3";
 import PreSummary from "../components/cycles/conflictDeEscalation/PreSummary";
 import Reflection from "../components/cycles/conflictDeEscalation/Reflection";
 import Trigger from "../components/cycles/conflictDeEscalation/Trigger";
-import ShareWithPartner from "../components/cycles/ShareWithPartner";
+import ShareWithPartner from "../components/cycles/conflictDeEscalation/ShareWithPartner";
 
 const CycleMainPage = () => {
   const [progress, setProgress] = React.useState<number>(0);
@@ -84,11 +84,7 @@ const CycleMainPage = () => {
         </IonToolbar>
         {progress === 0 ? (
           <div className="introImageContainer">
-            <img
-              src={IntroImage}
-              alt="couple sitting and watching sky"
-              className="introImage"
-            ></img>
+            <img src={IntroImage} alt="couple sitting and watching sky"></img>
           </div>
         ) : null}
       </IonHeader>

@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
-import { IonButton, IonContent, IonInput, IonItem } from '@ionic/react';
+import { IonButton, IonContent, IonInput, IonItem } from "@ionic/react";
 
-import { useStore } from '../../../features/store';
+import { useStore } from "../../../features/store";
 
 interface FuncProps {
   handleProgress?: () => void;
@@ -26,12 +26,9 @@ const Pain3: React.FC<FuncProps> = (props) => {
 
   return (
     <IonContent className="ion-padding ion-margin-top">
-      <h3
-        className="ion-text-center"
-        style={{ width: "55%", marginLeft: "22.5%", marginTop: "50%" }}
-      >
-        If the pain had words, it would say...{" "} (Optional)
-      </h3>
+      <h2 className="ion-text-center">
+        If the pain had words, it would say... (Optional)
+      </h2>
 
       <IonItem>
         <IonInput
