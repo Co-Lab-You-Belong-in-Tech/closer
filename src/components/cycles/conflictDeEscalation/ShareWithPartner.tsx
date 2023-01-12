@@ -156,7 +156,7 @@ const ShareWithPartner: React.FC<FuncProps> = (props) => {
               <span className="cycleSummarySpan"> {myactionDisplay}</span>. The
               more I pursue , the more you{" "}
               <span className="cycleSummarySpan">{partnerAction}</span>. But
-              deep down, I feel
+              deep down, I feel{" "}
               <span className="cycleSummarySpan">{pain1}</span> and fear that{" "}
               <span className="cycleSummarySpan"> {pain3}</span>.
             </IonCardContent>
