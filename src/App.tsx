@@ -30,7 +30,7 @@ const App: React.FC<RouteComponentProps> = () => {
 
   useTimeout(() => setLoading(false), 3000);
   // use window size to check if has been resized
-  const [width, height, handleResize] = useWindowResize();
+  const [width, height] = useWindowResize();
 
   const [isMobile, setIsMobile] = useState(false);
   const [qrCodeUrl, setQrCodeUrl] = useState('');
