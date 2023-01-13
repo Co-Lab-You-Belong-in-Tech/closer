@@ -21,6 +21,7 @@ interface ConflictProps{
 }
 
 // Combine all stores into one store
+// ToDo: Check if values exist before adding them to the store
 
 export const useStore = create(
   persist(
@@ -46,7 +47,7 @@ export const useStore = create(
         addTrigger: (trigger: string) =>
           set((state: any) => ({
             // check if the trigger already exists and it's not empty
-            triggers: state.triggers.includes(trigger) || trigger === "" ? state.triggers : [...state.triggers, trigger],
+            triggers: trigger === "" ? state.triggers : [...state.triggers, trigger],
           })),
 
         removeTrigger: (id: string) =>
@@ -56,8 +57,7 @@ export const useStore = create(
         // actions
         addAction: (action: string) =>
           set((state: any) => ({
-            // check if the action already exists and it's not empty
-            actions: state.actions.includes(action) || action === "" ? state.actions : [...state.actions, action],
+            actions: action === "" ? state.actions : [...state.actions, action],
           })),
         removeAction: (id: string) =>
           set((state: any) => ({
@@ -66,8 +66,7 @@ export const useStore = create(
         // partnerActions
         addPartnerAction: (action: string) =>
           set((state: any) => ({
-            // check if the action already exists and it's not empty
-            partnerActions: state.partnerActions.includes(action) || action === "" ? state.partnerActions : [...state.partnerActions, action],
+            partnerActions: action === "" ? state.partnerActions : [...state.partnerActions, action],
           })),
         removePartnerAction: (id: string) =>
           set((state: any) => ({
@@ -76,8 +75,7 @@ export const useStore = create(
         // emotions
         addEmotion: (emotion: string) =>
           set((state: any) => ({
-            // check if the emotion already exists and it's not empty
-            emotions: state.emotions.includes(emotion) || emotion === "" ? state.emotions : [...state.emotions, emotion],
+            emotions: emotion === "" ? state.emotions : [...state.emotions, emotion],
           })),
         removeEmotion: (id: string) =>
           set((state: any) => ({
@@ -86,8 +84,7 @@ export const useStore = create(
         // conflicts
         addConflict: (conflict: object) =>
           set((state: any) => ({
-            // check if the conflict already exists and it's not empty
-            conflicts: state.conflicts.includes("") ? state.conflicts : [...state.conflicts, conflict],
+            conflicts: Object.keys(conflict).length === 0 ? state.conflicts : [...state.conflicts, conflict],
           })),
         removeConflict: (id: string) =>
           set((state: any) => ({
@@ -98,8 +95,7 @@ export const useStore = create(
         // pain1
         addPain1: (pain: string) =>
           set((state: any) => ({
-            // check if the pain already exists and it's not empty
-            pain1: state.pain1.includes(pain) || pain === "" ? state.pain1 : [...state.pain1, pain],
+            pain1: pain === "" ? state.pain1 : [...state.pain1, pain],
           })),
         removePain1: (id: string) =>
           set((state: any) => ({
@@ -108,8 +104,7 @@ export const useStore = create(
         // pain2
         addPain2: (pain: string) =>
           set((state: any) => ({
-            // check if the pain already exists and it's not empty
-            pain2: state.pain2.includes(pain) || pain === "" ? state.pain2 : [...state.pain2, pain],
+            pain2: pain === "" ? state.pain2 : [...state.pain2, pain],
           })),
         removePain2: (id: string) =>
           set((state: any) => ({
@@ -118,8 +113,7 @@ export const useStore = create(
         // pain3
         addPain3: (pain: string) =>
           set((state: any) => ({
-            // check if the pain already exists and it's not empty
-            pain3: state.pain3.includes(pain) || pain === "" ? state.pain3 : [...state.pain3, pain],
+            pain3: pain === "" ? state.pain3 : [...state.pain3, pain],
           })),
         removePain3: (id: string) =>
           set((state: any) => ({
@@ -128,8 +122,7 @@ export const useStore = create(
         // pain4
         addPain4: (pain: string) =>
           set((state: any) => ({
-            // check if the pain already exists and it's not empty
-            pain4: state.pain4.includes(pain) || pain === "" ? state.pain4 : [...state.pain4, pain],
+            pain4: pain === "" ? state.pain4 : [...state.pain4, pain],
           })),
         removePain4: (id: string) =>
           set((state: any) => ({
