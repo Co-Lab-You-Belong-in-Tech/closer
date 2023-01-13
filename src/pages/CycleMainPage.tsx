@@ -34,7 +34,6 @@ const CycleMainPage = () => {
   };
 
   const contentSelector = (progress: number) => {
-    console.log(progress);
     switch (Number(progress.toFixed(2))) {
       // add cases till 1
       case 0:

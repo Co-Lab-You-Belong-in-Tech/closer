@@ -1,0 +1,18 @@
+.fancy-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  align-content: center;
+  justify-content: center;
+  // background-color: linear-gradient(180deg, #8D6CD5 29.04%, #FFB36D 110.98%);
+  // Add gradient background
+  background: linear-gradient(180deg, #8D6CD5 29.04%, #FFB36D 110.98%);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.fancy-page p {
+  font-size: 18px;
+  margin-top: 20px;
+}

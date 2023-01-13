@@ -20,7 +20,7 @@ interface FuncProps {
 const ShareWithPartner: React.FC<FuncProps> = (props) => {
   const triggers = useStore((state) => state.triggers);
   const emotions = useStore((state) => state.emotions);
-  const myactionDisplay = useStore((state) => state.actions);
+  const myActionDisplay = useStore((state) => state.actions);
   const partnerAction = useStore((state) => state.partnerActions);
   const pain1 = useStore((state) => state.pain1);
   // const pain2 = useStore((state) => state.pain2);
@@ -87,16 +87,9 @@ const ShareWithPartner: React.FC<FuncProps> = (props) => {
                   }}
                 >
                   <h5>Send a text</h5>
-                  {/* <IonRadio
-                    mode="ios"
-                    slot="end"
-                    value="Send a text"
-                    color="black"
-                  ></IonRadio> */}
                 </div>
 
                 <div
-                  // lines="none"
                   className="shareWithPartner orange"
                   style={{
                     color: "black",
@@ -111,12 +104,6 @@ const ShareWithPartner: React.FC<FuncProps> = (props) => {
                   }}
                 >
                   <h5>Make a Call</h5>
-                  {/* <IonRadio
-                    mode="ios"
-                    slot="end"
-                    value="Voice/Video Call"
-                    color="black"
-                  ></IonRadio> */}
                 </div>
 
                 <div
@@ -135,12 +122,6 @@ const ShareWithPartner: React.FC<FuncProps> = (props) => {
                   }}
                 >
                   <h5>Talk It out</h5>
-                  {/* <IonRadio
-                    mode="ios"
-                    slot="end"
-                    value="Talk It out"
-                    color="black"
-                  ></IonRadio> */}
                 </div>
               </div>
             </IonRadioGroup>
@@ -150,15 +131,15 @@ const ShareWithPartner: React.FC<FuncProps> = (props) => {
         <IonCard style={{ background: "#F8F8F8", marginBottom: "20%" }}>
           <IonCardHeader>
             <IonCardContent>
-              When <span className="cycleSummarySpan"> {triggers}</span>{" "}
+              When <span className="cycleSummarySpan"> {triggers.slice(-1)[0]}</span>{" "}
               happens, I feel{" "}
-              <span className="cycleSummarySpan">{emotions}</span>, and I{" "}
-              <span className="cycleSummarySpan"> {myactionDisplay}</span>. The
+              <span className="cycleSummarySpan">{emotions.slice(-1)[0]}</span>, and I{" "}
+              <span className="cycleSummarySpan"> {myActionDisplay.slice(-1)[0]}</span>. The
               more I pursue , the more you{" "}
-              <span className="cycleSummarySpan">{partnerAction}</span>. But
+              <span className="cycleSummarySpan">{partnerAction.slice(-1)[0]}</span>. But
               deep down, I feel{" "}
-              <span className="cycleSummarySpan">{pain1}</span> and fear that{" "}
-              <span className="cycleSummarySpan"> {pain3}</span>.
+              <span className="cycleSummarySpan">{pain1.slice(-1)[0]}</span> and fear that{" "}
+              <span className="cycleSummarySpan"> {pain3.slice(-1)[0]}</span>.
             </IonCardContent>
           </IonCardHeader>
         </IonCard>

@@ -23,7 +23,7 @@ interface FuncProps {
 const Emotion: React.FC<FuncProps> = (props) => {
   const addEmotion = useStore((state) => state.addEmotion);
   // const emotionRef = React.useRef<HTMLIonSelectElement>(null);
-  const [emotion, setEmotion] = React.useState<any | null>(null);
+  const [emotion, setEmotion] = React.useState<string>('');
 
   const showToast = useShowToast();
 
@@ -35,6 +35,7 @@ const Emotion: React.FC<FuncProps> = (props) => {
       addEmotion(emotion);
       props.handleProgress && props.handleProgress();
     } else {
+      console.log('Select one');
       showToast("Please select at least one emotion", "warning");
     }
   };
@@ -82,19 +83,12 @@ const Emotion: React.FC<FuncProps> = (props) => {
         </IonRadioGroup>
       </IonList>
 
-      {/* <IonInput
-
-        placeholder="Others"
-        onIonChange={(e) => {
-          setEmotion(e.target.value);
-        }}
-      ></IonInput> */}
       <IonItem className="ion-margin-top ion-padding-top">
         <IonLabel position="stacked">Other</IonLabel>
         <IonInput
           type="text"
           onIonChange={(e) => {
-            setEmotion(e.target.value);
+            setEmotion(e.target.value!.toString());
           }}
         ></IonInput>
       </IonItem>

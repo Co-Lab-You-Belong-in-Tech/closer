@@ -44,7 +44,7 @@ const Cta: React.FC<FuncProps> = (props) => {
 
   return (
     <IonButtons className="navbar">
-      <IonButton size="small" fill="clear" onClick={(e) => handleBack(e)}>
+      <IonButton size="large" fill="clear" onClick={(e) => handleBack(e)}>
         <IonIcon icon={backIcon} color="dark"></IonIcon>
         {/* <IonIcon name=""></IonIcon> */}
         {/* <IonBackButton /> */}
@@ -52,7 +52,7 @@ const Cta: React.FC<FuncProps> = (props) => {
       <IonButton
         className="cta"
         fill="clear"
-        size="small"
+        size="large"
         onClick={(e) => handleAlert(e)}
       >
         <IonIcon icon={close} color="dark"></IonIcon>
