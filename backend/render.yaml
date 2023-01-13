@@ -6,8 +6,8 @@ services:
   - type: web
     name: rails
     env: ruby
-    buildCommand: "./backend/bin/render-build.sh"
-    startCommand: cd backend && bundle exec rails s
+    buildCommand: "./bin/render-build.sh"
+    startCommand: bundle exec rails s
     envVars: 
       - key: RAILS_MASTER_KEY
         sync: false
