@@ -13,13 +13,14 @@ interface FuncProps {
 }
 
 const CycleSummary: React.FC<FuncProps> = (props) => {
-  const triggers = useStore((state) => state.triggers);
-  const emotions = useStore((state) => state.emotions);
-  const myactionDisplay = useStore((state) => state.actions);
-  const partnerAction = useStore((state) => state.partnerActions);
-  const pain1 = useStore((state) => state.pain1);
-  // const pain2 = useStore((state) => state.pain2);
-  const pain3 = useStore((state) => state.pain3);
+  // get last item from store items
+  const triggers = useStore((state) => state.triggers).slice(-1)[0];
+  const emotions = useStore((state) => state.emotions).slice(-1)[0];
+  const myactionDisplay = useStore((state) => state.actions).slice(-1)[0];
+  const partnerAction = useStore((state) => state.partnerActions).slice(-1)[0];
+  const pain1 = useStore((state) => state.pain1).slice(-1)[0];
+  const pain3 = useStore((state) => state.pain3).slice(-1)[0];
+
   return (
     <>
       <IonHeader>
