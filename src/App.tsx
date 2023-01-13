@@ -1,7 +1,7 @@
 // import components styles
 import './App.scss';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Redirect, Route, RouteComponentProps } from 'react-router-dom';
 
 import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
@@ -19,6 +19,8 @@ import CycleMainPage from './pages/CycleMainPage';
 // import pages
 import Dashboard from './pages/Dashboard';
 
+import DesktopQRCode from './components/DeskTopQRCode';
+
 setupIonicReact();
 
 const App: React.FC<RouteComponentProps> = () => {
@@ -27,12 +29,36 @@ const App: React.FC<RouteComponentProps> = () => {
 
   useTimeout(() => setLoading(false), 3000);
 
+  const [isMobile, setIsMobile] = useState(false);
+  const [qrCodeUrl, setQrCodeUrl] = useState('');
+
+  const checkDevice = () => {
+      if (navigator.userAgent.match(/Android/i)
+          || navigator.userAgent.match(/webOS/i)
+          || navigator.userAgent.match(/iPhone/i)
+          || navigator.userAgent.match(/iPad/i)
+          || navigator.userAgent.match(/iPod/i)
+          || navigator.userAgent.match(/BlackBerry/i)
+          || navigator.userAgent.match(/Windows Phone/i)
+      ) {
+          setIsMobile(true);
+      } else {
+          setIsMobile(false);
+          setQrCodeUrl(window.location.href);
+      }
+  }
+
+  useEffect(() => {
+      checkDevice();
+  }, []);
+
   return (
     <IonApp className="">
       {loading ? (
         <Splash />
       ) : (
-        <IonReactRouter>
+        <>
+            {isMobile ? <IonReactRouter>
           <IonRouterOutlet>
             <Route
               path="/sign-in"
@@ -84,7 +110,9 @@ const App: React.FC<RouteComponentProps> = () => {
               exact={true}
             />
           </IonRouterOutlet>
-        </IonReactRouter>
+        </IonReactRouter> : <DesktopQRCode url={qrCodeUrl} />}
+        </>
+        
       )}
     </IonApp>
   );
