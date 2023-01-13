@@ -1,46 +1,52 @@
+import { useStore } from "../../../features/store";
 import {
-    IonButton, IonCard, IonCardContent, IonCardHeader, IonContent, IonHeader
-} from '@ionic/react';
+  IonButton,
+  IonCard,
+  IonCardContent,
+  IonCardHeader,
+  IonContent,
+  IonHeader,
+} from "@ionic/react";
 
 interface FuncProps {
   handleProgress?: () => void;
 }
 
 const CycleSummary: React.FC<FuncProps> = (props) => {
+  const triggers = useStore((state) => state.triggers);
+  const emotions = useStore((state) => state.emotions);
+  const myactionDisplay = useStore((state) => state.actions);
+  const partnerAction = useStore((state) => state.partnerActions);
+  const pain1 = useStore((state) => state.pain1);
+  // const pain2 = useStore((state) => state.pain2);
+  const pain3 = useStore((state) => state.pain3);
   return (
     <>
       <IonHeader>
-        <h2 className="ion-padding">Cycle summary </h2>
+        <h2 className="ion-padding-start">Cycle summary </h2>
 
-        <IonCard>
+        <IonCard style={{ background: "#F8F8F8" }}>
           <IonCardHeader>
             <IonCardContent>
-              When{" "}
-              <span className="cycleSummarySpan"> negative tone of voice </span>
-              happens, I feel
-              <span className="cycleSummarySpan">frustrated</span> , and I{" "}
-              <span className="cycleSummarySpan">
-                respond in a negative tone.
-              </span>{" "}
-              The more I<span className="cycleSummarySpan"> speak </span>, the
-              more you <span className="cycleSummarySpan"> withdraw </span> .
-              But deep down, I'm experiencing{" "}
-              <span className="cycleSummarySpan"> pain </span>and am protecting
-              myself from{" "}
-              <span className="cycleSummarySpan">
-                {" "}
-                disappointment from my parents.
-              </span>
+              When <span className="cycleSummarySpan"> {triggers}</span>{" "}
+              happens, I feel{" "}
+              <span className="cycleSummarySpan">{emotions}</span>, and I{" "}
+              <span className="cycleSummarySpan"> {myactionDisplay}</span>. The
+              more I pursue , the more you{" "}
+              <span className="cycleSummarySpan">{partnerAction}</span>. But
+              deep down, I feel{" "}
+              <span className="cycleSummarySpan">{pain1}</span> and fear that{" "}
+              <span className="cycleSummarySpan"> {pain3}</span>.
             </IonCardContent>
           </IonCardHeader>
         </IonCard>
       </IonHeader>
 
-      <IonContent className="ion-padding ion-margin-top">
+      <IonContent>
         <IonButton
           onClick={() => props.handleProgress!()}
           color="primary"
-          className="ion-text-center buttonStyle"
+          className="buttonStyle"
         >
           CONTINUE
         </IonButton>
