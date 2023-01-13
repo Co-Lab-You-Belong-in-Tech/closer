@@ -20,6 +20,7 @@ import CycleMainPage from './pages/CycleMainPage';
 import Dashboard from './pages/Dashboard';
 
 import DesktopQRCode from './components/DeskTopQRCode';
+import useWindowResize from './hooks/useWindowSize';
 
 setupIonicReact();
 
@@ -28,6 +29,8 @@ const App: React.FC<RouteComponentProps> = () => {
   const [loading, setLoading] = React.useState<boolean>(true);
 
   useTimeout(() => setLoading(false), 3000);
+  // use window size to check if has been resized
+  const [width, height, handleResize] = useWindowResize();
 
   const [isMobile, setIsMobile] = useState(false);
   const [qrCodeUrl, setQrCodeUrl] = useState('');
@@ -48,9 +51,10 @@ const App: React.FC<RouteComponentProps> = () => {
       }
   }
 
+  // if window size has been changed, check if it is mobile or not
   useEffect(() => {
       checkDevice();
-  }, []);
+  }, [width, height]);
 
   return (
     <IonApp className="">
